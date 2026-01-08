@@ -9,6 +9,21 @@ pub use data::*;
 pub mod ladderlog;
 pub use ladderlog::*;
 
+/// Parses ladder log entries, and runs the closure with each new entry as input.
+/// This function blocks until each entry is written.
+pub fn run(callback: impl Fn(LadderLogEntry)) {
+    loop {
+        let mut buf = String::new();
+        if let Ok(_) = std::io::stdin().read_line(&mut buf) {
+            if let Some(entry) = LadderLogEntry::parse(&buf) {
+                wait_for_external_script(true);
+                callback(entry);
+                wait_for_external_script(false);
+            }
+        }
+    }
+}
+
 /// ACCESS_LEVEL: Changes the access level of a configuration item to make it available to lower ranked users
 pub fn access_level() {
     todo!();
