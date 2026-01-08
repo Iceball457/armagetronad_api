@@ -2025,8 +2025,8 @@ pub fn idle_remove_time() {
     todo!();
 }
 /// INCLUDE: Includes the following file
-pub fn include() {
-    todo!();
+pub fn include(path: &Path) {
+    println!("{} {:?}", Commands::Include, path.to_str());
 }
 /// INFINITY_PLANE: Use infinite points (Does not work properly on most Windows systems)
 pub fn infinity_plane() {
@@ -2573,8 +2573,15 @@ pub fn ladderlog_write_team_destroyed() {
     todo!();
 }
 /// LADDERLOG_WRITE_TEAM_PLAYER_ADDED: Write to ladderlog: TEAM_PLAYER_ADDED <team name> <player>
-pub fn ladderlog_write_team_player_added() {
-    todo!();
+pub fn ladderlog_write_team_player_added(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteTeamPlayerAdded,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_TEAM_PLAYER_REMOVED: Write to ladderlog: TEAM_PLAYER_REMOVED <team name> <player>
 pub fn ladderlog_write_team_player_removed() {
@@ -2749,8 +2756,8 @@ pub fn lower_sky() {
     todo!();
 }
 /// MAP_FILE: File that contains the map used for playing
-pub fn map_file() {
-    todo!();
+pub fn map_file(path: &Path) {
+    println!("{} {:?}", Commands::MapFile, path.to_str())
 }
 /// MAP_FILE_OVERRIDE: Block out older clients when MAP_FILE differs from its default?
 pub fn map_file_override() {
@@ -2913,8 +2920,15 @@ pub fn new_feature_delay() {
     todo!();
 }
 /// NEW_TEAM_ALLOWED: Is it currently allowed to create a new team?
-pub fn new_team_allowed() {
-    todo!();
+pub fn new_team_allowed(value: bool) {
+    println!(
+        "{} {}",
+        Commands::NewTeamAllowed,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    );
 }
 /// NUM_AIS: Number of AI players
 pub fn num_ais() {
@@ -3153,8 +3167,8 @@ pub fn saved_in_version() {
     todo!();
 }
 /// SAY: Dedicated server only: let the server administrator say something.
-pub fn say() {
-    todo!();
+pub fn say(message: &str) {
+    println!("{} {}", Commands::Say, message);
 }
 /// SCORE_DEATHZONE: What you get for hitting the Death Zone
 pub fn score_deathzone() {
@@ -3305,12 +3319,12 @@ pub fn simple_trail() {
     todo!();
 }
 /// SINCLUDE: Includes the following file silently, without error message if it is not found
-pub fn sinclude() {
-    todo!();
+pub fn sinclude(path: &Path) {
+    println!("{} {:?}", Commands::Sinclude, path.to_str());
 }
 /// SIZE_FACTOR: Arena size modifier
-pub fn size_factor() {
-    todo!();
+pub fn size_factor(factor: i64) {
+    println!("{} {}", Commands::SizeFactor, factor);
 }
 /// SKY_WOBBLE: Sky animation
 pub fn sky_wobble() {
@@ -3485,8 +3499,8 @@ pub fn sp_score_win() {
     todo!();
 }
 /// SP_SIZE_FACTOR: Arena size modifier
-pub fn sp_size_factor() {
-    todo!();
+pub fn sp_size_factor(factor: i64) {
+    println!("{} {}", Commands::SpSizeFactor, factor);
 }
 /// SP_SPEED_FACTOR: Speed modifier for the cycles
 pub fn sp_speed_factor() {
@@ -3601,12 +3615,12 @@ pub fn teams() {
     todo!();
 }
 /// TEAMS_MAX: Maximum number of teams
-pub fn teams_max() {
-    todo!();
+pub fn teams_max(value: u64) {
+    println!("{} {}", Commands::TeamsMax, value);
 }
 /// TEAMS_MIN: Minimum number of teams
-pub fn teams_min() {
-    todo!();
+pub fn teams_min(value: u64) {
+    println!("{} {}", Commands::TeamsMax, value);
 }
 /// TEAM_BALANCE_ON_QUIT: Balance teams on player quit?
 pub fn team_balance_on_quit() {
@@ -3693,12 +3707,12 @@ pub fn team_max_imbalance() {
     todo!();
 }
 /// TEAM_MAX_PLAYERS: Maximum number of players per team
-pub fn team_max_players() {
-    todo!();
+pub fn team_max_players(value: u64) {
+    println!("{} {}", Commands::TeamMaxPlayers, value);
 }
 /// TEAM_MIN_PLAYERS: Minimum number of players per team
-pub fn team_min_players() {
-    todo!();
+pub fn team_min_players(value: u64) {
+    println!("{} {}", Commands::TeamMinPlayers, value);
 }
 /// TEAM_NAME_1: name of team 1
 pub fn team_name_1() {
@@ -4021,12 +4035,19 @@ pub fn voting_timeout_per_voter() {
     todo!();
 }
 /// WAIT_FOR_EXTERNAL_SCRIPT: Let the server wait for an external script between two rounds until the script switches this setting back to 0.
-pub fn wait_for_external_script(seconds: u64) {
-    println!("{} {}", command::Commands::WaitForExternalScript, seconds)
+pub fn wait_for_external_script(value: bool) {
+    println!(
+        "{} {}",
+        Commands::WaitForExternalScript,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    );
 }
 /// WAIT_FOR_EXTERNAL_SCRIPT_TIMEOUT: If the server has been paused by WAIT_FOR_EXTERNAL_SCRIPT for more seconds than this, kickstart the game.
-pub fn wait_for_external_script_timeout() {
-    todo!();
+pub fn wait_for_external_script_timeout(seconds: u64) {
+    println!("{} {}", Commands::WaitForExternalScriptTimeout, seconds)
 }
 /// WALLS_LENGTH: Length of the cycle walls in meters; negative values will make the walls infinite.
 pub fn walls_length() {
