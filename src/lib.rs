@@ -3632,7 +3632,7 @@ pub fn start_fov_4() {
 }
 /// START_NEW_MATCH: Initiates a new match
 pub fn start_new_match() {
-    todo!();
+    println!("{}", Commands::StartNewMatch)
 }
 /// STOP_RECORDING: Stops a currently running recording to save resources. Resuming is impossible.
 pub fn stop_recording() {
