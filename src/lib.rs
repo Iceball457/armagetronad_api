@@ -9,6 +9,8 @@ pub use data::*;
 pub mod ladderlog;
 pub use ladderlog::*;
 
+mod extension;
+
 /// Parses ladder log entries, and runs the closure with each new entry as input.
 /// This function blocks until each entry is written.
 pub fn run(callback: impl Fn(LadderLogEntry)) {
