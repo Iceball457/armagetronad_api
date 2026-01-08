@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{io::Read, path::Path};
 
 pub mod command;
 pub use command::*;
@@ -14,14 +14,36 @@ mod extension;
 /// Parses ladder log entries, and runs the closure with each new entry as input.
 /// This function blocks until each entry is written.
 pub fn run(callback: impl Fn(LadderLogEntry)) {
+    let mut encoding = String::from("latin1");
     loop {
         let mut buf = String::new();
-        if let Ok(_) = std::io::stdin().read_line(&mut buf) {
-            if let Some(entry) = LadderLogEntry::parse(&buf) {
-                wait_for_external_script(true);
-                callback(entry);
-                wait_for_external_script(false);
+        if encoding == "utf8".to_owned() {
+            _ = std::io::stdin().read_line(&mut buf);
+        }
+        if encoding == "latin1".to_owned() {
+            let mut bytes = Vec::new();
+            let mut stdin = std::io::stdin().lock();
+            loop {
+                let mut byte = [0u8; 1];
+                if stdin.read_exact(&mut byte).is_err() {
+                    return; // EOF
+                }
+                bytes.push(byte[0]);
+                if byte[0] == b'\n' {
+                    break;
+                }
             }
+            let (decoded, _, _) = encoding_rs::WINDOWS_1252.decode(&bytes);
+            buf.push_str(&decoded);
+        }
+        if let Some(entry) = LadderLogEntry::parse(&buf) {
+            wait_for_external_script(true);
+            if let LadderLogEntry::Encoding(ref new_encoding) = entry {
+                encoding.clear();
+                encoding.push_str(new_encoding);
+            }
+            callback(entry);
+            wait_for_external_script(false);
         }
     }
 }
