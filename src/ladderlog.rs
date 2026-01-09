@@ -1,6 +1,7 @@
 use crate::{data::*, extension::DefaultParse};
 
 /// An entry from the ladder log
+#[derive(Debug)]
 pub enum LadderLogEntry {
     /// AUTHORITY_BLURB \<blurb> \<player> \<text>
     AuthorityBlurb((), Player, String),
@@ -68,100 +69,118 @@ impl LadderLogEntry {
         match split[0] {
             "AUTHORITY_BLURB" => Some(LadderLogEntry::AuthorityBlurb(
                 (),
-                Player::parse_or_default(split[2]),
-                split[3].to_string(),
+                Player::parse_or_default(split[2].trim()),
+                split[3].trim().to_string(),
             )),
             "BASEZONE_CONQUERED" => Some(LadderLogEntry::BasezoneConquered(
-                Team::parse_or_default(split[1]),
+                Team::parse_or_default(split[1].trim()),
                 (
-                    f32::parse_or_default(split[2]),
-                    f32::parse_or_default(split[3]),
+                    f32::parse_or_default(split[2].trim()),
+                    f32::parse_or_default(split[3].trim()),
                 ),
             )),
             "BASEZONE_CONQUERER" => Some(LadderLogEntry::BasezoneConquerer(
-                Player::parse_or_default(split[1]),
+                Player::parse_or_default(split[1].trim()),
             )),
-            "CHAT" => Some(LadderLogEntry::Chat(
-                Player::parse_or_default(split[1]),
-                SlashMe::parse_or_default(split[2]),
-                split[3].to_string(),
-            )),
+            "CHAT" => {
+                if split[3] == "/me" {
+                    Some(LadderLogEntry::Chat(
+                        Player::parse_or_default(split[1].trim()),
+                        SlashMe(true),
+                        split[3..].join(" "),
+                    ))
+                } else {
+                    Some(LadderLogEntry::Chat(
+                        Player::parse_or_default(split[1].trim()),
+                        SlashMe(false),
+                        split[2..].join(" "),
+                    ))
+                }
+            }
             "DEATH_FRAG" => Some(LadderLogEntry::DeathFrag(
-                Player::parse_or_default(split[1]),
-                Player::parse_or_default(split[2]),
+                Player::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[2].trim()),
             )),
             "DEATH_SUICIDE" => Some(LadderLogEntry::DeathSuicide(Player::parse_or_default(
                 split[1],
             ))),
             "DEATH_TEAMKILL" => Some(LadderLogEntry::DeathTeamkill(
-                Player::parse_or_default(split[1]),
-                Player::parse_or_default(split[2]),
+                Player::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[2].trim()),
             )),
-            "ENCODING" => Some(LadderLogEntry::Encoding(split[1].to_string())),
-            "GAME_END" => Some(LadderLogEntry::GameEnd(Time::parse_or_default(split[1]))),
+            "ENCODING" => Some(LadderLogEntry::Encoding(split[1].trim().to_string())),
+            "GAME_END" => Some(LadderLogEntry::GameEnd(Time::parse_or_default(
+                split[1].trim(),
+            ))),
             "GAME_TIME" => Some(LadderLogEntry::GameTime(Duration::parse_or_default(
                 split[1],
             ))),
             "MATCH_WINNER" => Some(LadderLogEntry::MatchWinner(
-                Team::parse_or_default(split[1]),
+                Team::parse_or_default(split[1].trim()),
                 TeamMembers::from_slice(&split[2..]),
             )),
-            "NEW_MATCH" => Some(LadderLogEntry::NewMatch(Time::parse_or_default(split[1]))),
-            "NEW_ROUND" => Some(LadderLogEntry::NewRound(Time::parse_or_default(split[1]))),
-            "NUM_HUMANS" => Some(LadderLogEntry::NumHumans(u64::parse_or_default(split[1]))),
+            "NEW_MATCH" => Some(LadderLogEntry::NewMatch(Time::parse_or_default(
+                split[1].trim(),
+            ))),
+            "NEW_ROUND" => Some(LadderLogEntry::NewRound(Time::parse_or_default(
+                split[1].trim(),
+            ))),
+            "NUM_HUMANS" => Some(LadderLogEntry::NumHumans(u64::parse_or_default(
+                split[1].trim(),
+            ))),
             "ONLINE_PLAYER" => Some(LadderLogEntry::OnlinePlayer(
-                Player::parse_or_default(split[1]),
+                Player::parse_or_default(split[1].trim()),
                 if split.len() > 2 {
-                    Some(Ping::parse_or_default(split[2]))
+                    Some(Ping::parse_or_default(split[2].trim()))
                 } else {
                     None
                 },
                 if split.len() > 3 {
-                    Some(Team::parse_or_default(split[3]))
+                    Some(Team::parse_or_default(split[3].trim()))
                 } else {
                     None
                 },
             )),
             "PLAYER_ENTERED" => Some(LadderLogEntry::PlayerEntered(
-                Player::parse_or_default(split[1]),
-                IpAddr::parse_or_default(split[2]),
-                split[3].to_string(),
+                Player::parse_or_default(split[1].trim()),
+                IpAddr::parse_or_default(split[2].trim()),
+                split[3].trim().to_string(),
             )),
             "PLAYER_LEFT" => Some(LadderLogEntry::PlayerLeft(
-                Player::parse_or_default(split[1]),
-                IpAddr::parse_or_default(split[2]),
+                Player::parse_or_default(split[1].trim()),
+                IpAddr::parse_or_default(split[2].trim()),
             )),
             "PLAYER_RENAMED" => Some(LadderLogEntry::PlayerRenamed(
-                split[1].to_string(),
-                Player::parse_or_default(split[2]),
-                IpAddr::parse_or_default(split[3]),
-                ScreenName::parse_or_default(split[4]),
+                split[1].trim().to_string(),
+                Player::parse_or_default(split[2].trim()),
+                IpAddr::parse_or_default(split[3].trim()),
+                ScreenName::parse_or_default(split[4].trim()),
             )),
             "POSITIONS" => Some(LadderLogEntry::Positions(
-                Team::parse_or_default(split[1]),
+                Team::parse_or_default(split[1].trim()),
                 TeamMembers::from_slice(&split[2..]),
             )),
             "ROUND_SCORE" => Some(LadderLogEntry::RoundScore(
-                Score::parse_or_default(split[1]),
-                Player::parse_or_default(split[2]),
+                Score::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[2].trim()),
                 if split.len() > 3 {
-                    Some(Team::parse_or_default(split[3]))
+                    Some(Team::parse_or_default(split[3].trim()))
                 } else {
                     None
                 },
             )),
             "ROUND_SCORE_TEAM" => Some(LadderLogEntry::RoundScoreTeam(
-                Score::parse_or_default(split[1]),
-                Team::parse_or_default(split[2]),
+                Score::parse_or_default(split[1].trim()),
+                Team::parse_or_default(split[2].trim()),
             )),
             "ROUND_WINNER" => Some(LadderLogEntry::RoundWinner(
-                Team::parse_or_default(split[1]),
+                Team::parse_or_default(split[1].trim()),
                 TeamMembers::from_slice(&split[2..]),
             )),
             "SACRIFICE" => Some(LadderLogEntry::Sacrifice(
-                Player::parse_or_default(split[1]),
-                Player::parse_or_default(split[2]),
-                Player::parse_or_default(split[3]),
+                Player::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[3].trim()),
             )),
             "TEAM_CREATED" => Some(LadderLogEntry::TeamCreated(Team::parse_or_default(
                 split[1],
@@ -170,16 +189,16 @@ impl LadderLogEntry {
                 split[1],
             ))),
             "TEAM_PLAYER_ADDED" => Some(LadderLogEntry::TeamPlayerAdded(
-                Team::parse_or_default(split[1]),
-                Player::parse_or_default(split[2]),
+                Team::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[2].trim()),
             )),
             "TEAM_PLAYER_REMOVED" => Some(LadderLogEntry::TeamPlayerRemoved(
-                Team::parse_or_default(split[1]),
-                Player::parse_or_default(split[2]),
+                Team::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[2].trim()),
             )),
             "TEAM_RENAMED" => Some(LadderLogEntry::TeamRenamed(
-                split[1].to_string(),
-                Team::parse_or_default(split[2]),
+                split[1].trim().to_string(),
+                Team::parse_or_default(split[2].trim()),
             )),
             _ => None,
         }

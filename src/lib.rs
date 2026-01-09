@@ -1169,8 +1169,8 @@ pub fn console_log() {
     todo!();
 }
 /// CONSOLE_MESSAGE: Prints a message on the console of all connected clients.
-pub fn console_message() {
-    todo!();
+pub fn console_message(message: &str) {
+    println!("{} {}", Commands::ConsoleMessage, message);
 }
 /// CONSOLE_ROWS: Number of lines of console output without user intervention
 pub fn console_rows() {
@@ -2074,7 +2074,9 @@ pub fn idle_remove_time() {
 }
 /// INCLUDE: Includes the following file
 pub fn include(path: &Path) {
-    println!("{} {:?}", Commands::Include, path.to_str());
+    if let Some(path) = path.to_str() {
+        println!("{} {:?}", Commands::Include, path);
+    }
 }
 /// INFINITY_PLANE: Use infinite points (Does not work properly on most Windows systems)
 pub fn infinity_plane() {
@@ -2517,108 +2519,290 @@ pub fn ladderlog_game_time_interval() {
     todo!();
 }
 /// LADDERLOG_WRITE_ALL: Set all the LADDER_LOG_WRITE_* settings to the same value
-pub fn ladderlog_write_all() {
-    todo!();
+pub fn ladderlog_write_all(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteAll,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_AUTHORITY_BLURB: Write to ladderlog: AUTHORITY_BLURB <blurb> <player> <text>
-pub fn ladderlog_write_authority_blurb() {
-    todo!();
+pub fn ladderlog_write_authority_blurb(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteAuthorityBlurb,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_BASEZONE_CONQUERED: Write to ladderlog: BASEZONE_CONQUERED <team> <cx> <cy>
-pub fn ladderlog_write_basezone_conquered() {
-    todo!();
+pub fn ladderlog_write_basezone_conquered(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteBasezoneConquered,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_BASEZONE_CONQUERER: Write to ladderlog: BASEZONE_CONQUERER <player>
-pub fn ladderlog_write_basezone_conquerer() {
-    todo!();
+pub fn ladderlog_write_basezone_conquerer(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteBasezoneConquerer,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_CHAT: Write to ladderlog: CHAT <chatter> [/me] <chat string>
-pub fn ladderlog_write_chat() {
-    todo!();
+pub fn ladderlog_write_chat(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteChat,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_DEATH_FRAG: Write to ladderlog: DEATH_FRAG <prey> <predator>
-pub fn ladderlog_write_death_frag() {
-    todo!();
+pub fn ladderlog_write_death_frag(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteDeathFrag,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_DEATH_SUICIDE: Write to ladderlog: DEATH_SUICIDE <player>
-pub fn ladderlog_write_death_suicide() {
-    todo!();
+pub fn ladderlog_write_death_suicide(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteDeathSuicide,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_DEATH_TEAMKILL: Write to ladderlog: DEATH_TEAMKILL <prey> <predator>
-pub fn ladderlog_write_death_teamkill() {
-    todo!();
+pub fn ladderlog_write_death_teamkill(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteDeathTeamkill,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_ENCODING: Write to ladderlog: ENCODING <charset>. Specifies the encoding for data in ladderlog.txt.
-pub fn ladderlog_write_encoding() {
-    todo!();
+pub fn ladderlog_write_encoding(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteEncoding,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_GAME_END: Write to ladderlog: GAME_END <date and time>
-pub fn ladderlog_write_game_end() {
-    todo!();
+pub fn ladderlog_write_game_end(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteGameEnd,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_GAME_TIME: Write to ladderlog: GAME_TIME <time> (see also: GAME_TIME_INTERVAL)
-pub fn ladderlog_write_game_time() {
-    todo!();
+pub fn ladderlog_write_game_time(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteGameTime,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_MATCH_WINNER: Write to ladderlog: MATCH_WINNER <team> <players>
-pub fn ladderlog_write_match_winner() {
-    todo!();
+pub fn ladderlog_write_match_winner(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteMatchWinner,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_NEW_MATCH: Write to ladderlog: NEW_MATCH <date and time>
-pub fn ladderlog_write_new_match() {
-    todo!();
+pub fn ladderlog_write_new_match(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteNewMatch,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_NEW_ROUND: Write to ladderlog: NEW_ROUND <date and time>
-pub fn ladderlog_write_new_round() {
-    todo!();
+pub fn ladderlog_write_new_round(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteNewRound,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_NUM_HUMANS: Write to ladderlog: NUM_HUMANS <number of humans>
-pub fn ladderlog_write_num_humans() {
-    todo!();
+pub fn ladderlog_write_num_humans(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteNumHumans,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_ONLINE_PLAYER: Write to ladderlog: ONLINE_PLAYER <name> [<ping> [<team>]]
-pub fn ladderlog_write_online_player() {
-    todo!();
+pub fn ladderlog_write_online_player(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteOnlinePlayer,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_PLAYER_ENTERED: Write to ladderlog: PLAYER_ENTERED <name> <IP> <screen name>
-pub fn ladderlog_write_player_entered() {
-    todo!();
+pub fn ladderlog_write_player_entered(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWritePlayerEntered,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_PLAYER_LEFT: Write to ladderlog: PLAYER_LEFT <name> <IP>
-pub fn ladderlog_write_player_left() {
-    todo!();
+pub fn ladderlog_write_player_left(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWritePlayerLeft,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_PLAYER_RENAMED: Write to ladderlog: PLAYER_RENAMED <old name> <new name> <ip> <screen name>
-pub fn ladderlog_write_player_renamed() {
-    todo!();
+pub fn ladderlog_write_player_renamed(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWritePlayerRenamed,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_POSITIONS: Write to ladderlog: POSITIONS <team> <player1 player2 ...>
-pub fn ladderlog_write_positions() {
-    todo!();
+pub fn ladderlog_write_positions(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWritePositions,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_ROUND_SCORE: Write to ladderlog: ROUND_SCORE <score difference> <player> [<team>]
-pub fn ladderlog_write_round_score() {
-    todo!();
+pub fn ladderlog_write_round_score(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteRoundScore,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_ROUND_SCORE_TEAM: Write to ladderlog: ROUND_SCORE_TEAM <score difference> <team>
-pub fn ladderlog_write_round_score_team() {
-    todo!();
+pub fn ladderlog_write_round_score_team(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteRoundScoreTeam,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_ROUND_WINNER: Write to ladderlog: ROUND_WINNER <team> <players>
-pub fn ladderlog_write_round_winner() {
-    todo!();
+pub fn ladderlog_write_round_winner(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteRoundWinner,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_SACRIFICE: Write to ladderlog: SACRIFICE <player who used the hole> <player who created the hole> <player owning the wall the hole was made into>
-pub fn ladderlog_write_sacrifice() {
-    todo!();
+pub fn ladderlog_write_sacrifice(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteSacrifice,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_TEAM_CREATED: Write to ladderlog: TEAM_CREATED <team name>
-pub fn ladderlog_write_team_created() {
-    todo!();
+pub fn ladderlog_write_team_created(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteTeamCreated,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_TEAM_DESTROYED: Write to ladderlog: TEAM_DESTROYED <team name>
-pub fn ladderlog_write_team_destroyed() {
-    todo!();
+pub fn ladderlog_write_team_destroyed(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteTeamDestroyed,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_TEAM_PLAYER_ADDED: Write to ladderlog: TEAM_PLAYER_ADDED <team name> <player>
 pub fn ladderlog_write_team_player_added(value: bool) {
@@ -2632,16 +2816,37 @@ pub fn ladderlog_write_team_player_added(value: bool) {
     )
 }
 /// LADDERLOG_WRITE_TEAM_PLAYER_REMOVED: Write to ladderlog: TEAM_PLAYER_REMOVED <team name> <player>
-pub fn ladderlog_write_team_player_removed() {
-    todo!();
+pub fn ladderlog_write_team_player_removed(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteTeamPlayerRemoved,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_TEAM_RENAMED: Write to ladderlog: TEAM_RENAMED <old team name> <new team name>
-pub fn ladderlog_write_team_renamed() {
-    todo!();
+pub fn ladderlog_write_team_renamed(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteTeamRenamed,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDERLOG_WRITE_WAIT_FOR_EXTERNAL_SCRIPT: Write to ladderlog: WAIT_FOR_EXTERNAL_SCRIPT (see also: WAIT_FOR_EXTERNAL_SCRIPT and WAIT_FOR_EXTERNAL_SCRIPT_TIMEOUT)
-pub fn ladderlog_write_wait_for_external_script() {
-    todo!();
+pub fn ladderlog_write_wait_for_external_script(value: bool) {
+    println!(
+        "{} {}",
+        Commands::LadderlogWriteWaitForExternalScript,
+        match value {
+            true => 1,
+            false => 0,
+        }
+    )
 }
 /// LADDER_GAIN_EXTRA: Ping dependent ladder extra score for the winner
 pub fn ladder_gain_extra() {
@@ -2805,7 +3010,9 @@ pub fn lower_sky() {
 }
 /// MAP_FILE: File that contains the map used for playing
 pub fn map_file(path: &Path) {
-    println!("{} {:?}", Commands::MapFile, path.to_str())
+    if let Some(path) = path.to_str() {
+        println!("{} {:?}", Commands::MapFile, path);
+    }
 }
 /// MAP_FILE_OVERRIDE: Block out older clients when MAP_FILE differs from its default?
 pub fn map_file_override() {
@@ -3368,7 +3575,9 @@ pub fn simple_trail() {
 }
 /// SINCLUDE: Includes the following file silently, without error message if it is not found
 pub fn sinclude(path: &Path) {
-    println!("{} {:?}", Commands::Sinclude, path.to_str());
+    if let Some(path) = path.to_str() {
+        println!("{} {:?}", Commands::Sinclude, path);
+    }
 }
 /// SIZE_FACTOR: Arena size modifier
 pub fn size_factor(factor: i64) {

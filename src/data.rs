@@ -5,7 +5,7 @@ use std::{
 
 use crate::extension::DefaultParse;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Player(pub String);
 impl FromStr for Player {
     type Err = ();
@@ -15,7 +15,7 @@ impl FromStr for Player {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct ScreenName(pub String);
 impl FromStr for ScreenName {
     type Err = ();
@@ -25,7 +25,7 @@ impl FromStr for ScreenName {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Team(pub String);
 impl FromStr for Team {
     type Err = ();
@@ -35,7 +35,7 @@ impl FromStr for Team {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct SlashMe(pub bool);
 impl FromStr for SlashMe {
     type Err = ParseBoolError;
@@ -48,7 +48,7 @@ impl FromStr for SlashMe {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Ping(pub u32);
 impl FromStr for Ping {
     type Err = ParseFloatError;
@@ -61,8 +61,8 @@ impl FromStr for Ping {
     }
 }
 
-#[derive(Default)]
-pub struct Score(pub u64);
+#[derive(Default, Debug)]
+pub struct Score(pub i64);
 impl FromStr for Score {
     type Err = ParseIntError;
 
@@ -74,7 +74,7 @@ impl FromStr for Score {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Time(pub chrono::DateTime<chrono::FixedOffset>);
 
 impl FromStr for Time {
@@ -88,7 +88,7 @@ impl FromStr for Time {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Duration(pub std::time::Duration);
 
 impl FromStr for Duration {
@@ -102,7 +102,7 @@ impl FromStr for Duration {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct IpAddr(pub Option<std::net::IpAddr>);
 
 impl FromStr for IpAddr {
@@ -116,11 +116,15 @@ impl FromStr for IpAddr {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct TeamMembers(pub Vec<Player>);
 
 impl TeamMembers {
     pub fn from_slice(list: &[&str]) -> TeamMembers {
-        TeamMembers(list.iter().map(|x| Player::parse_or_default(x)).collect())
+        TeamMembers(
+            list.iter()
+                .map(|x| Player::parse_or_default(x.trim()))
+                .collect(),
+        )
     }
 }
