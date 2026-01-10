@@ -30,7 +30,7 @@ pub enum LadderLogEntry {
     /// NEW_ROUND \<date and time>
     NewRound(Time),
     /// NUM_HUMANS \<number of humans>
-    NumHumans(u64),
+    NumHumans(u8),
     /// ONLINE_PLAYER \<name> [\<ping> [\<team>]]
     OnlinePlayer(Player, Option<Ping>, Option<Team>),
     /// PLAYER_ENTERED \<name> \<IP> \<screen name>
@@ -83,7 +83,7 @@ impl LadderLogEntry {
                 Player::parse_or_default(split[1].trim()),
             )),
             "CHAT" => {
-                if split[3] == "/me" {
+                if split[2] == "/me" {
                     Some(LadderLogEntry::Chat(
                         Player::parse_or_default(split[1].trim()),
                         SlashMe(true),
@@ -125,7 +125,7 @@ impl LadderLogEntry {
             "NEW_ROUND" => Some(LadderLogEntry::NewRound(Time::parse_or_default(
                 split[1].trim(),
             ))),
-            "NUM_HUMANS" => Some(LadderLogEntry::NumHumans(u64::parse_or_default(
+            "NUM_HUMANS" => Some(LadderLogEntry::NumHumans(u8::parse_or_default(
                 split[1].trim(),
             ))),
             "ONLINE_PLAYER" => Some(LadderLogEntry::OnlinePlayer(

@@ -12,7 +12,7 @@ For example, I usually use `path = "../armagetronad_api"`
 
 # Contributing
 
-There are 1028 total console commands that need to be implemented. 1 command currently has an implementation.
+There are 1028 total console commands that need to be implemented. 132 commands currently have implementations.
 
 Fork this repo and add implementations to functions wherever you see a `todo!();` then create a pull request.
 
