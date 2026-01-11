@@ -1,4 +1,4 @@
-use std::{io::Read, net::SocketAddr, path::Path};
+use std::{io::Read, net::IpAddr, net::SocketAddr, path::Path};
 
 pub mod command;
 pub use command::*;
@@ -1742,56 +1742,65 @@ pub fn cycle_width_side_override() {
     todo!();
 }
 /// DECLARE_ROUND_WINNER: Declare the winner of the current round and end the round. Usage: DECLARE_ROUND_WINNER <player>
-pub fn declare_round_winner() {
-    todo!();
+pub fn declare_round_winner(team: Team) {
+    println!("{} {}", Command::DeclareRoundWinner, team);
 }
 /// DEDICATED_IDLE: After running this time (in hours), the dedicated server takes the next chance to quit.
-pub fn dedicated_idle() {
-    todo!();
+pub fn dedicated_idle(hours: f32) {
+    println!("{} {}", Command::DedicatedIdle, hours);
 }
 /// DEFAULT_KICK_REASON: The reason given to a player kicked by KICK if none is specified.
-pub fn default_kick_reason() {
-    todo!();
+pub fn default_kick_reason(reason: &str) {
+    println!("{} {}", Command::DefaultKickReason, reason);
 }
 /// DEFAULT_KICK_TO_PORT: Default server port a player is redirected to by KICK_TO and MOVE_TO.
-pub fn default_kick_to_port() {
-    todo!();
+pub fn default_kick_to_port(port: u16) {
+    println!("{} {}", Command::DefaultKickToPort, port);
 }
 /// DEFAULT_KICK_TO_REASON: The reason given to a player kicked by KICK_TO or MOVE_TO if none is specified.
-pub fn default_kick_to_reason() {
-    todo!();
+pub fn default_kick_to_reason(reason: &str) {
+    println!("{} {}", Command::DefaultKickToReason, reason);
 }
 /// DEFAULT_KICK_TO_SERVER: Default server IP/name a player is redirected to by KICK_TO and MOVE_TO.
-pub fn default_kick_to_server() {
-    todo!();
+pub fn default_kick_to_server(server: IpAddr) {
+    println!("{} {}", Command::DefaultKickToServer, server);
+}
+/// Combines DEFAULT_KICK_TO SERVER and PORT into one function
+pub fn default_kick_to_server_port(server: SocketAddr) {
+    default_kick_to_server(server.ip());
+    default_kick_to_port(server.port());
 }
 /// DEFAULT_SHOUT_PLAYER: 1 if the default chat action for players should be shouting, 0 if it should be team chat. 2 if the default action should be shouting and the access level requirement should be overridden.
-pub fn default_shout_player() {
-    todo!();
+pub fn default_shout_player(enabled: bool) {
+    println!("{} {}", Command::DefaultShoutPlayer, enabled.byte());
 }
 /// DEFAULT_SHOUT_SPECTATOR: 1 if the default chat action for spectators should be shouting, 0 if it should be spectator chat. 2 if the default action should be shouting and the access level requirement should be overridden.
-pub fn default_shout_spectator() {
-    todo!();
+pub fn default_shout_spectator(enabled: bool) {
+    println!("{} {}", Command::DefaultShoutSpectator, enabled.byte());
 }
 /// DISALLOW_RENAME_PLAYER: Prevents the given player from rename-ing.
-pub fn disallow_rename_player() {
-    todo!();
+pub fn disallow_rename_player(disabled: bool) {
+    println!("{} {}", Command::DisallowRenamePlayer, disabled);
 }
 /// DISALLOW_TEAM_CHANGE_PLAYER: Reverse of ALLOW_TEAM_CHANGE_PLAYER
-pub fn disallow_team_change_player() {
-    todo!();
+pub fn disallow_team_change_player(disabled: bool) {
+    println!("{} {}", Command::DisallowTeamChangePlayer, disabled);
 }
 /// DITHER: Use dithering
-pub fn dither() {
-    todo!();
+pub fn dither(enabled: bool) {
+    println!("{} {}", Command::Dither, enabled.byte());
 }
 /// DOUBLEBIND_TIME: Time in seconds during which no two different keyboard events can trigger the same action
-pub fn doublebind_time() {
-    todo!();
+pub fn doublebind_time(seconds: f32) {
+    println!("{} {}", Command::DoublebindTime, seconds);
 }
 /// DOUBLEBIND_TIME_OVERRIDE: Block out older clients when DOUBLEBIND_TIME differs from its default?
-pub fn doublebind_time_override() {
-    todo!();
+pub fn doublebind_time_override(block_older_clients: bool) {
+    println!(
+        "{} {}",
+        Command::DoublebindTimeOverride,
+        block_older_clients.byte()
+    );
 }
 /// ENABLE_CHAT: If set to 0, all chat will be suppressed (if reset on the server, messages from logged in players and private/team messages are still shown)
 pub fn enable_chat() {
@@ -2611,39 +2620,39 @@ pub fn ladderlog_write_basezone_conquerer(value: bool) {
         value.byte()
     )
 }
-/// LADDERLOG_WRITE_CHAT: Write to ladderlog: CHAT <chatter> [/me] <chat string>
+/// LADDERLOG_WRITE_CHAT: Write to ladderlog: CHAT \<chatter> \[/me] \<chat string>
 pub fn ladderlog_write_chat(value: bool) {
     println!("{} {}", Command::LadderlogWriteChat, value.byte())
 }
-/// LADDERLOG_WRITE_DEATH_FRAG: Write to ladderlog: DEATH_FRAG <prey> <predator>
+/// LADDERLOG_WRITE_DEATH_FRAG: Write to ladderlog: DEATH_FRAG \<prey> \<predator>
 pub fn ladderlog_write_death_frag(value: bool) {
     println!("{} {}", Command::LadderlogWriteDeathFrag, value.byte())
 }
-/// LADDERLOG_WRITE_DEATH_SUICIDE: Write to ladderlog: DEATH_SUICIDE <player>
+/// LADDERLOG_WRITE_DEATH_SUICIDE: Write to ladderlog: DEATH_SUICIDE \<player>
 pub fn ladderlog_write_death_suicide(value: bool) {
     println!("{} {}", Command::LadderlogWriteDeathSuicide, value.byte())
 }
-/// LADDERLOG_WRITE_DEATH_TEAMKILL: Write to ladderlog: DEATH_TEAMKILL <prey> <predator>
+/// LADDERLOG_WRITE_DEATH_TEAMKILL: Write to ladderlog: DEATH_TEAMKILL \<prey> \<predator>
 pub fn ladderlog_write_death_teamkill(value: bool) {
     println!("{} {}", Command::LadderlogWriteDeathTeamkill, value.byte())
 }
-/// LADDERLOG_WRITE_ENCODING: Write to ladderlog: ENCODING <charset>. Specifies the encoding for data in ladderlog.txt.
+/// LADDERLOG_WRITE_ENCODING: Write to ladderlog: ENCODING \<charset>. Specifies the encoding for data in ladderlog.txt.
 pub fn ladderlog_write_encoding(value: bool) {
     println!("{} {}", Command::LadderlogWriteEncoding, value.byte())
 }
-/// LADDERLOG_WRITE_GAME_END: Write to ladderlog: GAME_END <date and time>
+/// LADDERLOG_WRITE_GAME_END: Write to ladderlog: GAME_END \<date and time>
 pub fn ladderlog_write_game_end(value: bool) {
     println!("{} {}", Command::LadderlogWriteGameEnd, value.byte())
 }
-/// LADDERLOG_WRITE_GAME_TIME: Write to ladderlog: GAME_TIME <time> (see also: GAME_TIME_INTERVAL)
+/// LADDERLOG_WRITE_GAME_TIME: Write to ladderlog: GAME_TIME \<time> (see also: GAME_TIME_INTERVAL)
 pub fn ladderlog_write_game_time(value: bool) {
     println!("{} {}", Command::LadderlogWriteGameTime, value.byte())
 }
-/// LADDERLOG_WRITE_MATCH_WINNER: Write to ladderlog: MATCH_WINNER <team> <players>
+/// LADDERLOG_WRITE_MATCH_WINNER: Write to ladderlog: MATCH_WINNER \<team> \<players>
 pub fn ladderlog_write_match_winner(value: bool) {
     println!("{} {}", Command::LadderlogWriteMatchWinner, value.byte())
 }
-/// LADDERLOG_WRITE_NEW_MATCH: Write to ladderlog: NEW_MATCH <date and time>
+/// LADDERLOG_WRITE_NEW_MATCH: Write to ladderlog: NEW_MATCH \<date and time>
 pub fn ladderlog_write_new_match(value: bool) {
     println!("{} {}", Command::LadderlogWriteNewMatch, value.byte())
 }
@@ -2655,19 +2664,19 @@ pub fn ladderlog_write_new_round(value: bool) {
 pub fn ladderlog_write_num_humans(value: bool) {
     println!("{} {}", Command::LadderlogWriteNumHumans, value.byte())
 }
-/// LADDERLOG_WRITE_ONLINE_PLAYER: Write to ladderlog: ONLINE_PLAYER <name> [<ping> [<team>]]
+/// LADDERLOG_WRITE_ONLINE_PLAYER: Write to ladderlog: ONLINE_PLAYER \<name> \[\<ping> \[\<team>]]
 pub fn ladderlog_write_online_player(value: bool) {
     println!("{} {}", Command::LadderlogWriteOnlinePlayer, value.byte())
 }
-/// LADDERLOG_WRITE_PLAYER_ENTERED: Write to ladderlog: PLAYER_ENTERED <name> <IP> <screen name>
+/// LADDERLOG_WRITE_PLAYER_ENTERED: Write to ladderlog: PLAYER_ENTERED \<name> \<IP> \<screen name>
 pub fn ladderlog_write_player_entered(value: bool) {
     println!("{} {}", Command::LadderlogWritePlayerEntered, value.byte())
 }
-/// LADDERLOG_WRITE_PLAYER_LEFT: Write to ladderlog: PLAYER_LEFT <name> <IP>
+/// LADDERLOG_WRITE_PLAYER_LEFT: Write to ladderlog: PLAYER_LEFT \<name> \<IP>
 pub fn ladderlog_write_player_left(value: bool) {
     println!("{} {}", Command::LadderlogWritePlayerLeft, value.byte())
 }
-/// LADDERLOG_WRITE_PLAYER_RENAMED: Write to ladderlog: PLAYER_RENAMED <old name> <new name> <ip> <screen name>
+/// LADDERLOG_WRITE_PLAYER_RENAMED: Write to ladderlog: PLAYER_RENAMED \<old name> \<new name> \<ip> \<screen name>
 pub fn ladderlog_write_player_renamed(value: bool) {
     println!("{} {}", Command::LadderlogWritePlayerRenamed, value.byte())
 }
@@ -2675,31 +2684,31 @@ pub fn ladderlog_write_player_renamed(value: bool) {
 pub fn ladderlog_write_positions(value: bool) {
     println!("{} {}", Command::LadderlogWritePositions, value.byte())
 }
-/// LADDERLOG_WRITE_ROUND_SCORE: Write to ladderlog: ROUND_SCORE <score difference> <player> [<team>]
+/// LADDERLOG_WRITE_ROUND_SCORE: Write to ladderlog: ROUND_SCORE <score difference> \<player> \[\<team>]
 pub fn ladderlog_write_round_score(value: bool) {
     println!("{} {}", Command::LadderlogWriteRoundScore, value.byte())
 }
-/// LADDERLOG_WRITE_ROUND_SCORE_TEAM: Write to ladderlog: ROUND_SCORE_TEAM <score difference> <team>
+/// LADDERLOG_WRITE_ROUND_SCORE_TEAM: Write to ladderlog: ROUND_SCORE_TEAM \<score difference> \<team>
 pub fn ladderlog_write_round_score_team(value: bool) {
     println!("{} {}", Command::LadderlogWriteRoundScoreTeam, value.byte())
 }
-/// LADDERLOG_WRITE_ROUND_WINNER: Write to ladderlog: ROUND_WINNER <team> <players>
+/// LADDERLOG_WRITE_ROUND_WINNER: Write to ladderlog: ROUND_WINNER \<team> \<players>
 pub fn ladderlog_write_round_winner(value: bool) {
     println!("{} {}", Command::LadderlogWriteRoundWinner, value.byte())
 }
-/// LADDERLOG_WRITE_SACRIFICE: Write to ladderlog: SACRIFICE <player who used the hole> <player who created the hole> <player owning the wall the hole was made into>
+/// LADDERLOG_WRITE_SACRIFICE: Write to ladderlog: SACRIFICE \<player who used the hole> \<player who created the hole> \<player owning the wall the hole was made into>
 pub fn ladderlog_write_sacrifice(value: bool) {
     println!("{} {}", Command::LadderlogWriteSacrifice, value.byte())
 }
-/// LADDERLOG_WRITE_TEAM_CREATED: Write to ladderlog: TEAM_CREATED <team name>
+/// LADDERLOG_WRITE_TEAM_CREATED: Write to ladderlog: TEAM_CREATED \<team name>
 pub fn ladderlog_write_team_created(value: bool) {
     println!("{} {}", Command::LadderlogWriteTeamCreated, value.byte())
 }
-/// LADDERLOG_WRITE_TEAM_DESTROYED: Write to ladderlog: TEAM_DESTROYED <team name>
+/// LADDERLOG_WRITE_TEAM_DESTROYED: Write to ladderlog: TEAM_DESTROYED \<team name>
 pub fn ladderlog_write_team_destroyed(value: bool) {
     println!("{} {}", Command::LadderlogWriteTeamDestroyed, value.byte())
 }
-/// LADDERLOG_WRITE_TEAM_PLAYER_ADDED: Write to ladderlog: TEAM_PLAYER_ADDED <team name> <player>
+/// LADDERLOG_WRITE_TEAM_PLAYER_ADDED: Write to ladderlog: TEAM_PLAYER_ADDED \<team name> \<player>
 pub fn ladderlog_write_team_player_added(value: bool) {
     println!(
         "{} {}",
@@ -2707,7 +2716,7 @@ pub fn ladderlog_write_team_player_added(value: bool) {
         value.byte()
     )
 }
-/// LADDERLOG_WRITE_TEAM_PLAYER_REMOVED: Write to ladderlog: TEAM_PLAYER_REMOVED <team name> <player>
+/// LADDERLOG_WRITE_TEAM_PLAYER_REMOVED: Write to ladderlog: TEAM_PLAYER_REMOVED \<team name> \<player>
 pub fn ladderlog_write_team_player_removed(value: bool) {
     println!(
         "{} {}",
@@ -2715,7 +2724,7 @@ pub fn ladderlog_write_team_player_removed(value: bool) {
         value.byte()
     )
 }
-/// LADDERLOG_WRITE_TEAM_RENAMED: Write to ladderlog: TEAM_RENAMED <old team name> <new team name>
+/// LADDERLOG_WRITE_TEAM_RENAMED: Write to ladderlog: TEAM_RENAMED \<old team name> \<new team name>
 pub fn ladderlog_write_team_renamed(value: bool) {
     println!("{} {}", Command::LadderlogWriteTeamRenamed, value.byte())
 }
@@ -2898,6 +2907,7 @@ pub fn map_file_override() {
     todo!();
 }
 /// MAP_URI: DEPRECIATED - use RESOURCE_REPOSITORY_SERVER and MAP_FILE instead
+#[deprecated]
 pub fn map_uri() {
     todo!();
 }

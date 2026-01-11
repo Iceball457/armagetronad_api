@@ -1,6 +1,5 @@
 use std::{
-    fmt::{Display, write},
-    net::Ipv4Addr,
+    fmt::Display,
     num::{ParseFloatError, ParseIntError},
     str::{FromStr, ParseBoolError},
 };
@@ -149,33 +148,6 @@ impl FromStr for Duration {
 impl Display for Duration {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.0.as_secs_f32())
-    }
-}
-
-#[derive(Default, Debug, PartialEq)]
-pub struct IpAddr(pub Option<std::net::IpAddr>);
-
-impl FromStr for IpAddr {
-    type Err = ();
-
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        match s.parse() {
-            Ok(s) => Ok(Self(Some(s))),
-            Err(_) => Ok(Self(None)),
-        }
-    }
-}
-
-impl Display for IpAddr {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(
-            f,
-            "{}",
-            match self.0 {
-                Some(inner) => inner,
-                None => std::net::IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)),
-            }
-        )
     }
 }
 

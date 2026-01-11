@@ -1,4 +1,5 @@
-use crate::{data::*, extension::DefaultParse};
+use crate::{data::*, extension::*};
+use std::net::IpAddr;
 
 /// An entry from the ladder log
 #[derive(Debug)]
