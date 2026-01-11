@@ -243,9 +243,9 @@ pub fn alive_locy(y: f32) {
     println!("{} {}", Command::AliveLocy, y);
 }
 /// Combines alive_locx and alive locy into one function
-pub fn alive_loc(x: f32, y: f32) {
-    alive_locx(x);
-    alive_locy(y);
+pub fn alive_loc(coords: (f32, f32)) {
+    alive_locx(coords.0);
+    alive_locy(coords.1);
 }
 /// ALIVE_SIZE: Size of the alive headcount display
 pub fn alive_size(size: f32) {
