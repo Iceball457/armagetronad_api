@@ -9,10 +9,8 @@ pub use data::*;
 pub mod ladderlog;
 pub use ladderlog::*;
 
-pub mod access;
-pub use access::*;
-
 mod extension;
+use extension::*;
 
 /// Parses ladder log entries, and runs the closure with each new entry as input.
 /// This function blocks until each entry is written.
@@ -52,133 +50,120 @@ pub fn run(mut callback: impl FnMut(LadderLogEntry)) {
 }
 
 /// ACCESS_LEVEL: Changes the access level of a configuration item to make it available to lower ranked users
-pub fn access_level(config_item: Command, access_level: AccessLevel) {
-    println!(
-        "{} {} {}",
-        Command::AccessLevel,
-        config_item,
-        access_level as u8
-    );
+pub fn access_level(config_item: &Command, access_level: &AccessLevel) {
+    println!("{} {} {}", Command::AccessLevel, config_item, access_level);
 }
 /// ACCESS_LEVEL_ANNOUNCE_LOGIN: Maximal access level that determines if a player's login/logout message can be announced.
-pub fn access_level_announce_login(access_level: AccessLevel) {
-    println!(
-        "{} {}",
-        Command::AccessLevelAnnounceLogin,
-        access_level as u8
-    );
+pub fn access_level_announce_login(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelAnnounceLogin, access_level);
 }
 /// ACCESS_LEVEL_AUTOKICK_IMMUNITY: Minimal access level to be protected against autokicks.
-pub fn access_level_autokick_immunity(access_level: AccessLevel) {
-    println!(
-        "{} {}",
-        Command::AccessLevelAutokickImmunity,
-        access_level as u8
-    );
+pub fn access_level_autokick_immunity(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelAutokickImmunity, access_level);
 }
 /// ACCESS_LEVEL_CHAT: Minimal access level for chatting.
-pub fn access_level_chat(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelChat, access_level as u8);
+pub fn access_level_chat(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelChat, access_level);
 }
 /// ACCESS_LEVEL_CHAT_TIMEOUT: Time in seconds between public announcements that someone wants to chat, but can't. Set to 0 to disable the public warnings.
-pub fn access_level_chat_timeout(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelChatTimeout, access_level as u8);
+pub fn access_level_chat_timeout(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelChatTimeout, access_level);
 }
 /// ACCESS_LEVEL_HIDE_OF: Minimal access level to be able to hide it's own user account information.
-pub fn access_level_hide_of(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelHideOf, access_level as u8);
+pub fn access_level_hide_of(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelHideOf, access_level);
 }
 /// ACCESS_LEVEL_HIDE_TO: Minimal access level to see everyone's user account information.
-pub fn access_level_hide_to(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelHideTo, access_level as u8);
+pub fn access_level_hide_to(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelHideTo, access_level);
 }
 /// ACCESS_LEVEL_IPS: Minimal access level you need for seeing IPs of other players in the /players command.
-pub fn access_level_ips(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelIps, access_level as u8);
+pub fn access_level_ips(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelIps, access_level);
 }
 /// ACCESS_LEVEL_LIST_ADMINS: Access level required to be able to use the "/admins" command.
-pub fn access_level_list_admins(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelListAdmins, access_level as u8);
+pub fn access_level_list_admins(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelListAdmins, access_level);
 }
 /// ACCESS_LEVEL_LIST_ADMINS_SEE_EVERYONE: Users with this access level or better will be able to list any configured admin, regardless of ADMIN_LIST_MIN_ACCESS_LEVEL.
-pub fn access_level_list_admins_see_everyone(access_level: AccessLevel) {
+pub fn access_level_list_admins_see_everyone(access_level: &AccessLevel) {
     println!(
         "{} {}",
         Command::AccessLevelListAdminsSeeEveryone,
-        access_level as u8
+        access_level
     );
 }
 /// ACCESS_LEVEL_NVER: Minimal access level you need for seeing Network versions/strings from other players in /players.
-pub fn access_level_nver(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelNver, access_level as u8);
+pub fn access_level_nver(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelNver, access_level);
 }
 /// ACCESS_LEVEL_PLAY: Minimal access level for playing
-pub fn access_level_play(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelPlay, access_level as u8);
+pub fn access_level_play(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelPlay, access_level);
 }
 /// ACCESS_LEVEL_PLAY_SLIDERS: The access level required to play will only slide up if at least this many players of a higher level are online.
 pub fn access_level_play_sliders(num_players: u8) {
     println!("{} {}", Command::AccessLevelPlaySliders, num_players);
 }
 /// ACCESS_LEVEL_PLAY_SLIDING: Sliding minimal access level for playing; if enough players of a higher access level than given by ACCESS_LEVEL_PLAY are online, their level will be the minimal level for play; however, it will never be higher than ACCESS_LEVEL_PLAY_SLIDING.
-pub fn access_level_play_sliding(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelPlaySliding, access_level as u8);
+pub fn access_level_play_sliding(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelPlaySliding, access_level);
 }
 /// ACCESS_LEVEL_RTFM: Minimal access level for /teach or /rtfm command.
-pub fn access_level_rtfm(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelRtfm, access_level as u8);
+pub fn access_level_rtfm(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelRtfm, access_level);
 }
 /// ACCESS_LEVEL_SHOUT: Minimal access level for shouting.
-pub fn access_level_shout(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelShout, access_level as u8);
+pub fn access_level_shout(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelShout, access_level);
 }
 /// ACCESS_LEVEL_SHUFFLE_UP: Minimal access level for shuffling up
-pub fn access_level_shuffle_up(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelShuffleUp, access_level as u8);
+pub fn access_level_shuffle_up(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelShuffleUp, access_level);
 }
 /// ACCESS_LEVEL_SPY_MSG: Minimal access level you need for seeing /msg messages directed to others.
-pub fn access_level_spy_msg(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelSpyMsg, access_level as u8);
+pub fn access_level_spy_msg(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelSpyMsg, access_level);
 }
 /// ACCESS_LEVEL_SPY_TEAM: Minimal access level you need for seeing /team messages as a spectator.
-pub fn access_level_spy_team(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelSpyTeam, access_level as u8);
+pub fn access_level_spy_team(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelSpyTeam, access_level);
 }
 /// ACCESS_LEVEL_VOTE_COMMAND: Minimal access level required to issue command votes.
-pub fn access_level_vote_command(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelVoteCommand, access_level as u8);
+pub fn access_level_vote_command(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelVoteCommand, access_level);
 }
 /// ACCESS_LEVEL_VOTE_COMMAND_EXECUTE: Minimal access level successful command votes will be executed at.
-pub fn access_level_vote_command_execute(access_level: AccessLevel) {
+pub fn access_level_vote_command_execute(access_level: &AccessLevel) {
     println!(
         "{} {}",
         Command::AccessLevelVoteCommandExecute,
-        access_level as u8
+        access_level
     );
 }
 /// ACCESS_LEVEL_VOTE_INCLUDE: Minimal access level required to issue include votes.
-pub fn access_level_vote_include(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelVoteInclude, access_level as u8);
+pub fn access_level_vote_include(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelVoteInclude, access_level);
 }
 /// ACCESS_LEVEL_VOTE_INCLUDE_EXECUTE: Minimal access level successful include votes will be executed at.
-pub fn access_level_vote_include_execute(access_level: AccessLevel) {
+pub fn access_level_vote_include_execute(access_level: &AccessLevel) {
     println!(
         "{} {}",
         Command::AccessLevelVoteIncludeExecute,
-        access_level as u8
+        access_level
     );
 }
 /// ACCESS_LEVEL_VOTE_KICK: Minimal access level required to issue kick votes.
-pub fn access_level_vote_kick(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelVoteKick, access_level as u8);
+pub fn access_level_vote_kick(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelVoteKick, access_level);
 }
 /// ACCESS_LEVEL_VOTE_SILENCE: Minimal access level required to issue silence and voice votes.
-pub fn access_level_vote_silence(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelVoteSilence, access_level as u8);
+pub fn access_level_vote_silence(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelVoteSilence, access_level);
 }
 /// ACCESS_LEVEL_VOTE_SUSPEND: Minimal access level required to issue suspend votes.
-pub fn access_level_vote_suspend(access_level: AccessLevel) {
-    println!("{} {}", Command::AccessLevelVoteSuspend, access_level as u8);
+pub fn access_level_vote_suspend(access_level: &AccessLevel) {
+    println!("{} {}", Command::AccessLevelVoteSuspend, access_level);
 }
 /// ADD_HELP_TOPIC: Add a new help topic to be used with /help.
 /// Usage: ADD_HELP_TOPIC \<topic> \<short description> \<text>
@@ -242,12 +227,8 @@ pub fn admin_list_colors_worst(color: Color) {
     admin_list_colors_worst_blue(color.blue);
 }
 /// ADMIN_LIST_MIN_ACCESS_LEVEL: Minimal access level to be shown in /admins
-pub fn admin_list_min_access_level(access_level: AccessLevel) {
-    println!(
-        "{} {}",
-        Command::AdminListMinAccessLevel,
-        access_level as u8
-    );
+pub fn admin_list_min_access_level(access_level: &AccessLevel) {
+    println!("{} {}", Command::AdminListMinAccessLevel, access_level);
 }
 /// AI_IQ: IQ of the AI opponents (0-100)
 pub fn ai_iq(iq: u8) {
@@ -412,25 +393,11 @@ pub fn allow_team_change_player(player: &Player, allowed: bool) {
 }
 /// ALLOW_TEAM_NAME_COLOR: Allow a team to be named after a color
 pub fn allow_team_name_color(allowed: bool) {
-    println!(
-        "{} {}",
-        Command::AllowTeamNameColor,
-        match allowed {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::AllowTeamNameColor, allowed.byte())
 }
 /// ALLOW_TEAM_NAME_PLAYER: Allow a team to be named after the leading player
 pub fn allow_team_name_player(allowed: bool) {
-    println!(
-        "{} {}",
-        Command::AllowTeamNamePlayer,
-        match allowed {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::AllowTeamNamePlayer, allowed.byte())
 }
 /// ALLOW_VOTING: If set to 1, voting will be allowed for players.
 pub fn allow_voting(allowed: bool) {
@@ -441,108 +408,138 @@ pub fn allow_voting_spectator(allowed: bool) {
     println!("{} {}", Command::AllowVotingSpectator, allowed);
 }
 /// ALPHA_BLEND: Enable alpha blending
-pub fn alpha_blend() {
-    todo!();
+pub fn alpha_blend(enabled: bool) {
+    println!("{} {}", Command::AlphaBlend, enabled.byte());
 }
 /// ANTI_SPOOF: If set to 1, checks connecting clients for spoofed IPs. Only clients passing a connectivity test are allowed in. This is done in turtle mode automatically, but may be useful to have on at all times.
-pub fn anti_spoof() {
-    todo!();
+pub fn anti_spoof(enabled: bool) {
+    println!("{} {}", Command::AntiSpoof, enabled.byte());
 }
 /// ARENA_AXES: In how many directions a cycle can turn 4 is the default, 6 is hexatron
-pub fn arena_axes() {
-    todo!();
+pub fn arena_axes(axes: u8) {
+    println!("{} {}", Command::ArenaAxes, axes);
 }
 /// ARENA_AXES_OVERRIDE: Block out older clients when ARENA_AXES differs from its default?
-pub fn arena_axes_override() {
-    todo!();
+pub fn arena_axes_override(block_old_clients: bool) {
+    println!(
+        "{} {}",
+        Command::ArenaAxesOverride,
+        block_old_clients.byte()
+    );
 }
 /// ARMAGETRON_LAST_SCREENMODE: Last screen resolution
-pub fn armagetron_last_screenmode() {
-    todo!();
+pub fn armagetron_last_screenmode(screen: f32) {
+    println!("{} {}", Command::ArmagetronLastScreenmode, screen);
 }
 /// ARMAGETRON_LAST_WINDOWSIZE: Last Window size
-pub fn armagetron_last_windowsize() {
-    todo!();
+pub fn armagetron_last_windowsize(window: f32) {
+    println!("{} {}", Command::ArmagetronLastWindowsize, window);
 }
 /// ARMAGETRON_SCREENMODE: Screen resolution
-pub fn armagetron_screenmode() {
-    todo!();
+pub fn armagetron_screenmode(screen: f32) {
+    println!("{} {}", Command::ArmagetronScreenmode, screen);
 }
 /// ARMAGETRON_VSYNC: What to do with the monitor's vertical sync
-pub fn armagetron_vsync() {
-    todo!();
+pub fn armagetron_vsync(enabled: bool) {
+    println!("{} {}", Command::ArmagetronVsync, enabled.byte());
 }
 /// ARMAGETRON_VSYNC_LAST: armagetron_vsync_last_help
-pub fn armagetron_vsync_last() {
-    todo!();
+pub fn armagetron_vsync_last(enabled: bool) {
+    println!("{} {}", Command::ArmagetronVsyncLast, enabled.byte());
 }
 /// ARMAGETRON_WINDOWSIZE: Window size
-pub fn armagetron_windowsize() {
-    todo!();
+pub fn armagetron_windowsize(window: f32) {
+    println!("{} {}", Command::ArmagetronWindowsize, window);
 }
 /// AUTHORITY_BLACKLIST: Comma separated list of authorities your server should refuse to query.
-pub fn authority_blacklist() {
-    todo!();
+pub fn authority_blacklist(blacklist: Vec<Authority>) {
+    println!(
+        "{} {}",
+        Command::AuthorityBlacklist,
+        match blacklist
+            .iter()
+            .map(|x| x.0.clone())
+            .reduce(|mut accum, next| {
+                accum.push_str(&next);
+                accum
+            }) {
+            Some(blacklist) => blacklist,
+            None => String::new(),
+        }
+    );
 }
 /// AUTHORITY_LEVEL: Changes the access level for all users from the same authority. Mainly only useful for private authorities.
-pub fn authority_level() {
-    todo!();
+pub fn authority_level(authority: Authority, access_level: &AccessLevel) {
+    println!("{} {} {}", Command::AuthorityLevel, authority, access_level);
 }
 /// AUTHORITY_WHITELIST: If non-empty, only authorities on this comma separated list will be queried by your server.
-pub fn authority_whitelist() {
-    todo!();
+pub fn authority_whitelist(whitelist: Vec<Authority>) {
+    println!(
+        "{} {}",
+        Command::AuthorityBlacklist,
+        match whitelist
+            .iter()
+            .map(|x| x.0.clone())
+            .reduce(|mut accum, next| {
+                accum.push_str(&next);
+                accum
+            }) {
+            Some(blacklist) => blacklist,
+            None => String::new(),
+        }
+    );
 }
 /// AUTO_AIS: Automatically spawn AI players?
-pub fn auto_ais() {
-    todo!();
+pub fn auto_ais(enabled: bool) {
+    println!("{} {}", Command::AutoAis, enabled)
 }
 /// AUTO_INCAM_1: Automatically switch to internal camera in a maze
-pub fn auto_incam_1() {
-    todo!();
+pub fn auto_incam_1(enabled: bool) {
+    println!("{} {}", Command::AutoIncam1, enabled.byte());
 }
 /// AUTO_INCAM_2: Automatically switch to internal camera in a maze
-pub fn auto_incam_2() {
-    todo!();
+pub fn auto_incam_2(enabled: bool) {
+    println!("{} {}", Command::AutoIncam2, enabled.byte());
 }
 /// AUTO_INCAM_3: Automatically switch to internal camera in a maze
-pub fn auto_incam_3() {
-    todo!();
+pub fn auto_incam_3(enabled: bool) {
+    println!("{} {}", Command::AutoIncam3, enabled.byte());
 }
 /// AUTO_INCAM_4: Automatically switch to internal camera in a maze
-pub fn auto_incam_4() {
-    todo!();
+pub fn auto_incam_4(enabled: bool) {
+    println!("{} {}", Command::AutoIncam4, enabled.byte());
 }
 /// AUTO_IQ: Automatically adjust AI IQ?
 pub fn auto_iq() {
     todo!();
 }
 /// AUTO_LOGIN_1: Should this player automatically request authentication?
-pub fn auto_login_1() {
-    todo!();
+pub fn auto_login_1(enabled: bool) {
+    println!("{} {}", Command::AutoLogin1, enabled.byte());
 }
 /// AUTO_LOGIN_2: Should this player automatically request authentication?
-pub fn auto_login_2() {
-    todo!();
+pub fn auto_login_2(enabled: bool) {
+    println!("{} {}", Command::AutoLogin2, enabled.byte());
 }
 /// AUTO_LOGIN_3: Should this player automatically request authentication?
-pub fn auto_login_3() {
-    todo!();
+pub fn auto_login_3(enabled: bool) {
+    println!("{} {}", Command::AutoLogin3, enabled.byte());
 }
 /// AUTO_LOGIN_4: Should this player automatically request authentication?
-pub fn auto_login_4() {
-    todo!();
+pub fn auto_login_4(enabled: bool) {
+    println!("{} {}", Command::AutoLogin4, enabled.byte());
 }
 /// AUTO_TEAM: Flag indicating whether players should be put into teams automatically.
-pub fn auto_team() {
-    todo!();
+pub fn auto_team(enabled: bool) {
+    println!("{} {}", Command::AutoLogin4, enabled.byte());
 }
 /// AUTO_TEAM_SPEC_SPAM: If set to 0, spectators won't be announced when joining or leaving, provided AUTO_TEAM is set to 0.
-pub fn auto_team_spec_spam() {
-    todo!();
+pub fn auto_team_spec_spam(enabled: bool) {
+    println!("{} {}", Command::AutoTeamSpecSpam, enabled.byte());
 }
 /// AXES_INDICATOR: Should the Axis Indicator be rendered?
-pub fn axes_indicator() {
-    todo!();
+pub fn axes_indicator(enabled: bool) {
+    println!("{} {}", Command::AxesIndicator, enabled.byte());
 }
 /// BACKWARD_COMPATIBILITY: Maximum number of old protocol versions to support.
 pub fn backward_compatibility() {
@@ -2592,35 +2589,18 @@ pub fn ladderlog_game_time_interval() {
 }
 /// LADDERLOG_WRITE_ALL: Set all the LADDER_LOG_WRITE_* settings to the same value
 pub fn ladderlog_write_all(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteAll,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteAll, value.byte())
 }
 /// LADDERLOG_WRITE_AUTHORITY_BLURB: Write to ladderlog: AUTHORITY_BLURB <blurb> <player> <text>
 pub fn ladderlog_write_authority_blurb(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteAuthorityBlurb,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteAuthorityBlurb, value.byte())
 }
 /// LADDERLOG_WRITE_BASEZONE_CONQUERED: Write to ladderlog: BASEZONE_CONQUERED <team> <cx> <cy>
 pub fn ladderlog_write_basezone_conquered(value: bool) {
     println!(
         "{} {}",
         Command::LadderlogWriteBasezoneConquered,
-        match value {
-            true => 1,
-            false => 0,
-        }
+        value.byte()
     )
 }
 /// LADDERLOG_WRITE_BASEZONE_CONQUERER: Write to ladderlog: BASEZONE_CONQUERER <player>
@@ -2628,263 +2608,103 @@ pub fn ladderlog_write_basezone_conquerer(value: bool) {
     println!(
         "{} {}",
         Command::LadderlogWriteBasezoneConquerer,
-        match value {
-            true => 1,
-            false => 0,
-        }
+        value.byte()
     )
 }
 /// LADDERLOG_WRITE_CHAT: Write to ladderlog: CHAT <chatter> [/me] <chat string>
 pub fn ladderlog_write_chat(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteChat,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteChat, value.byte())
 }
 /// LADDERLOG_WRITE_DEATH_FRAG: Write to ladderlog: DEATH_FRAG <prey> <predator>
 pub fn ladderlog_write_death_frag(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteDeathFrag,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteDeathFrag, value.byte())
 }
 /// LADDERLOG_WRITE_DEATH_SUICIDE: Write to ladderlog: DEATH_SUICIDE <player>
 pub fn ladderlog_write_death_suicide(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteDeathSuicide,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteDeathSuicide, value.byte())
 }
 /// LADDERLOG_WRITE_DEATH_TEAMKILL: Write to ladderlog: DEATH_TEAMKILL <prey> <predator>
 pub fn ladderlog_write_death_teamkill(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteDeathTeamkill,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteDeathTeamkill, value.byte())
 }
 /// LADDERLOG_WRITE_ENCODING: Write to ladderlog: ENCODING <charset>. Specifies the encoding for data in ladderlog.txt.
 pub fn ladderlog_write_encoding(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteEncoding,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteEncoding, value.byte())
 }
 /// LADDERLOG_WRITE_GAME_END: Write to ladderlog: GAME_END <date and time>
 pub fn ladderlog_write_game_end(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteGameEnd,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteGameEnd, value.byte())
 }
 /// LADDERLOG_WRITE_GAME_TIME: Write to ladderlog: GAME_TIME <time> (see also: GAME_TIME_INTERVAL)
 pub fn ladderlog_write_game_time(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteGameTime,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteGameTime, value.byte())
 }
 /// LADDERLOG_WRITE_MATCH_WINNER: Write to ladderlog: MATCH_WINNER <team> <players>
 pub fn ladderlog_write_match_winner(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteMatchWinner,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteMatchWinner, value.byte())
 }
 /// LADDERLOG_WRITE_NEW_MATCH: Write to ladderlog: NEW_MATCH <date and time>
 pub fn ladderlog_write_new_match(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteNewMatch,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteNewMatch, value.byte())
 }
 /// LADDERLOG_WRITE_NEW_ROUND: Write to ladderlog: NEW_ROUND <date and time>
 pub fn ladderlog_write_new_round(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteNewRound,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteNewRound, value.byte())
 }
 /// LADDERLOG_WRITE_NUM_HUMANS: Write to ladderlog: NUM_HUMANS <number of humans>
 pub fn ladderlog_write_num_humans(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteNumHumans,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteNumHumans, value.byte())
 }
 /// LADDERLOG_WRITE_ONLINE_PLAYER: Write to ladderlog: ONLINE_PLAYER <name> [<ping> [<team>]]
 pub fn ladderlog_write_online_player(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteOnlinePlayer,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteOnlinePlayer, value.byte())
 }
 /// LADDERLOG_WRITE_PLAYER_ENTERED: Write to ladderlog: PLAYER_ENTERED <name> <IP> <screen name>
 pub fn ladderlog_write_player_entered(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWritePlayerEntered,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWritePlayerEntered, value.byte())
 }
 /// LADDERLOG_WRITE_PLAYER_LEFT: Write to ladderlog: PLAYER_LEFT <name> <IP>
 pub fn ladderlog_write_player_left(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWritePlayerLeft,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWritePlayerLeft, value.byte())
 }
 /// LADDERLOG_WRITE_PLAYER_RENAMED: Write to ladderlog: PLAYER_RENAMED <old name> <new name> <ip> <screen name>
 pub fn ladderlog_write_player_renamed(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWritePlayerRenamed,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWritePlayerRenamed, value.byte())
 }
 /// LADDERLOG_WRITE_POSITIONS: Write to ladderlog: POSITIONS <team> <player1 player2 ...>
 pub fn ladderlog_write_positions(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWritePositions,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWritePositions, value.byte())
 }
 /// LADDERLOG_WRITE_ROUND_SCORE: Write to ladderlog: ROUND_SCORE <score difference> <player> [<team>]
 pub fn ladderlog_write_round_score(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteRoundScore,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteRoundScore, value.byte())
 }
 /// LADDERLOG_WRITE_ROUND_SCORE_TEAM: Write to ladderlog: ROUND_SCORE_TEAM <score difference> <team>
 pub fn ladderlog_write_round_score_team(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteRoundScoreTeam,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteRoundScoreTeam, value.byte())
 }
 /// LADDERLOG_WRITE_ROUND_WINNER: Write to ladderlog: ROUND_WINNER <team> <players>
 pub fn ladderlog_write_round_winner(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteRoundWinner,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteRoundWinner, value.byte())
 }
 /// LADDERLOG_WRITE_SACRIFICE: Write to ladderlog: SACRIFICE <player who used the hole> <player who created the hole> <player owning the wall the hole was made into>
 pub fn ladderlog_write_sacrifice(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteSacrifice,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteSacrifice, value.byte())
 }
 /// LADDERLOG_WRITE_TEAM_CREATED: Write to ladderlog: TEAM_CREATED <team name>
 pub fn ladderlog_write_team_created(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteTeamCreated,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteTeamCreated, value.byte())
 }
 /// LADDERLOG_WRITE_TEAM_DESTROYED: Write to ladderlog: TEAM_DESTROYED <team name>
 pub fn ladderlog_write_team_destroyed(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteTeamDestroyed,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteTeamDestroyed, value.byte())
 }
 /// LADDERLOG_WRITE_TEAM_PLAYER_ADDED: Write to ladderlog: TEAM_PLAYER_ADDED <team name> <player>
 pub fn ladderlog_write_team_player_added(value: bool) {
     println!(
         "{} {}",
         Command::LadderlogWriteTeamPlayerAdded,
-        match value {
-            true => 1,
-            false => 0,
-        }
+        value.byte()
     )
 }
 /// LADDERLOG_WRITE_TEAM_PLAYER_REMOVED: Write to ladderlog: TEAM_PLAYER_REMOVED <team name> <player>
@@ -2892,32 +2712,19 @@ pub fn ladderlog_write_team_player_removed(value: bool) {
     println!(
         "{} {}",
         Command::LadderlogWriteTeamPlayerRemoved,
-        match value {
-            true => 1,
-            false => 0,
-        }
+        value.byte()
     )
 }
 /// LADDERLOG_WRITE_TEAM_RENAMED: Write to ladderlog: TEAM_RENAMED <old team name> <new team name>
 pub fn ladderlog_write_team_renamed(value: bool) {
-    println!(
-        "{} {}",
-        Command::LadderlogWriteTeamRenamed,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    )
+    println!("{} {}", Command::LadderlogWriteTeamRenamed, value.byte())
 }
 /// LADDERLOG_WRITE_WAIT_FOR_EXTERNAL_SCRIPT: Write to ladderlog: WAIT_FOR_EXTERNAL_SCRIPT (see also: WAIT_FOR_EXTERNAL_SCRIPT and WAIT_FOR_EXTERNAL_SCRIPT_TIMEOUT)
 pub fn ladderlog_write_wait_for_external_script(value: bool) {
     println!(
         "{} {}",
         Command::LadderlogWriteWaitForExternalScript,
-        match value {
-            true => 1,
-            false => 0,
-        }
+        value.byte()
     )
 }
 /// LADDER_GAIN_EXTRA: Ping dependent ladder extra score for the winner
@@ -3248,14 +3055,7 @@ pub fn new_feature_delay() {
 }
 /// NEW_TEAM_ALLOWED: Is it currently allowed to create a new team?
 pub fn new_team_allowed(value: bool) {
-    println!(
-        "{} {}",
-        Command::NewTeamAllowed,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    );
+    println!("{} {}", Command::NewTeamAllowed, value.byte());
 }
 /// NUM_AIS: Number of AI players
 pub fn num_ais() {
@@ -4365,14 +4165,7 @@ pub fn voting_timeout_per_voter() {
 }
 /// WAIT_FOR_EXTERNAL_SCRIPT: Let the server wait for an external script between two rounds until the script switches this setting back to 0.
 pub fn wait_for_external_script(value: bool) {
-    println!(
-        "{} {}",
-        Command::WaitForExternalScript,
-        match value {
-            true => 1,
-            false => 0,
-        }
-    );
+    println!("{} {}", Command::WaitForExternalScript, value.byte());
 }
 /// WAIT_FOR_EXTERNAL_SCRIPT_TIMEOUT: If the server has been paused by WAIT_FOR_EXTERNAL_SCRIPT for more seconds than this, kickstart the game.
 pub fn wait_for_external_script_timeout(seconds: u64) {

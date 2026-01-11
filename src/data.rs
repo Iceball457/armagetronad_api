@@ -1,5 +1,5 @@
 use std::{
-    fmt::Display,
+    fmt::{Display, write},
     net::Ipv4Addr,
     num::{ParseFloatError, ParseIntError},
     str::{FromStr, ParseBoolError},
@@ -223,5 +223,34 @@ pub struct Color {
 impl Color {
     pub fn new(red: u8, green: u8, blue: u8) -> Color {
         Color { red, green, blue }
+    }
+}
+
+pub struct Authority(pub String);
+
+impl Display for Authority {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
+
+pub enum AccessLevel {
+    Owner = 0,
+    Administrator = 1,
+    Moderator = 2,
+    Armatrator = 5,
+    TeamLeader = 7,
+    TeamMember = 8,
+    LocalUser = 12,
+    RemoteUser = 15,
+    FallenFromGrace = 16,
+    Shunned = 17,
+    Authenticated = 19,
+    Program = 20,
+}
+
+impl Display for AccessLevel {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", &raw const self as u8)
     }
 }

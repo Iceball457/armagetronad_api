@@ -12,3 +12,16 @@ impl<T: FromStr + Default> DefaultParse<T> for T {
         }
     }
 }
+
+pub(crate) trait BoolExt {
+    fn byte(&self) -> u8;
+}
+
+impl BoolExt for bool {
+    fn byte(&self) -> u8 {
+        match *self {
+            true => 1,
+            false => 0,
+        }
+    }
+}
