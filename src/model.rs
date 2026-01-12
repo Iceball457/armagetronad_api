@@ -6,7 +6,10 @@ use std::{
 
 use crate::extension::DefaultParse;
 
-#[derive(Default, Debug, PartialEq)]
+pub mod command;
+pub mod ladderlog;
+
+#[derive(Default, Debug, PartialEq, Eq, Hash, Clone)]
 pub struct Player(pub String);
 impl FromStr for Player {
     type Err = ();

@@ -1,53 +1,14 @@
 use std::{io::Read, net::IpAddr, net::SocketAddr, path::Path};
 
-pub mod command;
-pub use command::*;
-
-pub mod data;
-pub use data::*;
-
-pub mod ladderlog;
-pub use ladderlog::*;
-
 mod extension;
 use extension::*;
 
-/// Parses ladder log entries, and runs the closure with each new entry as input.
-/// This function blocks until each entry is written.
-pub fn run(mut callback: impl FnMut(LadderLogEntry)) {
-    let mut encoding = String::from("latin1");
-    loop {
-        let mut buf = String::new();
-        if encoding == "utf8".to_owned() {
-            _ = std::io::stdin().read_line(&mut buf);
-        }
-        if encoding == "latin1".to_owned() {
-            let mut bytes = Vec::new();
-            let mut stdin = std::io::stdin().lock();
-            loop {
-                let mut byte = [0u8; 1];
-                if stdin.read_exact(&mut byte).is_err() {
-                    return; // EOF
-                }
-                bytes.push(byte[0]);
-                if byte[0] == b'\n' {
-                    break;
-                }
-            }
-            let (decoded, _, _) = encoding_rs::WINDOWS_1252.decode(&bytes);
-            buf.push_str(&decoded);
-        }
-        if let Some(entry) = LadderLogEntry::parse(&buf) {
-            wait_for_external_script(true);
-            if let LadderLogEntry::Encoding(ref new_encoding) = entry {
-                encoding.clear();
-                encoding.push_str(new_encoding);
-            }
-            callback(entry);
-            wait_for_external_script(false);
-        }
-    }
-}
+pub mod extra;
+
+pub mod model;
+use crate::model::{command::*, *};
+
+pub mod runtime;
 
 /// ACCESS_LEVEL: Changes the access level of a configuration item to make it available to lower ranked users
 pub fn access_level(config_item: &Command, access_level: &AccessLevel) {
@@ -202,12 +163,6 @@ pub fn admin_list_colors_best_green(green: u8) {
 pub fn admin_list_colors_best_red(blue: u8) {
     println!("{} {}", Command::AdminListColorsBestBlue, blue);
 }
-/// Combines all admin list colors best commands into one function
-pub fn admin_list_colors_best(color: Color) {
-    admin_list_colors_best_red(color.red);
-    admin_list_colors_best_green(color.green);
-    admin_list_colors_best_blue(color.blue);
-}
 /// ADMIN_LIST_COLORS_WORST_BLUE: Blue color component to the worst access level listed by /admins
 pub fn admin_list_colors_worst_blue(red: u8) {
     println!("{} {}", Command::AdminListColorsWorstRed, red);
@@ -219,12 +174,6 @@ pub fn admin_list_colors_worst_green(green: u8) {
 /// ADMIN_LIST_COLORS_WORST_RED: Red color component to the worst access level listed by /admins
 pub fn admin_list_colors_worst_red(blue: u8) {
     println!("{} {}", Command::AdminListColorsWorstBlue, blue);
-}
-/// Combines all admin list colors best commands into one function
-pub fn admin_list_colors_worst(color: Color) {
-    admin_list_colors_worst_red(color.red);
-    admin_list_colors_worst_green(color.green);
-    admin_list_colors_worst_blue(color.blue);
 }
 /// ADMIN_LIST_MIN_ACCESS_LEVEL: Minimal access level to be shown in /admins
 pub fn admin_list_min_access_level(access_level: &AccessLevel) {
@@ -241,11 +190,6 @@ pub fn alive_locx(x: f32) {
 /// ALIVE_LOCY: Vertical position of the alive headcount display
 pub fn alive_locy(y: f32) {
     println!("{} {}", Command::AliveLocy, y);
-}
-/// Combines alive_locx and alive locy into one function
-pub fn alive_loc(coords: (f32, f32)) {
-    alive_locx(coords.0);
-    alive_locy(coords.1);
 }
 /// ALIVE_SIZE: Size of the alive headcount display
 pub fn alive_size(size: f32) {
@@ -510,8 +454,8 @@ pub fn auto_incam_4(enabled: bool) {
     println!("{} {}", Command::AutoIncam4, enabled.byte());
 }
 /// AUTO_IQ: Automatically adjust AI IQ?
-pub fn auto_iq() {
-    todo!();
+pub fn auto_iq(enabled: bool) {
+    println!("{} {}", Command::AutoIq, enabled.byte());
 }
 /// AUTO_LOGIN_1: Should this player automatically request authentication?
 pub fn auto_login_1(enabled: bool) {
@@ -1764,11 +1708,6 @@ pub fn default_kick_to_reason(reason: &str) {
 /// DEFAULT_KICK_TO_SERVER: Default server IP/name a player is redirected to by KICK_TO and MOVE_TO.
 pub fn default_kick_to_server(server: IpAddr) {
     println!("{} {}", Command::DefaultKickToServer, server);
-}
-/// Combines DEFAULT_KICK_TO SERVER and PORT into one function
-pub fn default_kick_to_server_port(server: SocketAddr) {
-    default_kick_to_server(server.ip());
-    default_kick_to_port(server.port());
 }
 /// DEFAULT_SHOUT_PLAYER: 1 if the default chat action for players should be shouting, 0 if it should be team chat. 2 if the default action should be shouting and the access level requirement should be overridden.
 pub fn default_shout_player(enabled: bool) {

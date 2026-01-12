@@ -1,4 +1,4 @@
-use crate::{ext::*, model::*};
+use crate::{extension::*, model::*};
 use std::net::IpAddr;
 
 /// An entry from the ladder log
