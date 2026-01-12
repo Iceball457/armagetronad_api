@@ -18,10 +18,20 @@ impl FromStr for Player {
         Ok(Self(s.to_string()))
     }
 }
-
 impl Display for Player {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.0)
+    }
+}
+impl Player {
+    pub fn allow_rename(&self, allowed: bool) {
+        crate::allow_rename_player(self, allowed)
+    }
+    pub fn allow_team_change(&self, allowed: bool) {
+        crate::allow_team_change_player(self, allowed)
+    }
+    pub fn kill(&self) {
+        crate::kill(self)
     }
 }
 
