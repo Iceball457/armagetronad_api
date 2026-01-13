@@ -33,6 +33,9 @@ impl Player {
     pub fn kill(&self) {
         crate::kill(self)
     }
+    pub fn message(&self, message: &str) {
+        crate::player_message(self, message);
+    }
 }
 
 #[derive(Default, Debug, PartialEq)]
@@ -219,19 +222,64 @@ impl Display for Authority {
     }
 }
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Default, Clone, Copy)]
 pub enum AccessLevel {
     Owner = 0,
     Administrator = 1,
     Moderator = 2,
+    _3 = 3,
+    _4 = 4,
     Armatrator = 5,
+    _6 = 6,
     TeamLeader = 7,
     TeamMember = 8,
+    _9 = 9,
+    _10 = 10,
+    _11 = 11,
     LocalUser = 12,
+    _13 = 13,
+    _14 = 14,
     RemoteUser = 15,
     FallenFromGrace = 16,
     Shunned = 17,
+    _18 = 18,
     Authenticated = 19,
+    #[default]
     Program = 20,
+}
+
+impl FromStr for AccessLevel {
+    type Err = ParseIntError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s.parse() {
+            Ok(num) => match num {
+                0 => Ok(AccessLevel::Owner),
+                1 => Ok(AccessLevel::Administrator),
+                2 => Ok(AccessLevel::Moderator),
+                3 => Ok(AccessLevel::_3),
+                4 => Ok(AccessLevel::_4),
+                5 => Ok(AccessLevel::Armatrator),
+                6 => Ok(AccessLevel::_6),
+                7 => Ok(AccessLevel::TeamLeader),
+                8 => Ok(AccessLevel::TeamMember),
+                9 => Ok(AccessLevel::_9),
+                10 => Ok(AccessLevel::_10),
+                11 => Ok(AccessLevel::_11),
+                12 => Ok(AccessLevel::LocalUser),
+                13 => Ok(AccessLevel::_13),
+                14 => Ok(AccessLevel::_14),
+                15 => Ok(AccessLevel::RemoteUser),
+                16 => Ok(AccessLevel::FallenFromGrace),
+                17 => Ok(AccessLevel::Shunned),
+                18 => Ok(AccessLevel::_18),
+                19 => Ok(AccessLevel::Authenticated),
+                20 => Ok(AccessLevel::Program),
+                _ => Ok(AccessLevel::Program),
+            },
+            Err(e) => Err(e),
+        }
+    }
 }
 
 impl Display for AccessLevel {

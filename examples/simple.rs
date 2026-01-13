@@ -9,17 +9,17 @@ fn main() {
     // (see below)
 
     // Finally, call armagetronapi::run with a closure that takes a LadderLogEntry
-    tron::run(|entry| process(entry, &mut my_persistent_data));
+    tron::runtime::run(|entry| process(entry, &mut my_persistent_data));
 }
 
 // Pass your persistent data in as mutable references.
 // This prevents the need for statics.
-fn process(entry: tron::LadderLogEntry, persistent_data: &mut u8) {
+fn process(entry: tron::model::ladderlog::LadderLogEntry, persistent_data: &mut u8) {
     // This function will be called once for each incoming ladder log from armagetron
 
     // First, match on the entry!
     match entry {
-        tron::LadderLogEntry::Chat(_, _, _) => {
+        tron::model::ladderlog::LadderLogEntry::Chat(_, _, _) => {
             // Do what you need to do.
             *persistent_data += 1;
         }

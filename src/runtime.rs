@@ -1,17 +1,27 @@
-use std::collections::HashSet;
+use std::{
+    collections::{HashMap, HashSet},
+    io::Read,
+};
 
-use crate::{model::ladderlog::*, *};
+pub mod chat_command;
 
-pub struct RuntimeBundle {
+use crate::{
+    model::{AccessLevel, Player, Team, ladderlog::*},
+    runtime::chat_command::ChatCommand,
+};
+
+pub struct RuntimeBundle<T> {
     players: HashSet<Player>,
     num_humans: u8,
+    script_data: T,
 }
 
-impl RuntimeBundle {
-    fn new() -> RuntimeBundle {
+impl<T> RuntimeBundle<T> {
+    fn new(script_data: T) -> RuntimeBundle<T> {
         RuntimeBundle {
             players: HashSet::new(),
             num_humans: 0,
+            script_data,
         }
     }
     fn add_player(&mut self, player: &Player) {
@@ -26,10 +36,13 @@ impl RuntimeBundle {
     pub fn num_humans(&self) -> &u8 {
         &self.num_humans
     }
-    pub fn kill_all(&self) {
+    pub fn kill_all_players(&self) {
         for player in &self.players {
             crate::kill(player);
         }
+    }
+    pub fn script_data(&mut self) -> &mut T {
+        &mut self.script_data
     }
 }
 
@@ -59,29 +72,39 @@ pub fn run(mut callback: impl FnMut(LadderLogEntry)) {
             buf.push_str(&decoded);
         }
         if let Some(entry) = LadderLogEntry::parse(&buf) {
-            wait_for_external_script(true);
+            crate::wait_for_external_script(true);
             if let LadderLogEntry::Encoding(ref new_encoding) = entry {
                 encoding.clear();
                 encoding.push_str(new_encoding);
             }
             callback(entry);
-            wait_for_external_script(false);
+            crate::wait_for_external_script(false);
         }
     }
 }
 
 /// Opinionated version of run that automatically tracks the active combatants and number of human players.
 /// This function automatically disables allow imposters, as it uses a hashset to keep track of unique players.
-pub fn run_suite(mut callback: impl FnMut(&LadderLogEntry, &RuntimeBundle)) {
-    let mut data = RuntimeBundle::new();
-    allow_imposters(false);
+pub fn run_suite<T>(
+    script_data: T,
+    mut callback: impl FnMut(&LadderLogEntry, &mut RuntimeBundle<T>),
+    mut command_tree: ChatCommand<T>,
+) {
+    let mut data = RuntimeBundle::new(script_data);
+    let user_levels = crate::extra::user_levels();
+    crate::allow_imposters(false);
     run(|entry| {
-        process_suite(&entry, &mut data);
-        callback(&entry, &data);
+        process_suite(&entry, &mut data, &user_levels, &mut command_tree);
+        callback(&entry, &mut data);
     });
 }
 
-fn process_suite(entry: &LadderLogEntry, data: &mut RuntimeBundle) {
+fn process_suite<T>(
+    entry: &LadderLogEntry,
+    data: &mut RuntimeBundle<T>,
+    user_levels: &HashMap<Player, AccessLevel>,
+    command_tree: &mut ChatCommand<T>,
+) {
     match entry {
         LadderLogEntry::TeamPlayerAdded(team, player) => {
             if *team != Team(String::from("ai_team")) {
@@ -97,6 +120,11 @@ fn process_suite(entry: &LadderLogEntry, data: &mut RuntimeBundle) {
         }
         LadderLogEntry::NumHumans(num_humans) => {
             data.num_humans = *num_humans;
+        }
+        LadderLogEntry::Command(command, player, args) => {
+            let mut args = args.clone();
+            args.insert(0, String::from(command));
+            command_tree.execute(data, player, user_levels.get(player).copied(), &args[..]);
         }
         _ => (),
     }

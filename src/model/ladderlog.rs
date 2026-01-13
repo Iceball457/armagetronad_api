@@ -5,13 +5,15 @@ use std::net::IpAddr;
 #[derive(Debug)]
 pub enum LadderLogEntry {
     /// AUTHORITY_BLURB \<blurb> \<player> \<text>
-    AuthorityBlurb((), Player, String),
+    AuthorityBlurb(String, Player, String),
     /// BASEZONE_CONQUERED \<team> \<cx> \<cy>
     BasezoneConquered(Team, (f32, f32)),
     /// BASEZONE_CONQUERER \<player>
     BasezoneConquerer(Player),
     /// CHAT \<chatter> [/me] \<chat string>
     Chat(Player, SlashMe, String),
+    /// (CT + STY) COMMAND /\<command> \<player> \<args>
+    Command(String, Player, Vec<String>),
     /// DEATH_FRAG \<prey> \<predator>
     DeathFrag(Player, Player),
     /// DEATH_SUICIDE \<player>
@@ -69,7 +71,7 @@ impl LadderLogEntry {
         let split: Vec<_> = raw.split(' ').collect();
         match split[0] {
             "AUTHORITY_BLURB" => Some(LadderLogEntry::AuthorityBlurb(
-                (),
+                split[1].trim().to_string(),
                 Player::parse_or_default(split[2].trim()),
                 split[3].trim().to_string(),
             )),
@@ -98,6 +100,11 @@ impl LadderLogEntry {
                     ))
                 }
             }
+            "COMMAND" => Some(LadderLogEntry::Command(
+                split[1].trim()[1..].to_string(),
+                Player::parse_or_default(split[2].trim()),
+                split[3..].iter().map(|x| x.trim().to_string()).collect(),
+            )),
             "DEATH_FRAG" => Some(LadderLogEntry::DeathFrag(
                 Player::parse_or_default(split[1].trim()),
                 Player::parse_or_default(split[2].trim()),

@@ -1,4 +1,4 @@
-use std::{io::Read, net::IpAddr, net::SocketAddr, path::Path};
+use std::{net::IpAddr, net::SocketAddr, path::Path};
 
 mod extension;
 use extension::*;
@@ -3107,8 +3107,8 @@ pub fn player_list_hidden_player_prefix() {
     todo!();
 }
 /// PLAYER_MESSAGE: Sends a message to a specified player.
-pub fn player_message() {
-    todo!();
+pub fn player_message(player: &Player, message: &str) {
+    println!("{} {} \"{}\"", Command::PlayerMessage, player, message);
 }
 /// PLAYER_RANDOM_COLOR: If set to 1, each local player will receive a semi-random color every round, trying to get as far away from every other player color.
 pub fn player_random_color() {
