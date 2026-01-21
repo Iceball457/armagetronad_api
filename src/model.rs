@@ -54,7 +54,7 @@ impl Display for ScreenName {
     }
 }
 
-#[derive(Default, Debug, PartialEq)]
+#[derive(Default, Debug, PartialEq, Eq, Hash, Clone)]
 pub struct Team(pub String);
 impl FromStr for Team {
     type Err = ();
@@ -167,7 +167,7 @@ impl Display for Duration {
     }
 }
 
-#[derive(Default, Debug, PartialEq)]
+#[derive(Default, Debug, PartialEq, Clone)]
 pub struct TeamMembers(pub Vec<Player>);
 
 impl TeamMembers {
@@ -202,6 +202,7 @@ impl Display for TeamMembers {
 
 /// Trail & Text colors go from 0-15 and are clamped (actual = min(input, 15)).
 /// Bike colors go from 0-15 and are modulated (actual = input % 15).
+#[derive(Debug)]
 pub struct Color {
     pub red: u8,
     pub green: u8,

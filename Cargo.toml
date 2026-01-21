@@ -3,9 +3,10 @@ name = "armagetronapi"
 version = "0.1.0"
 edition = "2024"
 
-# [[example]]
-# name = "hello_world"
-# path = "examples/hello_world.rs"
+[features]
+vanilla = []
+styct = []
+ap = []
 
 [dependencies]
 chrono = "0.4.42"

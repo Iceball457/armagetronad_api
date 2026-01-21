@@ -1,12 +1,14 @@
 use std::{net::IpAddr, net::SocketAddr, path::Path};
 
+pub mod prelude;
+
 mod extension;
 use extension::*;
 
 pub mod extra;
 
 pub mod model;
-use crate::model::{command::*, *};
+pub use crate::model::{command::*, ladderlog::*, *};
 
 pub mod runtime;
 
@@ -197,143 +199,153 @@ pub fn alive_size(size: f32) {
 }
 /// ALLOW_CAM_1_0: Allow/forbid the different camera modes
 pub fn allow_cam_1_0(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_0, allowed);
+    println!("{} {}", Command::AllowCam1_0, allowed.byte());
 }
 /// ALLOW_CAM_1_1: Allow/forbid the different camera modes
 pub fn allow_cam_1_1(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_1, allowed);
+    println!("{} {}", Command::AllowCam1_1, allowed.byte());
 }
 /// ALLOW_CAM_1_2: Allow/forbid the different camera modes
 pub fn allow_cam_1_2(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_2, allowed);
+    println!("{} {}", Command::AllowCam1_2, allowed.byte());
 }
 /// ALLOW_CAM_1_3: Allow/forbid the different camera modes
 pub fn allow_cam_1_3(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_3, allowed);
+    println!("{} {}", Command::AllowCam1_3, allowed.byte());
 }
 /// ALLOW_CAM_1_4: Allow/forbid the different camera modes
 pub fn allow_cam_1_4(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_4, allowed);
+    println!("{} {}", Command::AllowCam1_4, allowed.byte());
 }
 /// ALLOW_CAM_1_5: Allow/forbid the different camera modes
 pub fn allow_cam_1_5(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_5, allowed);
+    println!("{} {}", Command::AllowCam1_5, allowed.byte());
 }
 /// ALLOW_CAM_1_6: Allow/forbid the different camera modes
 pub fn allow_cam_1_6(allowed: bool) {
-    println!("{} {}", Command::AllowCam1_6, allowed);
+    println!("{} {}", Command::AllowCam1_6, allowed.byte());
 }
 /// ALLOW_CAM_2_0: Allow/forbid the different camera modes
 pub fn allow_cam_2_0(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_0, allowed);
+    println!("{} {}", Command::AllowCam2_0, allowed.byte());
 }
 /// ALLOW_CAM_2_1: Allow/forbid the different camera modes
 pub fn allow_cam_2_1(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_1, allowed);
+    println!("{} {}", Command::AllowCam2_1, allowed.byte());
 }
 /// ALLOW_CAM_2_2: Allow/forbid the different camera modes
 pub fn allow_cam_2_2(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_2, allowed);
+    println!("{} {}", Command::AllowCam2_2, allowed.byte());
 }
 /// ALLOW_CAM_2_3: Allow/forbid the different camera modes
 pub fn allow_cam_2_3(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_3, allowed);
+    println!("{} {}", Command::AllowCam2_3, allowed.byte());
 }
 /// ALLOW_CAM_2_4: Allow/forbid the different camera modes
 pub fn allow_cam_2_4(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_4, allowed);
+    println!("{} {}", Command::AllowCam2_4, allowed.byte());
 }
 /// ALLOW_CAM_2_5: Allow/forbid the different camera modes
 pub fn allow_cam_2_5(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_5, allowed);
+    println!("{} {}", Command::AllowCam2_5, allowed.byte());
 }
 /// ALLOW_CAM_2_6: Allow/forbid the different camera modes
 pub fn allow_cam_2_6(allowed: bool) {
-    println!("{} {}", Command::AllowCam2_6, allowed);
+    println!("{} {}", Command::AllowCam2_6, allowed.byte());
 }
 /// ALLOW_CAM_3_0: Allow/forbid the different camera modes
 pub fn allow_cam_3_0(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_0, allowed);
+    println!("{} {}", Command::AllowCam3_0, allowed.byte());
 }
 /// ALLOW_CAM_3_1: Allow/forbid the different camera modes
 pub fn allow_cam_3_1(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_1, allowed);
+    println!("{} {}", Command::AllowCam3_1, allowed.byte());
 }
 /// ALLOW_CAM_3_2: Allow/forbid the different camera modes
 pub fn allow_cam_3_2(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_2, allowed);
+    println!("{} {}", Command::AllowCam3_2, allowed.byte());
 }
 /// ALLOW_CAM_3_3: Allow/forbid the different camera modes
 pub fn allow_cam_3_3(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_3, allowed);
+    println!("{} {}", Command::AllowCam3_3, allowed.byte());
 }
 /// ALLOW_CAM_3_4: Allow/forbid the different camera modes
 pub fn allow_cam_3_4(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_4, allowed);
+    println!("{} {}", Command::AllowCam3_4, allowed.byte());
 }
 /// ALLOW_CAM_3_5: Allow/forbid the different camera modes
 pub fn allow_cam_3_5(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_5, allowed);
+    println!("{} {}", Command::AllowCam3_5, allowed.byte());
 }
 /// ALLOW_CAM_3_6: Allow/forbid the different camera modes
 pub fn allow_cam_3_6(allowed: bool) {
-    println!("{} {}", Command::AllowCam3_6, allowed);
+    println!("{} {}", Command::AllowCam3_6, allowed.byte());
 }
 /// ALLOW_CAM_4_0: Allow/forbid the different camera modes
 pub fn allow_cam_4_0(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_0, allowed);
+    println!("{} {}", Command::AllowCam4_0, allowed.byte());
 }
 /// ALLOW_CAM_4_1: Allow/forbid the different camera modes
 pub fn allow_cam_4_1(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_1, allowed);
+    println!("{} {}", Command::AllowCam4_1, allowed.byte());
 }
 /// ALLOW_CAM_4_2: Allow/forbid the different camera modes
 pub fn allow_cam_4_2(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_2, allowed);
+    println!("{} {}", Command::AllowCam4_2, allowed.byte());
 }
 /// ALLOW_CAM_4_3: Allow/forbid the different camera modes
 pub fn allow_cam_4_3(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_3, allowed);
+    println!("{} {}", Command::AllowCam4_3, allowed.byte());
 }
 /// ALLOW_CAM_4_4: Allow/forbid the different camera modes
 pub fn allow_cam_4_4(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_4, allowed);
+    println!("{} {}", Command::AllowCam4_4, allowed.byte());
 }
 /// ALLOW_CAM_4_5: Allow/forbid the different camera modes
 pub fn allow_cam_4_5(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_5, allowed);
+    println!("{} {}", Command::AllowCam4_5, allowed.byte());
 }
 /// ALLOW_CAM_4_6: Allow/forbid the different camera modes
 pub fn allow_cam_4_6(allowed: bool) {
-    println!("{} {}", Command::AllowCam4_6, allowed);
+    println!("{} {}", Command::AllowCam4_6, allowed.byte());
 }
 /// ALLOW_CONTROL_DURING_CHAT: If set to 1, this allows a player to issue cycle and camera control commands during chat (losing the chatbot and the yellow chat pyramid).
 pub fn allow_control_during_chat(allowed: bool) {
-    println!("{} {}", Command::AllowControlDuringChat, allowed);
+    println!("{} {}", Command::AllowControlDuringChat, allowed.byte());
 }
 /// ALLOW_ENEMIES_SAME_CLIENT: If set to 1, this allows two players that play on the same client to fight for points with each other.
 pub fn allow_enemies_same_client(allowed: bool) {
-    println!("{} {}", Command::AllowEnemiesSameClient, allowed);
+    println!("{} {}", Command::AllowEnemiesSameClient, allowed.byte());
 }
 /// ALLOW_ENEMIES_SAME_IP: If set to 1, this allows two players that apparently come from the same machine to fight for points with each other.
 pub fn allow_enemies_same_ip(allowed: bool) {
-    println!("{} {}", Command::AllowEnemiesSameIp, allowed);
+    println!("{} {}", Command::AllowEnemiesSameIp, allowed.byte());
 }
 /// ALLOW_IMPOSTERS: If set to 1, players with identical names are tolerated. If set to 0, all but one will be renamed.
 pub fn allow_imposters(allowed: bool) {
-    println!("{} {}", Command::AllowImposters, allowed);
+    println!("{} {}", Command::AllowImposters, allowed.byte());
 }
 /// ALLOW_RENAME_PLAYER: Gives the given player the ability to rename.
 pub fn allow_rename_player(player: &Player, allowed: bool) {
-    println!("{} {} {}", Command::AllowRenamePlayer, player, allowed);
+    println!(
+        "{} {} {}",
+        Command::AllowRenamePlayer,
+        player,
+        allowed.byte()
+    );
 }
 /// ALLOW_TEAM_CHANGE: If set to 1, all players can change teams. If set to 0, players can only change teams if they've been specifically allowed to by ALLOW_TEAM_CHANGE_PLAYER
 pub fn allow_team_change(allowed: bool) {
-    println!("{} {}", Command::AllowTeamChange, allowed);
+    println!("{} {}", Command::AllowTeamChange, allowed.byte());
 }
 /// ALLOW_TEAM_CHANGE_PLAYER: Allow a specific player to change teams even if ALLOW_TEAM_CHANGE is disabled
 pub fn allow_team_change_player(player: &Player, allowed: bool) {
-    println!("{} {} {}", Command::AllowTeamChangePlayer, player, allowed);
+    println!(
+        "{} {} {}",
+        Command::AllowTeamChangePlayer,
+        player,
+        allowed.byte()
+    );
 }
 /// ALLOW_TEAM_NAME_COLOR: Allow a team to be named after a color
 pub fn allow_team_name_color(allowed: bool) {
@@ -345,11 +357,11 @@ pub fn allow_team_name_player(allowed: bool) {
 }
 /// ALLOW_VOTING: If set to 1, voting will be allowed for players.
 pub fn allow_voting(allowed: bool) {
-    println!("{} {}", Command::AllowVoting, allowed);
+    println!("{} {}", Command::AllowVoting, allowed.byte());
 }
 /// ALLOW_VOTING_SPECTATOR: If set to 1, voting will be allowed for spectators.
 pub fn allow_voting_spectator(allowed: bool) {
-    println!("{} {}", Command::AllowVotingSpectator, allowed);
+    println!("{} {}", Command::AllowVotingSpectator, allowed.byte());
 }
 /// ALPHA_BLEND: Enable alpha blending
 pub fn alpha_blend(enabled: bool) {
@@ -4202,5 +4214,2912 @@ pub fn zone_segments() {
 }
 /// ZONE_SEG_LENGTH: The rendered fraction of every segment. Default is .5
 pub fn zone_seg_length() {
+    todo!();
+}
+/// ACCELZONE_RATE               accelzone_rate_help
+#[cfg(feature = "ap")]
+pub fn accelzone_rate() {
+    todo!();
+}
+/// ACCESS_LEVEL_ADMIN           Minimal access level for /admin command.
+#[cfg(feature = "ap")]
+pub fn access_level_admin() {
+    todo!();
+}
+/// ACCESS_LEVEL_OP              Minimal access level for /op and /deop co-admin management commands commands.
+#[cfg(feature = "ap")]
+pub fn access_level_op() {
+    todo!();
+}
+/// ACCESS_LEVEL_OP_MAX          Maximal access level directly attainable by /op commands.
+#[cfg(feature = "ap")]
+pub fn access_level_op_max() {
+    todo!();
+}
+/// ACCESS_LEVEL_OP_MIN          Minimal access level directly attainable by /op commands.
+#[cfg(feature = "ap")]
+pub fn access_level_op_min() {
+    todo!();
+}
+/// ACCESS_LEVEL_QUEUE_CONFIGS   Sets the access level required to use chat commands /cq add & remove.
+#[cfg(feature = "ap")]
+pub fn access_level_queue_configs() {
+    todo!();
+}
+/// ACCESS_LEVEL_QUEUE_MAPS      Sets the access level required to use chat commands /mq add & remove.
+#[cfg(feature = "ap")]
+pub fn access_level_queue_maps() {
+    todo!();
+}
+/// ACCESS_LEVEL_REPORTS_CLEAR   access_level_reports_clear_help
+#[cfg(feature = "ap")]
+pub fn access_level_reports_clear() {
+    todo!();
+}
+/// ACCESS_LEVEL_REPORTS_READ    access_level_reports_read_help
+#[cfg(feature = "ap")]
+pub fn access_level_reports_read() {
+    todo!();
+}
+/// ACCESS_LEVEL_SPY_CONSOLE     Minimal access level you need for seeing console input from other (in-game) admins.
+#[cfg(feature = "ap")]
+pub fn access_level_spy_console() {
+    todo!();
+}
+/// ACCESS_LEVEL_SUBSTITUTE      Required access level to switch with another player.
+#[cfg(feature = "ap")]
+pub fn access_level_substitute() {
+    todo!();
+}
+/// ACCESS_LEVEL_TEAM            Minimal access level for /lock, /unlock, /invite and /uninvite team management.
+#[cfg(feature = "ap")]
+pub fn access_level_team() {
+    todo!();
+}
+/// ACCESS_LEVEL_VIEW_CHATS      Players with access level equal to or lower than this are able to see messages sent from the same access leveled player.
+#[cfg(feature = "ap")]
+pub fn access_level_view_chats() {
+    todo!();
+}
+/// ADD_SCORE_PLAYER             Give/Take points for that player. Usage: ADD_SCORE_PLAYER [name] [points] [message].
+#[cfg(feature = "ap")]
+pub fn add_score_player() {
+    todo!();
+}
+/// ADD_SCORE_TEAM               Give/Take points for that team. Usage: ADD_SCORE_PLAYER [name] [points] [message].
+#[cfg(feature = "ap")]
+pub fn add_score_team() {
+    todo!();
+}
+/// ADD_ZONE_ID_ROUTE            add to a zones route. Usage: ADD_ZONE_ROUTE <name> <x1> <y1> [<x2> <y2> ...]
+#[cfg(feature = "ap")]
+pub fn add_zone_id_route() {
+    todo!();
+}
+/// ADD_ZONE_ROUTE               add to a zones route. Usage: ADD_ZONE_ROUTE <name> <x1> <y1> [<x2> <y2> ...]
+#[cfg(feature = "ap")]
+pub fn add_zone_route() {
+    todo!();
+}
+/// ADMIN_KILL_MESSAGE           If set to 1, announce when players get killed due to the command "KILL"
+#[cfg(feature = "ap")]
+pub fn admin_kill_message() {
+    todo!();
+}
+/// ADMIN_LOG                    Write all admin chat commands to var/adminlog.txt (Works only in a server)
+#[cfg(feature = "ap")]
+pub fn admin_log() {
+    todo!();
+}
+/// ADMIN_NAME                   The name to speak as when using the command "SAY".
+#[cfg(feature = "ap")]
+pub fn admin_name() {
+    todo!();
+}
+/// AI_BYPASS                    ai_bypass_help
+#[cfg(feature = "ap")]
+pub fn ai_bypass() {
+    todo!();
+}
+/// AI_RELOAD                    ai_reload_help
+#[cfg(feature = "ap")]
+pub fn ai_reload() {
+    todo!();
+}
+/// ALLOW_TEAM_NAME_LEADER       Allow team leader to set a team.
+#[cfg(feature = "ap")]
+pub fn allow_team_name_leader() {
+    todo!();
+}
+/// ANNOUNCE                     Use like a public announcement. Displays Announcement: [message]
+#[cfg(feature = "ap")]
+pub fn announce() {
+    todo!();
+}
+/// APPLY_ROTATION               Applies current round's map or next map, depending on ROTATION_TYPE.
+#[cfg(feature = "ap")]
+pub fn apply_rotation() {
+    todo!();
+}
+/// APPLY_SPEC_FORCE             apply_spec_force_help
+#[cfg(feature = "ap")]
+pub fn apply_spec_force() {
+    todo!();
+}
+/// APPLY_TEAM_FORCE             apply_team_force_help
+#[cfg(feature = "ap")]
+pub fn apply_team_force() {
+    todo!();
+}
+/// ARENA_BOUNDARY               This is the distance players can travel safely outside the arena boundary.
+#[cfg(feature = "ap")]
+pub fn arena_boundary() {
+    todo!();
+}
+/// ARENA_BOUNDARY_KILL          Determines what action to take when players are beyond the ARENA_BOUNDARY. 1: Kills players instantly. 2: Depletes their rubber until they're dead.
+#[cfg(feature = "ap")]
+pub fn arena_boundary_kill() {
+    todo!();
+}
+/// AUTO_SUBSTITUTION            If set to 1, players will be substituted when leaving.
+#[cfg(feature = "ap")]
+pub fn auto_substitution() {
+    todo!();
+}
+/// BALLS_INTERACT               Flag indicating whether balls can bounce off one another
+#[cfg(feature = "ap")]
+pub fn balls_interact() {
+    todo!();
+}
+/// BALL_AUTORESPAWN             Flag indicating whether balls should automatically respawn when goal is scored
+#[cfg(feature = "ap")]
+pub fn ball_autorespawn() {
+    todo!();
+}
+/// BALL_CYCLE_ACCEL_BOOST       Boost Cycle gives the ball when colliding
+#[cfg(feature = "ap")]
+pub fn ball_cycle_accel_boost() {
+    todo!();
+}
+/// BALL_KILLS                   Flag indicating if a team owned ball can kill opposing team players
+#[cfg(feature = "ap")]
+pub fn ball_kills() {
+    todo!();
+}
+/// BALL_SPEED_DECAY             Rate at which the ball slows down
+#[cfg(feature = "ap")]
+pub fn ball_speed_decay() {
+    todo!();
+}
+/// BALL_SPEED_HIT_DECAY         Amount the ball slows down when hitting an object
+#[cfg(feature = "ap")]
+pub fn ball_speed_hit_decay() {
+    todo!();
+}
+/// BALL_TEAM_MODE               Flag 0=ball score other team, 1=ball score only team owner
+#[cfg(feature = "ap")]
+pub fn ball_team_mode() {
+    todo!();
+}
+/// BANNED_WORDS                 The list of words banned for various reasons.
+#[cfg(feature = "ap")]
+pub fn banned_words() {
+    todo!();
+}
+/// BANNED_WORDS_ADD             Add a word to the banned words list.
+#[cfg(feature = "ap")]
+pub fn banned_words_add() {
+    todo!();
+}
+/// BANNED_WORDS_DELIMITERS      The delimiters to remove from in the messages in case people encased banned words in them.
+#[cfg(feature = "ap")]
+pub fn banned_words_delimiters() {
+    todo!();
+}
+/// BANNED_WORDS_LIST            Display the list of words currently banned.
+#[cfg(feature = "ap")]
+pub fn banned_words_list() {
+    todo!();
+}
+/// BANNED_WORDS_OPTIONS         0: disable. 1: Block and alert message to sender. 2: Replace bad word with chosen character(s).
+#[cfg(feature = "ap")]
+pub fn banned_words_options() {
+    todo!();
+}
+/// BANNED_WORDS_REMOVE          Remove a word from the banned words list.
+#[cfg(feature = "ap")]
+pub fn banned_words_remove() {
+    todo!();
+}
+/// BANNED_WORDS_WHOLE           0: Shorten bad words to first and last letters. 1: All bad words get censored.
+#[cfg(feature = "ap")]
+pub fn banned_words_whole() {
+    todo!();
+}
+/// BASE_ENEMY_KILL              Flag indicating whether a base will kill enemy players
+#[cfg(feature = "ap")]
+pub fn base_enemy_kill() {
+    todo!();
+}
+/// BASE_ENEMY_RESPAWN           Flag indicating whether a base will respawn team if an enemy player enters it
+#[cfg(feature = "ap")]
+pub fn base_enemy_respawn() {
+    todo!();
+}
+/// BASE_RESPAWN                 Flag indicating whether a base will respawn team if a team player enters it
+#[cfg(feature = "ap")]
+pub fn base_respawn() {
+    todo!();
+}
+/// BASE_RESPAWN_REMIND_TIME     Time between respawn reminders
+#[cfg(feature = "ap")]
+pub fn base_respawn_remind_time() {
+    todo!();
+}
+/// BOOT                         Kicks the specified player from the server.
+#[cfg(feature = "ap")]
+pub fn boot() {
+    todo!();
+}
+/// CAMERA_FORBID_MER            Forbids the use of Meriton's camera
+#[cfg(feature = "ap")]
+pub fn camera_forbid_mer() {
+    todo!();
+}
+/// CAMERA_GLANCE_FORWARD_SNAP   camera_glance_forward_snap_help
+#[cfg(feature = "ap")]
+pub fn camera_glance_forward_snap() {
+    todo!();
+}
+/// CAMERA_GLANCE_HOLD           Hold the glance even after turning in a different direction, like 0.4 does.
+#[cfg(feature = "ap")]
+pub fn camera_glance_hold() {
+    todo!();
+}
+/// CAMERA_GLANCE_SNAP           Essentially ups the turn speed while glancing. Helpful for immediately glancing in a direction after turning.
+#[cfg(feature = "ap")]
+pub fn camera_glance_snap() {
+    todo!();
+}
+/// CENTER_PLAYER_MESSAGE        Sends a center message to a specified player.
+#[cfg(feature = "ap")]
+pub fn center_player_message() {
+    todo!();
+}
+/// CFG_USER_SAVE                Can the user.cfg be saved after work?
+#[cfg(feature = "ap")]
+pub fn cfg_user_save() {
+    todo!();
+}
+/// CHATBOT_CONTROLLED_BY_SERVER If enabled, the server controls the chatbot and ignores client input when chatting
+#[cfg(feature = "ap")]
+pub fn chatbot_controlled_by_server() {
+    todo!();
+}
+/// CHATBOT_ENABLED              chatbot_enabled_help
+#[cfg(feature = "ap")]
+pub fn chatbot_enabled() {
+    todo!();
+}
+/// CHATLOG_WRITE_TEAM           Write /team messages to chatlog [1: on | 0:off]
+#[cfg(feature = "ap")]
+pub fn chatlog_write_team() {
+    todo!();
+}
+/// CHATTERS_KILL                All players in chat mode are killed by an administrator.
+#[cfg(feature = "ap")]
+pub fn chatters_kill() {
+    todo!();
+}
+/// CHATTERS_LIST                All players in chat mode are listed.
+#[cfg(feature = "ap")]
+pub fn chatters_list() {
+    todo!();
+}
+/// CHATTERS_SILENCE             All players in chat mode are silenced by an administrator.
+#[cfg(feature = "ap")]
+pub fn chatters_silence() {
+    todo!();
+}
+/// CHATTERS_SUSPEND             All players in chat mode are suspended for this-many rounds by an administrator.
+#[cfg(feature = "ap")]
+pub fn chatters_suspend() {
+    todo!();
+}
+/// CHAT_LOG_COLORS              Writes chat messages to var/chatlog_colors.txt
+#[cfg(feature = "ap")]
+pub fn chat_log_colors() {
+    todo!();
+}
+/// CLEAR_CHATLOG                Clear all data from chatlog.txt located in ./var folder.
+#[cfg(feature = "ap")]
+pub fn clear_chatlog() {
+    todo!();
+}
+/// CLEAR_LADDERLOG              Clear all data from ladderlog.txt located in ./var folder.
+#[cfg(feature = "ap")]
+pub fn clear_ladderlog() {
+    todo!();
+}
+/// CLEAR_REPORTS                Clear all data from reports.txt located in ./var folder.
+#[cfg(feature = "ap")]
+pub fn clear_reports() {
+    todo!();
+}
+/// CLEAR_SCORELOG               Clear all data from scorelog.txt located in ./var folder.
+#[cfg(feature = "ap")]
+pub fn clear_scorelog() {
+    todo!();
+}
+/// CLIENT_DOWNLOAD_SETTINGS     If set to 1, clients with the supported feature can download the server settings.
+#[cfg(feature = "ap")]
+pub fn client_download_settings() {
+    todo!();
+}
+/// COLLAPSE_ALL                 Causes all zones to vanish smoothly.
+#[cfg(feature = "ap")]
+pub fn collapse_all() {
+    todo!();
+}
+/// COLLAPSE_ZONE                collapse a zone by name (or, if no arguments, collapses all zones without assigned names)
+#[cfg(feature = "ap")]
+pub fn collapse_zone() {
+    todo!();
+}
+/// COLLAPSE_ZONE_ID             Collapse the zone by the given ID.
+#[cfg(feature = "ap")]
+pub fn collapse_zone_id() {
+    todo!();
+}
+/// COLOR_DEATHZONE_BLUE         Default: 0, blue portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_deathzone_blue() {
+    todo!();
+}
+/// COLOR_DEATHZONE_GREEN        Default: 0, green portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_deathzone_green() {
+    todo!();
+}
+/// COLOR_DEATHZONE_RED          Default: 15, red portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_deathzone_red() {
+    todo!();
+}
+/// COLOR_RUBBERZONE_BLUE        Blue portion of the color for rubber zone from 0 to 15.
+#[cfg(feature = "ap")]
+pub fn color_rubberzone_blue() {
+    todo!();
+}
+/// COLOR_RUBBERZONE_GREEN       Green portion of the color for rubber zone from 0 to 15.
+#[cfg(feature = "ap")]
+pub fn color_rubberzone_green() {
+    todo!();
+}
+/// COLOR_RUBBERZONE_RED         Red portion of the color for rubber zone from 0 to 15.
+#[cfg(feature = "ap")]
+pub fn color_rubberzone_red() {
+    todo!();
+}
+/// COLOR_TELEPORTZONE_BLUE      Default: 0, blue portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_teleportzone_blue() {
+    todo!();
+}
+/// COLOR_TELEPORTZONE_GREEN     Default: 15, green portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_teleportzone_green() {
+    todo!();
+}
+/// COLOR_TELEPORTZONE_RED       Default: 0, red portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_teleportzone_red() {
+    todo!();
+}
+/// COLOR_WINZONE_BLUE           Default: 0, blue portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_winzone_blue() {
+    todo!();
+}
+/// COLOR_WINZONE_GREEN          Default: 15, green portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_winzone_green() {
+    todo!();
+}
+/// COLOR_WINZONE_RED            Default: 0, red portion of the zone's color
+#[cfg(feature = "ap")]
+pub fn color_winzone_red() {
+    todo!();
+}
+/// CONDENSE_CONQUEST_OUTPUT     Condense fort zone conquered output into one line for multiple wiiners.
+#[cfg(feature = "ap")]
+pub fn condense_conquest_output() {
+    todo!();
+}
+/// CONFIG_ROTATION              A list of config files to rotate through, with values separated by semicolons. Optionally you can enter in the round like this: config|round_number;
+#[cfg(feature = "ap")]
+pub fn config_rotation() {
+    todo!();
+}
+/// CONFIG_ROTATION_ADD          Add a config item to the CONFIG_ROTATION list of items. Optionally you can also add in the round of selection. Usage: CONFIG_ROTATION_ADD <config>{|round_number}
+#[cfg(feature = "ap")]
+pub fn config_rotation_add() {
+    todo!();
+}
+/// CONFIG_ROTATION_LOAD         Loads the selected config from it's designated id from the list of CONFIG_ROTATION items. Usage: CONFIG_ROTATION_LOAD <config_id>
+#[cfg(feature = "ap")]
+pub fn config_rotation_load() {
+    todo!();
+}
+/// CONFIG_ROTATION_REMOVE       Removed the selected config from the list of CONFIG_ROTATION items. Usage: CONFIG_ROTATION_REMOVE <config>
+#[cfg(feature = "ap")]
+pub fn config_rotation_remove() {
+    todo!();
+}
+/// CONFIG_ROTATION_SET          Set the selected config to the round provided. Usage: CONFIG_ROTATION_SET <config> <round>
+#[cfg(feature = "ap")]
+pub fn config_rotation_set() {
+    todo!();
+}
+/// CONFIG_ROTATION_TYPE         How will the CONFIG_ROTATION files load? 0-INCLUDE or 1-RINCLUDE?; Default: 0
+#[cfg(feature = "ap")]
+pub fn config_rotation_type() {
+    todo!();
+}
+/// CONFIG_STORAGE               Is mainly use for non-rotation purposes, queue mainly. Usage is similar to CONFIG_ROTATION, except without round.
+#[cfg(feature = "ap")]
+pub fn config_storage() {
+    todo!();
+}
+/// CONSOLE_DECORATE_ID          Decorates every line of console output with the client ID
+#[cfg(feature = "ap")]
+pub fn console_decorate_id() {
+    todo!();
+}
+/// CONSOLE_DECORATE_IP          Decorates every line of console output with the client IP
+#[cfg(feature = "ap")]
+pub fn console_decorate_ip() {
+    todo!();
+}
+/// CONSOLE_DECORATE_TIMESTAMP   Decorates every line of console output with the current date and time
+#[cfg(feature = "ap")]
+pub fn console_decorate_timestamp() {
+    todo!();
+}
+/// CONSOLE_LOG_COLOR            Write color console messages to var/consolelogcolor.txt
+#[cfg(feature = "ap")]
+pub fn console_log_color() {
+    todo!();
+}
+/// CONSOLE_LOG_COLOR_DECORATE_TIMESTAMP console_log_color_decorate_timestamp_help
+#[cfg(feature = "ap")]
+pub fn console_log_color_decorate_timestamp() {
+    todo!();
+}
+/// CUSTOM_AUTHORITY             The custom authority to trigger when a player tries to login.
+#[cfg(feature = "ap")]
+pub fn custom_authority() {
+    todo!();
+}
+/// CUSTOM_AUTHORITY_CONNECTION  The link to connect to when using custom authority. Do not include "http://".
+#[cfg(feature = "ap")]
+pub fn custom_authority_connection() {
+    todo!();
+}
+/// CUSTOM_AUTHORITY_ENABLED     If set to 1 and CUSTOM_AUTHORITY is found, then CUSTOM_AUTHORITY_CONNECTION will be used to connect.
+#[cfg(feature = "ap")]
+pub fn custom_authority_enabled() {
+    todo!();
+}
+/// CUSTOM_CENTER_MESSAGE        Send custom message in the form of a center message.
+/// USAGE: CUSTOM_CENTER_MESSAGE ${language_string} param1 param2 param3 ...
+#[cfg(feature = "ap")]
+pub fn custom_center_message() {
+    todo!();
+}
+/// CUSTOM_CENTER_PLAYER_MESSAGE custom_center_player_message_help
+#[cfg(feature = "ap")]
+pub fn custom_center_player_message() {
+    todo!();
+}
+/// CUSTOM_CONFIGS               List of configs, seperated by ;, to load during the star-up of the client/server.
+#[cfg(feature = "ap")]
+pub fn custom_configs() {
+    todo!();
+}
+/// CUSTOM_INVALID_COMMANDS      Contains the list of commands to be executed as chat commands: Usage: CUSTOM_INVALID_COMMANDS {command_method1};{command_method2};
+#[cfg(feature = "ap")]
+pub fn custom_invalid_commands() {
+    todo!();
+}
+/// CUSTOM_MESSAGE               Send custom message using language string commands. Have spaces between each parameter.
+/// Usage: CUSTOM_MESSAGE ${language_string} param1 param2 param3 ...
+#[cfg(feature = "ap")]
+pub fn custom_message() {
+    todo!();
+}
+/// CUSTOM_PLAYER_CENTER_MESSAGE custom_player_center_message_help
+#[cfg(feature = "ap")]
+pub fn custom_player_center_message() {
+    todo!();
+}
+/// CUSTOM_PLAYER_MESSAGE        Send custom message to player using language string commands. Have spaces between each parameter.
+#[cfg(feature = "ap")]
+pub fn custom_player_message() {
+    todo!();
+}
+/// CUSTOM_SHORTHAND_ADD         Adding a custom shorthand with its link to store many links. USAGE: CUSTOM_SHORTHAND_ADD <shorthand> <link>
+#[cfg(feature = "ap")]
+pub fn custom_shorthand_add() {
+    todo!();
+}
+/// CUSTOM_SHORTHAND_ALLOWED     You are able to enable or disable an individual shorthand. USAGE: CUSTOM_SHORTHAND_ALLOWED <shorthand> <0-disable/1-enable>
+#[cfg(feature = "ap")]
+pub fn custom_shorthand_allowed() {
+    todo!();
+}
+/// CUSTOM_SHORTHAND_ENABLED     If set to 1 and CUSTOM_SHORTHAND is found, then CUSTOM_SHORTHAND_CONNECTION will be used to connect.
+#[cfg(feature = "ap")]
+pub fn custom_shorthand_enabled() {
+    todo!();
+}
+/// CUSTOM_SHORTHAND_LINKS_LIST  Displays the list of links connected to the specified shorthand. USAGE: CUSTOM_SHORTHAND_LINKS_LIST <shorthand>
+#[cfg(feature = "ap")]
+pub fn custom_shorthand_links_list() {
+    todo!();
+}
+/// CUSTOM_SHORTHAND_LIST        Displays a list of shorthands registered with server.
+#[cfg(feature = "ap")]
+pub fn custom_shorthand_list() {
+    todo!();
+}
+/// CUSTOM_SHORTHAND_REMOVE      Removing a custom shorthand. USAGE: CUSTOM_SHORTHAND_REMOVE <shorthand>
+#[cfg(feature = "ap")]
+pub fn custom_shorthand_remove() {
+    todo!();
+}
+/// CYCLE_DEATH_TELEPORT         Teleport a player instead of killing them. 1=Start position; 2=Reverse direction;
+#[cfg(feature = "ap")]
+pub fn cycle_death_teleport() {
+    todo!();
+}
+/// CYCLE_DEATH_TELEPORT_EXPLOSION Spawn an explosion?
+#[cfg(feature = "ap")]
+pub fn cycle_death_teleport_explosion() {
+    todo!();
+}
+/// CYCLE_DEATH_TELEPORT_RESET   Reset cycle parameters such as rubber and brakes?
+#[cfg(feature = "ap")]
+pub fn cycle_death_teleport_reset() {
+    todo!();
+}
+/// CYCLE_DELAY_BONUS            Extra fudge factor to CYCLE_DELAY applied on the dedicated server only.
+#[cfg(feature = "ap")]
+pub fn cycle_delay_bonus() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE           Set to 1 to spawn a zone to respawn player of their death.
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE_ENEMY     Set to 1 to enable enemies entering respawn zone to respawn player.
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone_enemy() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE_ENEMY_KILL Set to 1 to enable respawn zone to kill enemies for entering its zone.
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone_enemy_kill() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE_GROWTH    The growth rate of respawn zone. Can increase(value>0) or decrease(value<0).
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone_growth() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE_RADIUS    The radius of respawn zone to spawn when player dies.
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone_radius() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE_RESPAWN   Set to 1 to enable respawn zone to reappear after vanishing.
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone_respawn() {
+    todo!();
+}
+/// CYCLE_RESPAWN_ZONE_TYPE      The type of respawn occurs. 0-spawn on the location of death; 1-spawn on the starting location. Default: 0
+#[cfg(feature = "ap")]
+pub fn cycle_respawn_zone_type() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_ENEMY   If set to 1, rubber depletes for players when hitting enemys' tails.
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_enemy() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_ENEMY_OVERRIDE cycle_rubber_deplete_enemy_override_help
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_enemy_override() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_RIM     If set to 1, rubber depletes for players when hitting rim walls.
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_rim() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_RIM_OVERRIDE cycle_rubber_deplete_rim_override_help
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_rim_override() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_SELF    If set to 1, rubber depletes for players when hitting their own tails.
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_self() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_SELF_OVERRIDE cycle_rubber_deplete_self_override_help
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_self_override() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_TEAM    If set to 1, rubber depletes for players when hitting their teams' tails.
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_team() {
+    todo!();
+}
+/// CYCLE_RUBBER_DEPLETE_TEAM_OVERRIDE cycle_rubber_deplete_team_override_help
+#[cfg(feature = "ap")]
+pub fn cycle_rubber_deplete_team_override() {
+    todo!();
+}
+/// CYCLE_TURN                   Make the cycle turn. Usage: CYCLE_TURN [times to turn] <turn: left or right>.
+#[cfg(feature = "ap")]
+pub fn cycle_turn() {
+    todo!();
+}
+/// CYCLE_ZONES_AIM              cycle_zones_aim_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_aim() {
+    todo!();
+}
+/// CYCLE_ZONES_AIM_CHATBOT      cycle_zones_aim_chatbot_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_aim_chatbot() {
+    todo!();
+}
+/// CYCLE_ZONES_AIM_TYPES        cycle_zones_aim_types_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_aim_types() {
+    todo!();
+}
+/// CYCLE_ZONES_APPROACH         cycle_zones_approach_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_approach() {
+    todo!();
+}
+/// CYCLE_ZONES_APPROCH          The distance a cycle can approch the zone without trigging the OnNear() event.
+#[cfg(feature = "ap")]
+pub fn cycle_zones_approch() {
+    todo!();
+}
+/// CYCLE_ZONES_AVOID            If set to 1, cycles will do their best at avoiding the zone. Is slightly buggy but works often.
+#[cfg(feature = "ap")]
+pub fn cycle_zones_avoid() {
+    todo!();
+}
+/// CYCLE_ZONES_AVOID_AIM_ORDER  cycle_zones_avoid_aim_order_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_avoid_aim_order() {
+    todo!();
+}
+/// CYCLE_ZONES_AVOID_CHATBOT    If enabled, chatbots are also included in CYCLE_ZONES_AVOID.
+#[cfg(feature = "ap")]
+pub fn cycle_zones_avoid_chatbot() {
+    todo!();
+}
+/// CYCLE_ZONES_AVOID_OLD        cycle_zones_avoid_old_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_avoid_old() {
+    todo!();
+}
+/// CYCLE_ZONES_AVOID_RANGE      cycle_zones_avoid_range_help
+#[cfg(feature = "ap")]
+pub fn cycle_zones_avoid_range() {
+    todo!();
+}
+/// DEADLY_EXPLOSIONS            Should cycles in the blast radius of an explosion be destroyed?
+#[cfg(feature = "ap")]
+pub fn deadly_explosions() {
+    todo!();
+}
+/// DEATHZONE_RANDOM_COLORS      Default: 0; If set to 1, deathzones will have their colors by randomness.
+#[cfg(feature = "ap")]
+pub fn deathzone_random_colors() {
+    todo!();
+}
+/// DEATHZONE_ROTATION           If set to 1, DEATHZONE_ROTATION_SPEED will be used for the speed of deathzones.
+#[cfg(feature = "ap")]
+pub fn deathzone_rotation() {
+    todo!();
+}
+/// DEATHZONE_ROTATION_SPEED     The speed at which the rotation of the deathzones. Negative values cause it to spin in the other way.
+#[cfg(feature = "ap")]
+pub fn deathzone_rotation_speed() {
+    todo!();
+}
+/// DEATH_SHOT                   If set to 1, killed players will release a death shot if they had been about to shoot.
+#[cfg(feature = "ap")]
+pub fn death_shot() {
+    todo!();
+}
+/// DEDICATED_FPS                Maximum simulation steps per second the dedicated server will perform
+#[cfg(feature = "ap")]
+pub fn dedicated_fps() {
+    todo!();
+}
+/// DEDICATED_FPS_IDLE_FACTOR    Number of times per frame the server should check whether simulation can be done if no network input is coming
+#[cfg(feature = "ap")]
+pub fn dedicated_fps_idle_factor() {
+    todo!();
+}
+/// DEFAULT_MAP_FILE             The default map to revert to when no players are active
+#[cfg(feature = "ap")]
+pub fn default_map_file() {
+    todo!();
+}
+/// DEFAULT_MAP_FILE_ON_EMPTY    If set to 1, the DEFAULT_MAP_FILE is selected when no players are active
+#[cfg(feature = "ap")]
+pub fn default_map_file_on_empty() {
+    todo!();
+}
+/// DELAY_COMMAND                A command to execute at given time. Usage: DELAY_COMMAND [time] [command] [parameters] ...
+#[cfg(feature = "ap")]
+pub fn delay_command() {
+    todo!();
+}
+/// DELAY_COMMAND_CLEAR          Clears all delayed command from cache.
+#[cfg(feature = "ap")]
+pub fn delay_command_clear() {
+    todo!();
+}
+/// DELAY_COMMAND_REMOVE         Removes a delay command at the specified id number. Usage: DELAY_COMMAND_REMOVE [id] ...
+#[cfg(feature = "ap")]
+pub fn delay_command_remove() {
+    todo!();
+}
+/// DEOP                         Reverses /op; it takes away a player's access level, effectively making them unauthenticated again.
+#[cfg(feature = "ap")]
+pub fn deop() {
+    todo!();
+}
+/// DESTROY_ALL                  Causes all zones to vanish instantly.
+#[cfg(feature = "ap")]
+pub fn destroy_all() {
+    todo!();
+}
+/// DESTROY_ZONE                 Destroy, simply meaning: causes the zone with the given name to disappear instantly.
+#[cfg(feature = "ap")]
+pub fn destroy_zone() {
+    todo!();
+}
+/// DESTROY_ZONE_ID              Destroy, simply meaning: causes the zone with the given id to disappear instantly.
+#[cfg(feature = "ap")]
+pub fn destroy_zone_id() {
+    todo!();
+}
+/// DISPLAY_SCORES_DURING_CHAT   If enabled, scores will continue showing while in chat.
+#[cfg(feature = "ap")]
+pub fn display_scores_during_chat() {
+    todo!();
+}
+/// ENABLE_FRIENDS_CASING        If set to 1, matching friends will appear. If set to 0, no matter what casing it is, names with our friends will appear.
+#[cfg(feature = "ap")]
+pub fn enable_friends_casing() {
+    todo!();
+}
+/// EXIT                         Shuts the dedicated server down and quits.
+#[cfg(feature = "ap")]
+pub fn exit() {
+    todo!();
+}
+/// FLAG_BLINK_END               Percentage of the flag radius to end the flag blink at.
+#[cfg(feature = "ap")]
+pub fn flag_blink_end() {
+    todo!();
+}
+/// FLAG_BLINK_ESTIMATE_POSITION 0 to start the flag blink at the current player position, 1 to start the flag blink where the player would be at the end of the blink at current speed and direction
+#[cfg(feature = "ap")]
+pub fn flag_blink_estimate_position() {
+    todo!();
+}
+/// FLAG_BLINK_ON_TIME           Time in seconds that flag is on in a blink (not recommended to set this below 0.1)
+#[cfg(feature = "ap")]
+pub fn flag_blink_on_time() {
+    todo!();
+}
+/// FLAG_BLINK_START             Percentage of the flag radius to start the flag blink at.
+#[cfg(feature = "ap")]
+pub fn flag_blink_start() {
+    todo!();
+}
+/// FLAG_BLINK_TIME              Time in seconds between flag blinking over player with the flag, -1 to disable
+#[cfg(feature = "ap")]
+pub fn flag_blink_time() {
+    todo!();
+}
+/// FLAG_BLINK_TRACK_TIME        If set above zero, this tracks the cycle position and speed at the rate defined by this setting.  it is not recommended to set this below 0.1 for lag reasons.
+#[cfg(feature = "ap")]
+pub fn flag_blink_track_time() {
+    todo!();
+}
+/// FLAG_CHAT_BLINK_TIME         Time in seconds that the chat triangle above a player with a flag will blink, -1 to disable
+#[cfg(feature = "ap")]
+pub fn flag_chat_blink_time() {
+    todo!();
+}
+/// FLAG_COLOR_B                 (0-15) blue color for a neutral flag
+#[cfg(feature = "ap")]
+pub fn flag_color_b() {
+    todo!();
+}
+/// FLAG_COLOR_G                 (0-15) green color for a neutral flag
+#[cfg(feature = "ap")]
+pub fn flag_color_g() {
+    todo!();
+}
+/// FLAG_COLOR_R                 (0-15) red color for a neutral flag
+#[cfg(feature = "ap")]
+pub fn flag_color_r() {
+    todo!();
+}
+/// FLAG_CONQUEST_WINS_ROUND     Flag indicating whether capturing the flag wins the round or not
+#[cfg(feature = "ap")]
+pub fn flag_conquest_wins_round() {
+    todo!();
+}
+/// FLAG_CONTROLS                Is a player allowed to use flag commands (/drop, /pass) ?
+#[cfg(feature = "ap")]
+pub fn flag_controls() {
+    todo!();
+}
+/// FLAG_DROP_HOME               Flag indicating whether dropping the flag sends it home
+#[cfg(feature = "ap")]
+pub fn flag_drop_home() {
+    todo!();
+}
+/// FLAG_DROP_TIME               If positive, enables player to drop flag by chatting "/drop". value is the number of seconds they can't pick up the flag afterwards, 2-3 recommended.
+#[cfg(feature = "ap")]
+pub fn flag_drop_time() {
+    todo!();
+}
+/// FLAG_HOLD_SCORE              Points given for holding the flag see FLAG_HOLD_SCORE_TIME
+#[cfg(feature = "ap")]
+pub fn flag_hold_score() {
+    todo!();
+}
+/// FLAG_HOLD_SCORE_TIME         Seconds until points are awarded for holding the flag see FLAG_HOLD_SCORE
+#[cfg(feature = "ap")]
+pub fn flag_hold_score_time() {
+    todo!();
+}
+/// FLAG_HOLD_TIME               Time in seconds that the player can hold the flag before it is returned home, -1 to disable
+#[cfg(feature = "ap")]
+pub fn flag_hold_time() {
+    todo!();
+}
+/// FLAG_HOLD_TIME_DROP          Whether the flag is sent back home or dropped where it is after FLAG_HOLD_TIME
+#[cfg(feature = "ap")]
+pub fn flag_hold_time_drop() {
+    todo!();
+}
+/// FLAG_HOME_RANDOMNESS_X       Y direction the flag can vary from its starting spot when returned.
+#[cfg(feature = "ap")]
+pub fn flag_home_randomness_x() {
+    todo!();
+}
+/// FLAG_HOME_RANDOMNESS_Y       X direction the flag can vary from its starting spot when returned.
+#[cfg(feature = "ap")]
+pub fn flag_home_randomness_y() {
+    todo!();
+}
+/// FLAG_PASS_DISTANCE           The distance in which the team member should be in order to receive the flag.
+#[cfg(feature = "ap")]
+pub fn flag_pass_distance() {
+    todo!();
+}
+/// FLAG_PASS_MODE               The mode of selection for passing the flag; o-disable, 1-closest, 2-furthest, 3-distance, 4-name.
+#[cfg(feature = "ap")]
+pub fn flag_pass_mode() {
+    todo!();
+}
+/// FLAG_PASS_SPEED              The speed at which the flag should be passed (+ the speed the receive is travelling at).
+#[cfg(feature = "ap")]
+pub fn flag_pass_speed() {
+    todo!();
+}
+/// FLAG_REQUIRED_HOME           Flag indicating whether flags need to be home to score
+#[cfg(feature = "ap")]
+pub fn flag_required_home() {
+    todo!();
+}
+/// FLAG_TEAM                    0 - Flags are neutral, 1 Flags have team that own them
+#[cfg(feature = "ap")]
+pub fn flag_team() {
+    todo!();
+}
+/// FORBID_HUD_MAP               Disallow clients to display the HUD minimap?
+#[cfg(feature = "ap")]
+pub fn forbid_hud_map() {
+    todo!();
+}
+/// FORCE_RESPAWN_SCRIPT         Spawns an external script from a scripts/ subdirectory on the data path after killing the other possibly running instance.
+#[cfg(feature = "ap")]
+pub fn force_respawn_script() {
+    todo!();
+}
+/// FULLSCREEN_PLAYER_MESSAGE    Prints a big message all over the screen only to the specified player without pausing the game. Use with care.
+#[cfg(feature = "ap")]
+pub fn fullscreen_player_message() {
+    todo!();
+}
+/// GAME_SP_HUMANS               game_sp_humans_help
+#[cfg(feature = "ap")]
+pub fn game_sp_humans() {
+    todo!();
+}
+/// GAME_WAIT_PLAYERS_ENABLED    game_wait_players_enabled_help
+#[cfg(feature = "ap")]
+pub fn game_wait_players_enabled() {
+    todo!();
+}
+/// GET_CURRENT_MAP              Displays the current map players are playing in.
+#[cfg(feature = "ap")]
+pub fn get_current_map() {
+    todo!();
+}
+/// GIVE_POINTS                  "Hugs" a player, giving them a specified amount of points.
+#[cfg(feature = "ap")]
+pub fn give_points() {
+    todo!();
+}
+/// GLANCE_FORWARD_TOOLTIP       glance_forward_tooltip_help
+#[cfg(feature = "ap")]
+pub fn glance_forward_tooltip() {
+    todo!();
+}
+/// GOAL_ROUND_END               Flag indicating whether the round ends when a goal is shot
+#[cfg(feature = "ap")]
+pub fn goal_round_end() {
+    todo!();
+}
+/// HELP                         /help
+#[cfg(feature = "ap")]
+pub fn help() {
+    todo!();
+}
+/// HELP_MESSAGE                 A help message sent to those calling it. Works through "/help" as well.
+#[cfg(feature = "ap")]
+pub fn help_message() {
+    todo!();
+}
+/// HELP_MESSAGE_TYPE            Set 0 to use HELP_{ADD|REMOVE}_TOPIC commands. Set 1 to use HELP_MESSAGE. Default: 0;
+#[cfg(feature = "ap")]
+pub fn help_message_type() {
+    todo!();
+}
+/// IDLE_KICK_EXEMPT             Exempt the access_level from being idle kicked. USAGE: IDLE_KICK_EXEMPT [access_level]
+#[cfg(feature = "ap")]
+pub fn idle_kick_exempt() {
+    todo!();
+}
+/// INTERCEPT_COMMANDS           List of chat commands to accept and log to stdout.
+#[cfg(feature = "ap")]
+pub fn intercept_commands() {
+    todo!();
+}
+/// INTERCEPT_UNKNOWN_COMMANDS   If 1, accept and log all unknown chat commands.
+#[cfg(feature = "ap")]
+pub fn intercept_unknown_commands(enabled: bool) {
+    println!("{} {}", Command::InterceptUnknownCommands, enabled.byte());
+}
+/// KILL_ALL                     Kills everyone on the grid.
+#[cfg(feature = "ap")]
+pub fn kill_all() {
+    todo!();
+}
+/// KILL_ALL_SCRIPTS             Kills all active scripts.
+#[cfg(feature = "ap")]
+pub fn kill_all_scripts() {
+    todo!();
+}
+/// KILL_ID                      Kill a specific player using their id.
+#[cfg(feature = "ap")]
+pub fn kill_id() {
+    todo!();
+}
+/// KILL_SCRIPT                  Kills a script. Argument must match the SPAWN_SCRIPT argument.
+#[cfg(feature = "ap")]
+pub fn kill_script() {
+    todo!();
+}
+/// KOH_SCORE                    Score given for being the only one in a zone for KOH_SCORE_TIME
+#[cfg(feature = "ap")]
+pub fn koh_score() {
+    todo!();
+}
+/// KOH_SCORE_TIME               The interval that KOH_SCORE is added
+#[cfg(feature = "ap")]
+pub fn koh_score_time() {
+    todo!();
+}
+/// LADDERLOG_ENABLED            If set to 1, ladderlog output is enabled.
+#[cfg(feature = "ap")]
+pub fn ladderlog_enabled() {
+    todo!();
+}
+/// LADDERLOG_OBJECTZONE_PLAYER_ENTERED_INSIDE ladderlog_objectzone_player_entered_inside_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_objectzone_player_entered_inside() {
+    todo!();
+}
+/// LADDERLOG_OBJECTZONE_ZONE_ENTERED_POLLRATE Rate at which zones are checked for interactions with objectzones. Lower values increase accuracy at the cost of performance. -1 disables.
+#[cfg(feature = "ap")]
+pub fn ladderlog_objectzone_zone_entered_pollrate() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ADMIN_COMMAND Write to ladderlog: ADMIN_COMMAND <name> <setting>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_admin_command() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ADMIN_LOGIN  Write to ladderlog: ADMIN_LOGIN [login_name] [ip_address]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_admin_login() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ADMIN_LOGOUT Write to ladderlog: ADMIN_LOGOUT [login_name] [ip_address]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_admin_logout() {
+    todo!();
+}
+/// LADDERLOG_WRITE_AI_POSITIONS If set to 1, the team positions for AI Teams will output under "POSITIONS"
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_ai_positions() {
+    todo!();
+}
+/// LADDERLOG_WRITE_BALL_VANISH  Write to ladderlog: BALL_VANISH <object id> <zone_name> <cx> <cy>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_ball_vanish() {
+    todo!();
+}
+/// LADDERLOG_WRITE_BASEZONE_CONQUERER_TEAM Write to ladderlog: BASEZONE_CONQUERER_TEAM <team> <score>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_basezone_conquerer_team() {
+    todo!();
+}
+/// LADDERLOG_WRITE_BASE_ENEMY_RESPAWN Write to ladderlog: BASE_ENEMY_RESPAWN  <spawner> <spawned>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_base_enemy_respawn() {
+    todo!();
+}
+/// LADDERLOG_WRITE_BASE_RESPAWN Write to ladderlog: BASE_RESPAWN <spawner> <spawned>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_base_respawn() {
+    todo!();
+}
+/// LADDERLOG_WRITE_BLASTZONE_PLAYER_ENTER Write to ladderlog: DEATH_BLASTZONE_PLAYER_ENTER <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_blastzone_player_enter() {
+    todo!();
+}
+/// LADDERLOG_WRITE_COMMAND      ladderlog_write_command_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_command() {
+    todo!();
+}
+/// LADDERLOG_WRITE_CURRENT_MAP  Write to ladderlog: CURRENT_MAP [size_factor] [size_multiplier] [MAP_FILE]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_current_map() {
+    todo!();
+}
+/// LADDERLOG_WRITE_CUSTOM_INVALID_COMMAND Write to ladderlog: CUSTOM_INVALID_COMMAND <command> <player_log> <ip> <access_level> <params>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_custom_invalid_command() {
+    todo!();
+}
+/// LADDERLOG_WRITE_CYCLE_CREATED Write to ladderlog: CYCLE_CREATED [auth_name] [posx] [posy] [dirx] [diry] [team_name] [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_cycle_created() {
+    todo!();
+}
+/// LADDERLOG_WRITE_CYCLE_DEATH_TELEPORT Write to ladderlog: CYCLE_DEATH_TELEPORT [auth_name] [posx] [posy] [dirx] [diry] [team_name] [time] [reason] [predator]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_cycle_death_teleport() {
+    todo!();
+}
+/// LADDERLOG_WRITE_CYCLE_DESTROYED Write to ladderlog: CYCLE_DESTROYED [auth_name] [posx] [posy] [dirx] [diry] [team_name] [time] [reason] [predator]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_cycle_destroyed() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATHZONE_ACTIVATED Write to ladderlog: DEATHZONE_ACTIVATED [id] [name] [xpos] [ypos]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_deathzone_activated() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_BASEZONE_CONQUERED Write to ladderlog: DEATH_BASEZONE_CONQUERED <player> [NO_ENEMIES]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_basezone_conquered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_DEATHSHOT Write to ladderlog: DEATH_DEATHSHOT <prey> <predator>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_deathshot() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_DEATHZONE Write to ladderlog: DEATH_DEATHZONE <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_deathzone() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_DEATHZONE_TEAM Write to ladderlog: DEATH_DEATHZONE_TEAM <team> <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_deathzone_team() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_EXPLOSION Write to ladderlog: DEATH_EXPLOSION <prey> <predator>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_explosion() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_RUBBERZONE Write to ladderlog: DEATH_RUBBERZONE <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_rubberzone() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_SELF_DESTRUCT Write to ladderlog: DEATH_SELF_DESTRUCT <prey> <predator>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_self_destruct() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_SHOT_FRAG Write to ladderlog: DEATH_SHOT_FRAG <prey> <predator>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_shot_frag() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_SHOT_SUICIDE Write to ladderlog: DEATH_SHOT_SUICIDE <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_shot_suicide() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_SHOT_TEAMKILL Write to ladderlog: DEATH_SHOT_TEAMKILL <prey> <predator>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_shot_teamkill() {
+    todo!();
+}
+/// LADDERLOG_WRITE_DEATH_ZOMBIEZONE Write to ladderlog: DEATH_ZOMBIEZONE <prey> [predator]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_death_zombiezone() {
+    todo!();
+}
+/// LADDERLOG_WRITE_END_CHALLENGE Write to ladderlog: END_CHALLENGE [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_end_challenge() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_CONQUEST_ROUND_WIN Write to ladderlog: FLAG_CONQUEST_ROUND_WIN <player> <flag team>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_conquest_round_win() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_DROP    Write to ladderlog: FLAG_DROP <player> <flag team>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_drop() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_HELD    Write to ladderlog: FLAG_HELD <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_held() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_RETURN  Write to ladderlog: FLAG_RETURN <player>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_return() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_SCORE   Write to ladderlog: FLAG_SCORE <player> <flag team>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_score() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_TAKE    Write to ladderlog: FLAG_TAKE <player> <flag team>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_take() {
+    todo!();
+}
+/// LADDERLOG_WRITE_FLAG_TIMEOUT Write to ladderlog: FLAG_TIMEOUT <player> <flag team>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_flag_timeout() {
+    todo!();
+}
+/// LADDERLOG_WRITE_INVALID_COMMAND Write to ladderlog: INVALID_COMMAND [command] [player_username] [ip_address] [access_level] [params]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_invalid_command() {
+    todo!();
+}
+/// LADDERLOG_WRITE_MATCH_ENDED  Write to ladderlog: MATCH_ENDED [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_match_ended() {
+    todo!();
+}
+/// LADDERLOG_WRITE_MATCH_SCORE  Write to ladderlog: MATCH_SCORE [player_score] [player_username] [team_name]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_match_score() {
+    todo!();
+}
+/// LADDERLOG_WRITE_MATCH_SCORE_TEAM Write to ladderlog: MATCH_SCORE_TEAM [team_score] [team_name] [sets_won]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_match_score_team() {
+    todo!();
+}
+/// LADDERLOG_WRITE_NEW_SET      Write to ladderlog: NEW_SET [current_set] [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_new_set() {
+    todo!();
+}
+/// LADDERLOG_WRITE_NEXT_ROUND   Write to ladderlog: NEXT_ROUND [next_round_number] [total_rounds] [map_file] [center_message]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_next_round() {
+    todo!();
+}
+/// LADDERLOG_WRITE_OBJECTZONE_PLAYER_ENTERED Write to ladderlog: OBJECTZONE_PLAYER_ENTERED [zone_id] [zone_name] [zone_pos_x] [zone_pos_y] [player_name] [player_pos_x] [player_pos_y] [player_direction_x] [player_direction_y] [game_time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_objectzone_player_entered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_OBJECTZONE_PLAYER_LEFT Write to ladderlog: OBJECTZONE_PLAYER_LEFT [zone_id] [zone_name] [zone_pos_x] [zone_pos_y] [player_name] [player_pos_x] [player_pos_y] [player_direction_x] [player_direction_y] [game_time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_objectzone_player_left() {
+    todo!();
+}
+/// LADDERLOG_WRITE_OBJECTZONE_SPAWNED Write to ladderlog: OBJECTZONE_SPAWNED [id] [name] [pos_x] [pos_y] [xdir] [ydir]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_objectzone_spawned() {
+    todo!();
+}
+/// LADDERLOG_WRITE_OBJECTZONE_ZONE_ENTERED Write to ladderlog: OBJECTZONE_ZONE_ENTERED [zone_id] [zone_name] [zone_posx] [zone_posy] [target_id] [target_name] [target_pos_x] [target_pos_y] [target_dir_x] [target_dir_y] [game_time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_objectzone_zone_entered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_OBJECTZONE_ZONE_LEFT ladderlog_write_objectzone_zone_left_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_objectzone_zone_left() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ONLINE_AI    Write to ladderlog: ONLINE_AI <name> <team> <score>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_online_ai() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ONLINE_PLAYERS_ALIVE Write to ladderlog: ONLINE_PLAYERS_ALIVE <player1> <player2> <player3> ...
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_online_players_alive() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ONLINE_PLAYERS_COUNT Write to ladderlog: ONLINE_PLAYERS_COUNT <humans> <ais> <humans alive> <ai alive> <humans dead> <ai dead>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_online_players_count() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ONLINE_PLAYERS_DEAD Write to ladderlog: ONLINE_PLAYERS_DEAD <player1> <player2> <player3> ...
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_online_players_dead() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ONLINE_TEAM  Write to ladderlog: ONLINE_TEAM <name> <screen name>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_online_team() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ONLINE_ZONE  ladderlog_write_online_zone_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_online_zone() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_AI_ENTERED Write to ladderlog: PLAYER_AI_ENTERED <name> <screen name>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_ai_entered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_AI_LEFT Write to ladderlog: PLAYER_AI_LEFT [ai_name]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_ai_left() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_COLORED_NAME Write to ladderlog: PLAYER_COLORED_NAME [player_useranme] [player_colored_name]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_colored_name() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_ENTERED_GRID Write to ladderlog: PLAYER_ENTERED_GRID <name> <IP> <screen name>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_entered_grid() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_ENTERED_SPECTATOR Write to ladderlog: PLAYER_ENTERED_SPECTATOR <name> <IP> <screen name>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_entered_spectator() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_GRIDPOS Write to ladderlog: PLAYER_GRIDPOS [player_username] [pos_x] [pos_y] [dir_x] [dir_y] [cycle_speed] [player_rubber] [cycle_rubber] [team] [player_braking] [player_brake_reservoir]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_gridpos() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_JOINS_SPECTATORS ladderlog_write_player_joins_spectators_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_joins_spectators() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_KILLED Write to ladderlog: PLAYER_KILLED [player_username] [ip_address] [pos_x] [pos_y] [dir_x] [dir_y]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_killed() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_LEAVES_SPECTATORS ladderlog_write_player_leaves_spectators_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_leaves_spectators() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_LOGIN ladderlog_write_player_login_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_login() {
+    todo!();
+}
+/// LADDERLOG_WRITE_PLAYER_LOGOUT ladderlog_write_player_logout_help
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_player_logout() {
+    todo!();
+}
+/// LADDERLOG_WRITE_QUEUE_FINISHED Write to ladderlog: QUEUE_FINISHED [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_queue_finished() {
+    todo!();
+}
+/// LADDERLOG_WRITE_QUEUE_STARTED Write to ladderlog: QUEUE_STARTED [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_queue_started() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ROUND_COMMENCING Write to ladderlog: ROUND_COMMENCING [current_round] [total_rounds]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_round_commencing() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ROUND_ENDED  Write to ladderlog: ROUND_ENDED [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_round_ended() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ROUND_FINISHED Write to ladderlog: ROUND_FINISHED [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_round_finished() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ROUND_STARTED Write to ladderlog: ROUND_STARTED [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_round_started() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SET_WINNER   Write to ladderlog: SET_WINNER [team_name]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_set_winner() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SHUTDOWN     Write to ladderlog: SHUTDOWN <time> when the server has been shut down using exit/quit commands
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_shutdown() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SOCCER_BALL_PLAYER_ENTERED Write to ladderlog: SOCCER_BALL_PLAYER_ENTERED [player_auth_name] [team]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_soccer_ball_player_entered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SOCCER_GOAL_PLAYER_ENTERED Write to ladderlog: SOCCER_GOAL_PLAYER_ENTERED [player_auth_name] [player_team] [team owner of the goal]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_soccer_goal_player_entered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SOCCER_GOAL_SCORED Write to ladderlog: SOCCER_GOAL_SCORED <goal's team> <scored team> <scored player> <time>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_soccer_goal_scored() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SPAWN_POSITION_TEAM Write to ladderlog: SPAWN_POSITION_TEAM [team_name] [new_position]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_spawn_position_team() {
+    todo!();
+}
+/// LADDERLOG_WRITE_START_CHALLENGE Write to ladderlog: START_CHALLENGE [time]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_start_challenge() {
+    todo!();
+}
+/// LADDERLOG_WRITE_SVG_CREATED  Write to ladderlog: SVG_CREATED
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_svg_created() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TACTICAL_POSITION Write to ladderlog: TACTICAL_POSITION [time] [name] [tact_pos]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_tactical_position() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TACTICAL_STATISTICS Write to ladderlog: TACTICAL_STATISTICS [tact_pos] [name] [time] [state] [kills]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_tactical_statistics() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TARGETZONE_CONQUERED Write to ladderlog: TARGETZONE_CONQUERED <object_id> <zone_name> <cx> <cy> [<player> [<team>]]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_targetzone_conquered() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TARGETZONE_PLAYER_ENTER Write to ladderlog: TARGETZONE_PLAYER_ENTER <object_id> <zone_name> <cx> <cy> <player> <x> <y> <xdir> <ydir> <time>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_targetzone_player_enter() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TARGETZONE_PLAYER_LEFT Write to ladderlog: TARGETZONE_PLAYER_LEFT <object_id> <zone_name> <cx> <cy> <player> <x> <y> <xdir> <ydir>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_targetzone_player_left() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TARGETZONE_TIMEOUT Write to ladderlog: TARGETZONE_TIMEOUT <object_id> <zone_name> <cx> <cy>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_targetzone_timeout() {
+    todo!();
+}
+/// LADDERLOG_WRITE_TEAM_COLORED_NAME Write to ladderlog: TEAM_COLORED_NAME [team_name] [team_colored_name]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_team_colored_name() {
+    todo!();
+}
+/// LADDERLOG_WRITE_VOTER        Write to ladderlog: VOTER [player_name] [0-against|1-for] [description]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_voter() {
+    todo!();
+}
+/// LADDERLOG_WRITE_VOTE_CREATED Write to ladderlog: VOTE_CREATED [suggestor] [description]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_vote_created() {
+    todo!();
+}
+/// LADDERLOG_WRITE_WINZONE_ACTIVATED Write to ladderlog: WINZONE_ACTIVATED [id] [name] [xpos] [ypos]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_winzone_activated() {
+    todo!();
+}
+/// LADDERLOG_WRITE_WINZONE_PLAYER_ENTER Write to ladderlog: WINZONE_PLAYER_ENTER <player> <x> <y> <xdir> <ydir> <time>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_winzone_player_enter() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ZONE_COLLAPSED Write to ladderlog: ZONE_COLLAPSED <zone_id> <object_id> <cx> <cy>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_zone_collapsed() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ZONE_CREATED Write to ladderlog: ZONE_CREATED [effect] [id] [name] [xpos] [ypos] [xdir] [ydir]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_zone_created() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ZONE_GRIDPOS Write to ladderlog: ZONE_GRIDPOS [effect] [id] [name] [radius] [growth] [posx] [posy] [velx] [vely] [r] [g] [b]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_zone_gridpos() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ZONE_ROUTE_STOPPED Write to ladderlog: ZONE_ROUTE_STOPPED [effect] [id] [name] [posx] [posy] [velx] [vely]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_zone_route_stopped() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ZONE_SHOT_RELEASED Write to ladderlog: ZONE_SHOT_RELEASED [0-shot|1-deathshot] [id] [player_name] [zone_pos_x] [zone_pos_y] [zone_dir_x] [zone_dir_y]
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_zone_shot_released() {
+    todo!();
+}
+/// LADDERLOG_WRITE_ZONE_SPAWNED Write to ladderlog: ZONE_SPAWNED <zone_effect> <object id> <zone_name> <x> <y> <xdir> <ydir>
+#[cfg(feature = "ap")]
+pub fn ladderlog_write_zone_spawned() {
+    todo!();
+}
+/// LADDER_HIGHSCORE_OUTPUT      If set to >1, high scores will be announced to all players.
+#[cfg(feature = "ap")]
+pub fn ladder_highscore_output() {
+    todo!();
+}
+/// LANGUAGE_RELOAD              Immediately reload languages from file.
+#[cfg(feature = "ap")]
+pub fn language_reload() {
+    todo!();
+}
+/// LEGACY_LADDERLOG_COMMAND     If set to 1, COMMAND will output similar things to INVALID_COMMAND.
+#[cfg(feature = "ap")]
+pub fn legacy_ladderlog_command() {
+    todo!();
+}
+/// LIMIT_ADVANCE                End the match when the first team in score is this number of points ahead of the second team
+#[cfg(feature = "ap")]
+pub fn limit_advance() {
+    todo!();
+}
+/// LIMIT_SCORE_MIN_LEAD         Only consider LIMIT_SCORE when this lead is achieved by the winning team
+#[cfg(feature = "ap")]
+pub fn limit_score_min_lead() {
+    todo!();
+}
+/// LIMIT_SETS                   Set the match set limit. Teams winning more sets win the match.
+#[cfg(feature = "ap")]
+pub fn limit_sets() {
+    todo!();
+}
+/// LIST_ALL_COMMANDS            All commands and their values are stored in ./var/commands_list.txt
+#[cfg(feature = "ap")]
+pub fn list_all_commands() {
+    todo!();
+}
+/// LIST_ALL_COMMANDS_LEVELS     All commands are their access levels are stored in ./var/commands_levels_list.txt
+#[cfg(feature = "ap")]
+pub fn list_all_commands_levels() {
+    todo!();
+}
+/// LIST_SCRIPTS                 Lists active scripts.
+#[cfg(feature = "ap")]
+pub fn list_scripts() {
+    todo!();
+}
+/// LOAD_CUSTOM_CONFIGS          Load the custom configs loaded in CUSTOM_CONFIGS command.
+#[cfg(feature = "ap")]
+pub fn load_custom_configs() {
+    todo!();
+}
+/// LOGIN                        Using this command you can prompt/login the selected player under the <name> with the given <username>.
+/// Usage: LOGIN <name> <username>.
+#[cfg(feature = "ap")]
+pub fn login() {
+    todo!();
+}
+/// LOGOUT                       Using the given <name>, find the player and logs them out if they already logged in.
+/// Usage: LOGOUT <name>.
+#[cfg(feature = "ap")]
+pub fn logout() {
+    todo!();
+}
+/// LOG_PLAYERS_ACTIVITIES       log_players_activities_help
+#[cfg(feature = "ap")]
+pub fn log_players_activities() {
+    todo!();
+}
+/// LOG_TURNS                    If set to 1, this setting will log the spawned time, death time and the positions of which players move to in the file ./var/log_turns/<name>.txt
+#[cfg(feature = "ap")]
+pub fn log_turns() {
+    todo!();
+}
+/// LOG_TURNS_TIMESTAMP          If set to 1, [TIME-STAMP] <message> will be sent to all the players logging file in ./var/log_turns/<name>.txt
+#[cfg(feature = "ap")]
+pub fn log_turns_timestamp() {
+    todo!();
+}
+/// LOG_TURNS_WINNER             If set to 1, spawned and finished position, direction when a player enters a win zone or a target zone for the first time to the file ./var/log_turns/winner/<name>.txt
+#[cfg(feature = "ap")]
+pub fn log_turns_winner() {
+    todo!();
+}
+/// LOG_ZONE_GRIDPOS             log_zone_gridpos_help
+#[cfg(feature = "ap")]
+pub fn log_zone_gridpos() {
+    todo!();
+}
+/// LOG_ZONE_GRIDPOS_ID          log_zone_gridpos_id_help
+#[cfg(feature = "ap")]
+pub fn log_zone_gridpos_id() {
+    todo!();
+}
+/// MAP_ONCHANGE_INCLUDE         configuration file included before verifying the new map
+#[cfg(feature = "ap")]
+pub fn map_onchange_include() {
+    todo!();
+}
+/// MAP_ROTATION                 A list of map files to rotate through, with values separated by semicolons. Optionally you can enter in the round like this: map|round_number;
+#[cfg(feature = "ap")]
+pub fn map_rotation() {
+    todo!();
+}
+/// MAP_ROTATION_ADD             Add a map item to the MAP_ROTATION list of items. Optionally you can also add in the round of selection. Usage: MAP_ROTATION_ADD <map>{|round_number}
+#[cfg(feature = "ap")]
+pub fn map_rotation_add() {
+    todo!();
+}
+/// MAP_ROTATION_LOAD            Loads the selected map from it's designated id from the list of MAP_ROTATION items. Usage: MAP_ROTATION_LOAD <map_id>
+#[cfg(feature = "ap")]
+pub fn map_rotation_load() {
+    todo!();
+}
+/// MAP_ROTATION_REMOVE          Removed the selected map from the list of MAP_ROTATION items. Usage: MAP_ROTATION_REMOVE <map>
+#[cfg(feature = "ap")]
+pub fn map_rotation_remove() {
+    todo!();
+}
+/// MAP_ROTATION_SET             Set the selected map to the round provided. Usage: MAP_ROTATION_SET <map> <round>
+#[cfg(feature = "ap")]
+pub fn map_rotation_set() {
+    todo!();
+}
+/// MAP_STORAGE                  Is mainly use for non-rotation purposes, queue mainly. Usage is similar to MAP_ROTATION, except without round.
+#[cfg(feature = "ap")]
+pub fn map_storage() {
+    todo!();
+}
+/// MEGA_SHOT_DIR                The number of shots released after full brake release (depending on MEGA_SHOT_THRESH value).
+#[cfg(feature = "ap")]
+pub fn mega_shot_dir() {
+    todo!();
+}
+/// MEGA_SHOT_EXPLOSION          If set to 1>, explosions occur when a mega shot is released.
+#[cfg(feature = "ap")]
+pub fn mega_shot_explosion() {
+    todo!();
+}
+/// MEGA_SHOT_MULT               The boost for the mega shot after being released.
+#[cfg(feature = "ap")]
+pub fn mega_shot_mult() {
+    todo!();
+}
+/// MEGA_SHOT_THRESH             The amount of braking to do before ready to shoot mega shot. If set >1, mega shot is disabled. SHOT_THRESH needs to be enabled for this to work.
+#[cfg(feature = "ap")]
+pub fn mega_shot_thresh() {
+    todo!();
+}
+/// MIN_FLAGS_HOME               Number of flags that must be home in order to capture a flag
+#[cfg(feature = "ap")]
+pub fn min_flags_home() {
+    todo!();
+}
+/// MOVE_HERE                    move_here_help
+#[cfg(feature = "ap")]
+pub fn move_here() {
+    todo!();
+}
+/// NUM_AIS_PER_ROUND            Controls how many AI players can enter at once each round.
+#[cfg(feature = "ap")]
+pub fn num_ais_per_round() {
+    todo!();
+}
+/// ONLINE_STATS_INTERVAL        The time between previous "online_players_*" output to the next.
+#[cfg(feature = "ap")]
+pub fn online_stats_interval() {
+    todo!();
+}
+/// OP                           Gives another player a higher or a lower access level. OP <player> [+|-]<optional access level>
+#[cfg(feature = "ap")]
+pub fn op() {
+    todo!();
+}
+/// PLAYER_CENTER_MESSAGE        Sends a center message to a specified player.
+#[cfg(feature = "ap")]
+pub fn player_center_message() {
+    todo!();
+}
+/// PLAYER_FULLSCREEN_MESSAGE    Prints a big message all over the screen only to the specified player without pausing the game. Use with care.
+#[cfg(feature = "ap")]
+pub fn player_fullscreen_message() {
+    todo!();
+}
+/// PLAYER_GRIDPOS_INTERVAL      The time between previous "player_gridpos" output to the next.
+#[cfg(feature = "ap")]
+pub fn player_gridpos_interval() {
+    todo!();
+}
+/// PLAYER_GRIDPOS_ON_TURN       Write PLAYER_GRIDPOS event when someone turns?
+#[cfg(feature = "ap")]
+pub fn player_gridpos_on_turn() {
+    todo!();
+}
+/// PLAYER_UNIQUE_COLOR          Gives a player a semi-random unique color every round. Attempts to generate colors that are different from other players.
+#[cfg(feature = "ap")]
+pub fn player_unique_color() {
+    todo!();
+}
+/// PORT_MAX                     The highest network port that is scanned when looking for a LAN server.
+#[cfg(feature = "ap")]
+pub fn port_max() {
+    todo!();
+}
+/// PORT_MIN                     The lowest network port that is scanned when looking for a LAN server.
+#[cfg(feature = "ap")]
+pub fn port_min() {
+    todo!();
+}
+/// PREDICT_WALLS                Predict cycle walls. Useful for avoiding instant kills
+#[cfg(feature = "ap")]
+pub fn predict_walls() {
+    todo!();
+}
+/// QUEUERS_LIST                 Displays the list of queuers and their queues.
+#[cfg(feature = "ap")]
+pub fn queuers_list() {
+    todo!();
+}
+/// QUEUE_CONFIG                 Stores config that exists in CONFIG_ROTATION. Stops rotation temporarly to complete the listed maps.
+#[cfg(feature = "ap")]
+pub fn queue_config() {
+    todo!();
+}
+/// QUEUE_ENABLED                Should players be allowed to queue maps?
+#[cfg(feature = "ap")]
+pub fn queue_enabled() {
+    todo!();
+}
+/// QUEUE_GIVE                   Give a set of queues to the given player's name. Usage: QUEUE_GIVE <name> <amount>
+#[cfg(feature = "ap")]
+pub fn queue_give() {
+    todo!();
+}
+/// QUEUE_INCREMENT              If set to >0, players will get their queues increased during refill by this amount.
+#[cfg(feature = "ap")]
+pub fn queue_increment() {
+    todo!();
+}
+/// QUEUE_LIMIT                  This is the amount that players can use up for queueing maps or configs.
+#[cfg(feature = "ap")]
+pub fn queue_limit() {
+    todo!();
+}
+/// QUEUE_LIMIT_ENABLED          Should the people have limits when queueing?
+#[cfg(feature = "ap")]
+pub fn queue_limit_enabled() {
+    todo!();
+}
+/// QUEUE_LIMIT_EXCEMPT          Access level equal to or below this do not have queue limit.
+#[cfg(feature = "ap")]
+pub fn queue_limit_excempt() {
+    todo!();
+}
+/// QUEUE_LOG                    If set to 1, players queueing maps/configs will get written to queuelog.txt
+#[cfg(feature = "ap")]
+pub fn queue_log() {
+    todo!();
+}
+/// QUEUE_MAP                    Stores map that exist in MAP_ROTATION. Stops rotation temporarly to complete the listed maps.
+#[cfg(feature = "ap")]
+pub fn queue_map() {
+    todo!();
+}
+/// QUEUE_MAX                    The maximum queues allowed due to the increase in their slots.
+#[cfg(feature = "ap")]
+pub fn queue_max() {
+    todo!();
+}
+/// QUEUE_REFILL                 Refill the queue fuel of the given player's name. Usage: QUEUE_REFILL <name>
+#[cfg(feature = "ap")]
+pub fn queue_refill() {
+    todo!();
+}
+/// QUEUE_REFILL_ACTIVE          Should players be in server to have their queue refill active?
+#[cfg(feature = "ap")]
+pub fn queue_refill_active() {
+    todo!();
+}
+/// QUEUE_REFILL_TIME            How long each time should players refill take? This is measured in hours.
+#[cfg(feature = "ap")]
+pub fn queue_refill_time() {
+    todo!();
+}
+/// QUIT                         Shuts the dedicated server down and quits.
+#[cfg(feature = "ap")]
+pub fn quit() {
+    todo!();
+}
+/// RACE_CHANCES                 The number of chances player get to play again in the same round after death. Depletes each time you use it up and resets for next round.
+#[cfg(feature = "ap")]
+pub fn race_chances() {
+    todo!();
+}
+/// RACE_CHECKPOINT_COUNTDOWN    Number of seconds to give individual racers to complete the race.
+#[cfg(feature = "ap")]
+pub fn race_checkpoint_countdown() {
+    todo!();
+}
+/// RACE_CHECKPOINT_LAPS         Default: 1; 0-won't do anything; 1-after each completed lap, your completed checkpoints data is cleared to do again.
+#[cfg(feature = "ap")]
+pub fn race_checkpoint_laps() {
+    todo!();
+}
+/// RACE_CHECKPOINT_REQUIRE_HIT  Default: 1; 0-will let you finish regarless of doing the checkpoints; 1-MUST complete all checkpoints but not in order; 2-MUST complete all checkpoints in order;
+#[cfg(feature = "ap")]
+pub fn race_checkpoint_require_hit() {
+    todo!();
+}
+/// RACE_END_DELAY               Number of seconds to give players to finish before the round is finished.
+#[cfg(feature = "ap")]
+pub fn race_end_delay() {
+    todo!();
+}
+/// RACE_FINISH_COLLAPSE         If set to 1, all zones will collapse at the end of round.
+#[cfg(feature = "ap")]
+pub fn race_finish_collapse() {
+    todo!();
+}
+/// RACE_FINISH_KILL             If set to 1, players crossing the finish line will get killed.
+#[cfg(feature = "ap")]
+pub fn race_finish_kill() {
+    todo!();
+}
+/// RACE_IDLE_KILL               If set to 1, kills players that are idle for RACE_IDLE_TIME seconds.
+#[cfg(feature = "ap")]
+pub fn race_idle_kill() {
+    todo!();
+}
+/// RACE_IDLE_SPEED              Set to >= 0, idle activates if players stay for RACE_IDLE_TIME under the set idle speed.
+#[cfg(feature = "ap")]
+pub fn race_idle_speed() {
+    todo!();
+}
+/// RACE_IDLE_TIME               Number of seconds a player is idle on grid before being warned and then killed.
+#[cfg(feature = "ap")]
+pub fn race_idle_time() {
+    todo!();
+}
+/// RACE_IDLE_WARNINGS           The number of times a player should be warned for being idle.
+#[cfg(feature = "ap")]
+pub fn race_idle_warnings() {
+    todo!();
+}
+/// RACE_LAPS                    If set to >1, these are the number of laps to complete to finish the race.
+#[cfg(feature = "ap")]
+pub fn race_laps() {
+    todo!();
+}
+/// RACE_LOG_LOGIN               If enabled, it will only log the time records of players that have logged in.
+#[cfg(feature = "ap")]
+pub fn race_log_login() {
+    todo!();
+}
+/// RACE_LOG_TIME                If enabled, it displays the reached time and the position of arrival.
+#[cfg(feature = "ap")]
+pub fn race_log_time() {
+    todo!();
+}
+/// RACE_LOG_UNFINISHED          It set to 1, logs in the players that have not yet finished that racing course. Time values will be set to -1.
+#[cfg(feature = "ap")]
+pub fn race_log_unfinished() {
+    todo!();
+}
+/// RACE_NUM_RANKS_SHOW_END      The number of ranks to display at the end of round.
+#[cfg(feature = "ap")]
+pub fn race_num_ranks_show_end() {
+    todo!();
+}
+/// RACE_NUM_RANKS_SHOW_START    The number of ranks to display at the start of round.
+#[cfg(feature = "ap")]
+pub fn race_num_ranks_show_start() {
+    todo!();
+}
+/// RACE_POINTS_TYPE             If set to 0, players receive points depending on SCORE_RACE_FINISH. if set to 1, players receive points depending on RACE_SCORE_DEPLETE.
+#[cfg(feature = "ap")]
+pub fn race_points_type() {
+    todo!();
+}
+/// RACE_RANKS_SHOW_END          If set to 1, ranks will appear at the end of the round; If set to 2, personal ranks will be shown to those players only.
+#[cfg(feature = "ap")]
+pub fn race_ranks_show_end() {
+    todo!();
+}
+/// RACE_RANKS_SHOW_START        If set to 1, ranks will appear at the start of the round; If set to 2, personal ranks will be shown to those players only.
+#[cfg(feature = "ap")]
+pub fn race_ranks_show_start() {
+    todo!();
+}
+/// RACE_RANK_HEADER_LENGTH      The length of the header "rank" should be.
+#[cfg(feature = "ap")]
+pub fn race_rank_header_length() {
+    todo!();
+}
+/// RACE_RANK_HEADER_ORDER       race_rank_header_order_help
+#[cfg(feature = "ap")]
+pub fn race_rank_header_order() {
+    todo!();
+}
+/// RACE_RANK_HEADER_PLAYER_LENGTH The length of the header "player" should be.
+#[cfg(feature = "ap")]
+pub fn race_rank_header_player_length() {
+    todo!();
+}
+/// RACE_RANK_HEADER_PLAYER_ORDER race_rank_header_player_order_help
+#[cfg(feature = "ap")]
+pub fn race_rank_header_player_order() {
+    todo!();
+}
+/// RACE_RANK_HEADER_TIME_LENGTH The length of the header "time" should be.
+#[cfg(feature = "ap")]
+pub fn race_rank_header_time_length() {
+    todo!();
+}
+/// RACE_RANK_HEADER_TIME_ORDER  race_rank_header_time_order_help
+#[cfg(feature = "ap")]
+pub fn race_rank_header_time_order() {
+    todo!();
+}
+/// RACE_RANK_SHOW_LENGTH        The length of the name of the rank should the rank be aligned by.
+#[cfg(feature = "ap")]
+pub fn race_rank_show_length() {
+    todo!();
+}
+/// RACE_RANK_SHOW_PLAYER_LENGTH The limit length of players to display in the display of ranks.
+#[cfg(feature = "ap")]
+pub fn race_rank_show_player_length() {
+    todo!();
+}
+/// RACE_RECORDS_LOAD            Default: 1, if set to 0, race records will not load.
+#[cfg(feature = "ap")]
+pub fn race_records_load() {
+    todo!();
+}
+/// RACE_RECORDS_SAVE            Default: 1, if set to 0, race records will not save.
+#[cfg(feature = "ap")]
+pub fn race_records_save() {
+    todo!();
+}
+/// RACE_SAFE_ANGLES             These are the angles that are safe to travel in. Anything else and your dead. Usage: degrees1,degrees2,degrees3,...
+#[cfg(feature = "ap")]
+pub fn race_safe_angles() {
+    todo!();
+}
+/// RACE_SCORE_DEPLETE           Number the score depletes by everytime a player enters the win zone.
+#[cfg(feature = "ap")]
+pub fn race_score_deplete() {
+    todo!();
+}
+/// RACE_SMART_TIMER             If set to 1, timer is decided depending on the top 3 racing ranks.
+#[cfg(feature = "ap")]
+pub fn race_smart_timer() {
+    todo!();
+}
+/// RACE_SMART_TIMER_FACTOR      The factor by which countdown is multiplied when smart timer is enabled.
+#[cfg(feature = "ap")]
+pub fn race_smart_timer_factor() {
+    todo!();
+}
+/// RACE_SMART_TIMER_NUM         The number of records to look to obtain the average time for the countdown.
+#[cfg(feature = "ap")]
+pub fn race_smart_timer_num() {
+    todo!();
+}
+/// RACE_TIMER_ENABLED           0 = Disable, 1 = Enable) race timer. Don't change during round.
+#[cfg(feature = "ap")]
+pub fn race_timer_enabled() {
+    todo!();
+}
+/// RACE_UNSAFE_ANGLES_KILL      Default: 0; If set to 1, kills all players that are in the unsafe angles as they finish the race.
+#[cfg(feature = "ap")]
+pub fn race_unsafe_angles_kill() {
+    todo!();
+}
+/// RELOAD_CONFIG                Reload the initial settings that are loaded during the beginning of the client/server.
+#[cfg(feature = "ap")]
+pub fn reload_config() {
+    todo!();
+}
+/// RESET_CONFIG_QUEUEING        Reset config queueing.
+#[cfg(feature = "ap")]
+pub fn reset_config_queueing() {
+    todo!();
+}
+/// RESET_MAP_QUEUEING           Reset map queueing.
+#[cfg(feature = "ap")]
+pub fn reset_map_queueing() {
+    todo!();
+}
+/// RESET_ROTATION               Resets map and config rotation
+#[cfg(feature = "ap")]
+pub fn reset_rotation() {
+    todo!();
+}
+/// RESET_ROTATION_ON_START_NEW_MATCH If enabled, map and config rotation will be reset when a START_NEW_MATCH command is issued
+#[cfg(feature = "ap")]
+pub fn reset_rotation_on_start_new_match() {
+    todo!();
+}
+/// RESPAWN                      Respawns a player that had been killed.
+/// USAGE: RESPAWN <player> <xpos> <ypos> <xdir> <ydir>.
+#[cfg(feature = "ap")]
+pub fn respawn() {
+    todo!();
+}
+/// RESPAWN_ALL                  Respawns all players that were killed during the round at a random spot.
+#[cfg(feature = "ap")]
+pub fn respawn_all() {
+    todo!();
+}
+/// RESPAWN_DEFAULT_POSITION     The default position to respawn players at. 0="Least dangerous"; 1=Original spawnpoint; 2=Last position
+#[cfg(feature = "ap")]
+pub fn respawn_default_position() {
+    todo!();
+}
+/// RESPAWN_MESSAGE              Display the "You've been respawned" message for RESPAWN?
+#[cfg(feature = "ap")]
+pub fn respawn_message() {
+    todo!();
+}
+/// RESPAWN_PLAYER               Respawns a player that had been killed.
+/// USAGE: RESPAWN_PLAYER <player> <xpos> <ypos> <xdir> <ydir>.
+#[cfg(feature = "ap")]
+pub fn respawn_player() {
+    todo!();
+}
+/// RESPAWN_SCRIPT               Spawns an external script from a scripts/ subdirectory on the data path if no already running instance is found.
+#[cfg(feature = "ap")]
+pub fn respawn_script() {
+    todo!();
+}
+/// RESPAWN_STRICT               If enabled, players in spectator or going into spectator cannot be respawned.
+#[cfg(feature = "ap")]
+pub fn respawn_strict() {
+    todo!();
+}
+/// RESPAWN_TIME                 Seconds greater than 0 makes sure any dead player will be respawned within that time of them being dead. Default: -1.
+#[cfg(feature = "ap")]
+pub fn respawn_time() {
+    todo!();
+}
+/// REVERT_MAP_FILE              behaviour of the map verficiation
+#[cfg(feature = "ap")]
+pub fn revert_map_file() {
+    todo!();
+}
+/// ROTATION_MAX                 The maximum number of rounds the currently loaded map should remain before new map should be selected and loaded.
+#[cfg(feature = "ap")]
+pub fn rotation_max() {
+    todo!();
+}
+/// ROTATION_MAX_TYPE            The type of rotation to occur at the end of ROTATION_MAX: ordered rotation or random rotation.
+#[cfg(feature = "ap")]
+pub fn rotation_max_type() {
+    todo!();
+}
+/// ROTATION_MESSAGE             Display a message every round with stats about the rotation?
+#[cfg(feature = "ap")]
+pub fn rotation_message() {
+    todo!();
+}
+/// ROTATION_TYPE                Determines when map and config rotation should occur. Possible values: (0) Do not do any rotation, (1) Ordered Rotate every round, (2) Ordered Rotate every match, (3) Random Rotate every round, (4) Random Rotate every match, (5) Activates ROTATION_MAX, (6) Activates for rotation where maps and configs load depending on the round they are set for.
+#[cfg(feature = "ap")]
+pub fn rotation_type() {
+    todo!();
+}
+/// RUBBERZONE_RATE              Rate multiplier at which rubber zones take rubber.
+#[cfg(feature = "ap")]
+pub fn rubberzone_rate() {
+    todo!();
+}
+/// SCORE_BLASTZONE              What you get for hitting the Blast Zone
+#[cfg(feature = "ap")]
+pub fn score_blastzone() {
+    todo!();
+}
+/// SCORE_DEATHZONE_TEAM         What you get for hitting a team Death Zone
+#[cfg(feature = "ap")]
+pub fn score_deathzone_team() {
+    todo!();
+}
+/// SCORE_DEATH_SHOT             Number of points a player gets for shooting someone with their deathshot
+#[cfg(feature = "ap")]
+pub fn score_death_shot() {
+    todo!();
+}
+/// SCORE_DIFF_WIN               The number of points after SCORE_WIN to declare round winner.
+#[cfg(feature = "ap")]
+pub fn score_diff_win() {
+    todo!();
+}
+/// SCORE_EXPLOSION              Points the enemy cycle destroyed in an explosion gains.
+#[cfg(feature = "ap")]
+pub fn score_explosion() {
+    todo!();
+}
+/// SCORE_EXPLOSION_OWNER        Points the owner of an explosion gains for destroying another enemy cycle.
+#[cfg(feature = "ap")]
+pub fn score_explosion_owner() {
+    todo!();
+}
+/// SCORE_FLAG                   Number of points a player scores on returning a captured flag to their base
+#[cfg(feature = "ap")]
+pub fn score_flag() {
+    todo!();
+}
+/// SCORE_FLAG_HOME_BASE         Points to get for returning your flag home.
+#[cfg(feature = "ap")]
+pub fn score_flag_home_base() {
+    todo!();
+}
+/// SCORE_GOAL                   Number of points a player scores on kicking the ball into the enemy goal
+#[cfg(feature = "ap")]
+pub fn score_goal() {
+    todo!();
+}
+/// SCORE_RACE                   What you get for reaching the win zone in a race
+#[cfg(feature = "ap")]
+pub fn score_race() {
+    todo!();
+}
+/// SCORE_RACE_FINISH            Points players get awarded for crossing the finish line.
+#[cfg(feature = "ap")]
+pub fn score_race_finish() {
+    todo!();
+}
+/// SCORE_RUBBERZONE             Score player is given for dieing on a rubber zone.
+#[cfg(feature = "ap")]
+pub fn score_rubberzone() {
+    todo!();
+}
+/// SCORE_SELF_DESTRUCT          Number of points a player gets
+#[cfg(feature = "ap")]
+pub fn score_self_destruct() {
+    todo!();
+}
+/// SCORE_SHOT                   Number of points a player shoots another player
+#[cfg(feature = "ap")]
+pub fn score_shot() {
+    todo!();
+}
+/// SCORE_SHOT_BASE              Points player's team receives for shooting at a base.
+#[cfg(feature = "ap")]
+pub fn score_shot_base() {
+    todo!();
+}
+/// SCORE_SHOT_SUICIDE           Number of points a player shoots themselves of their teammates
+#[cfg(feature = "ap")]
+pub fn score_shot_suicide() {
+    todo!();
+}
+/// SCORE_ZOMBIE_ZONE            Number of points a player gets for killing a zombie zone
+#[cfg(feature = "ap")]
+pub fn score_zombie_zone() {
+    todo!();
+}
+/// SCORE_ZOMBIE_ZONE_REVENGE    Number of points a player gets for having their zombie kill someone
+#[cfg(feature = "ap")]
+pub fn score_zombie_zone_revenge() {
+    todo!();
+}
+/// SCRIPT_ENV                   Set custom environment variables for scripts. Usage: SCRIPT_ENV <variable name> <value>
+#[cfg(feature = "ap")]
+pub fn script_env() {
+    todo!();
+}
+/// SELF_DESTRUCT                If set to 1, once a player gets killed, a large zone will appear at the spot and kill inside of it.
+#[cfg(feature = "ap")]
+pub fn self_destruct() {
+    todo!();
+}
+/// SELF_DESTRUCT_FALL           The speed at which zone's radius falls after increasing.
+#[cfg(feature = "ap")]
+pub fn self_destruct_fall() {
+    todo!();
+}
+/// SELF_DESTRUCT_RADIUS         The initial radius of the destruct zone.
+#[cfg(feature = "ap")]
+pub fn self_destruct_radius() {
+    todo!();
+}
+/// SELF_DESTRUCT_RISE           The speed at which zone's radius increases initially.
+#[cfg(feature = "ap")]
+pub fn self_destruct_rise() {
+    todo!();
+}
+/// SELF_DESTRUCT_ROT            The speed at which the zone rotates.
+#[cfg(feature = "ap")]
+pub fn self_destruct_rot() {
+    todo!();
+}
+/// SELF_DESTRUCT_VANISH         Flag for if a self distruct zone should vanish
+#[cfg(feature = "ap")]
+pub fn self_destruct_vanish() {
+    todo!();
+}
+/// SERVER_OPTIONS               Short description of the options on this server
+#[cfg(feature = "ap")]
+pub fn server_options() {
+    todo!();
+}
+/// SET_AI_POSITION              Set the route at which the ai player should follow. Usage: SET_AI_POSITION [name] [x1] [y1] [x2] [y2] ...
+#[cfg(feature = "ap")]
+pub fn set_ai_position() {
+    todo!();
+}
+/// SET_COMMANDS_ACCESSLEVEL     Set the access level of ALL the commands to the given level.
+#[cfg(feature = "ap")]
+pub fn set_commands_accesslevel() {
+    todo!();
+}
+/// SET_CYCLE_BRAKING            Sets whether a player is braking. Usage: SET_CYCLE_BRAKING <name> <braking>
+#[cfg(feature = "ap")]
+pub fn set_cycle_braking() {
+    todo!();
+}
+/// SET_CYCLE_RUBBER             Set the current used up rubber of the owner: Usage: SET_CYCLE_RUBBER <name> <rubber>
+#[cfg(feature = "ap")]
+pub fn set_cycle_rubber() {
+    todo!();
+}
+/// SET_CYCLE_SPEED              Set the current travelling speed of the owner: Usage: SET_CYCLE_SPEED <name> <speed>
+#[cfg(feature = "ap")]
+pub fn set_cycle_speed() {
+    todo!();
+}
+/// SET_PLAYER_TEAM              Forcably place the selected player into the given team. Usage: SET_PLAYER_TEAM [name] [team]
+#[cfg(feature = "ap")]
+pub fn set_player_team() {
+    todo!();
+}
+/// SET_TARGET_COMMAND           Add commands for a target zone to issue when someone enters it.
+#[cfg(feature = "ap")]
+pub fn set_target_command() {
+    todo!();
+}
+/// SET_ZONE_COLOR               Change the color of a zone (out of 15 by default). Usage: SET_ZONE_COLOR <name> <r> <g> <b>
+#[cfg(feature = "ap")]
+pub fn set_zone_color() {
+    todo!();
+}
+/// SET_ZONE_COORD               change a zones actual position. Usage: SET_ZONE_COORD <name> <x> <y>
+#[cfg(feature = "ap")]
+pub fn set_zone_coord() {
+    todo!();
+}
+/// SET_ZONE_DIR                 change a zones direction. Usage: SET_ZONE_DIR <name> <xdir> <ydir>
+#[cfg(feature = "ap")]
+pub fn set_zone_dir() {
+    todo!();
+}
+/// SET_ZONE_EXPANSION           Change the Expansion rate of a zone. Usage: SET_ZONE_EXPANSION <name> <growth>
+#[cfg(feature = "ap")]
+pub fn set_zone_expansion() {
+    todo!();
+}
+/// SET_ZONE_ID_COLOR            Change the color of a zone (out of 15 by default). Usage: SET_ZONE_ID_COLOR <id> <r> <g> <b>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_color() {
+    todo!();
+}
+/// SET_ZONE_ID_COORD            change a zones actual position. Usage: SET_ZONE_ID_COORD <id> <x> <y>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_coord() {
+    todo!();
+}
+/// SET_ZONE_ID_DIR              change a zones direction. Usage: SET_ZONE_ID_DIR <id> <xdir> <ydir>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_dir() {
+    todo!();
+}
+/// SET_ZONE_ID_EXPANSION        Change the Expansion rate of a zone. Usage: SET_ZONE_ID_EXPANSION <id> <growth>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_expansion() {
+    todo!();
+}
+/// SET_ZONE_ID_PENETRATE        Change whether the zone penetrates through walls. Usage: SET_ZONE_ID_PENETRATE <id> <bool>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_penetrate() {
+    todo!();
+}
+/// SET_ZONE_ID_RADIUS           change zones radius. Usage: SET_ZONE_ID_RADIUS <id> <radius> <rate>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_radius() {
+    todo!();
+}
+/// SET_ZONE_ID_ROTATION         Change the rotation speed of a zone. Usage: SET_ZONE_ID_ROTATION <id> <rotation>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_rotation() {
+    todo!();
+}
+/// SET_ZONE_ID_ROUTE            Sets a zones route. Usage: SET_ZONE_ROUTE <name> <x1> <y1> [<x2> <y2> ...]
+#[cfg(feature = "ap")]
+pub fn set_zone_id_route() {
+    todo!();
+}
+/// SET_ZONE_ID_SPEED            change a zones speed. Usage: SET_ZONE_ID_SPEED <id> <speed>
+#[cfg(feature = "ap")]
+pub fn set_zone_id_speed() {
+    todo!();
+}
+/// SET_ZONE_PENETRATE           Change whether the zone penetrates through walls. Usage: SET_ZONE_PENETRATE <name> <bool>
+#[cfg(feature = "ap")]
+pub fn set_zone_penetrate() {
+    todo!();
+}
+/// SET_ZONE_RADIUS              change zones radius. Usage: SET_ZONE_RADIUS <name> <radius> <rate>
+#[cfg(feature = "ap")]
+pub fn set_zone_radius() {
+    todo!();
+}
+/// SET_ZONE_ROTATION            Change the rotation speed of a zone. Usage: SET_ZONE_ROTATION <name> <rotation>
+#[cfg(feature = "ap")]
+pub fn set_zone_rotation() {
+    todo!();
+}
+/// SET_ZONE_ROUTE               Sets a zones route. Usage: SET_ZONE_ROUTE <name> <x1> <y1> [<x2> <y2> ...]
+#[cfg(feature = "ap")]
+pub fn set_zone_route() {
+    todo!();
+}
+/// SET_ZONE_SPEED               change a zones speed. Usage: SET_ZONE_SPEED <name> <speed>
+#[cfg(feature = "ap")]
+pub fn set_zone_speed() {
+    todo!();
+}
+/// SHOT_BASE_ENEMY_RESPAWN      If a shot enters into an enemy's base, respawn their dead team mates.
+#[cfg(feature = "ap")]
+pub fn shot_base_enemy_respawn() {
+    todo!();
+}
+/// SHOT_BASE_RESPAWN            If a shot enters into their own base, respawn their dead team mates.
+#[cfg(feature = "ap")]
+pub fn shot_base_respawn() {
+    todo!();
+}
+/// SHOT_COLLISION               Flag for if shots can collide and bounce off one another.
+#[cfg(feature = "ap")]
+pub fn shot_collision() {
+    todo!();
+}
+/// SHOT_DISCARD_TIME            Time, in seconds, to wait before ready to shoot.
+#[cfg(feature = "ap")]
+pub fn shot_discard_time() {
+    todo!();
+}
+/// SHOT_EXPLOSION               If set to 1>, explosions take place after every normal shot.
+#[cfg(feature = "ap")]
+pub fn shot_explosion() {
+    todo!();
+}
+/// SHOT_KILL_ENEMIES            If set to 1, player's shot kills enemies for entering into it.
+#[cfg(feature = "ap")]
+pub fn shot_kill_enemies() {
+    todo!();
+}
+/// SHOT_KILL_INVULNERABLE       Flag for if Shot can kill invulnerable cycles
+#[cfg(feature = "ap")]
+pub fn shot_kill_invulnerable() {
+    todo!();
+}
+/// SHOT_KILL_SELF               Flag for if a player can shot themself or their team
+#[cfg(feature = "ap")]
+pub fn shot_kill_self() {
+    todo!();
+}
+/// SHOT_KILL_VANISH             Flag for if a shot should vanish
+#[cfg(feature = "ap")]
+pub fn shot_kill_vanish() {
+    todo!();
+}
+/// SHOT_PENETRATE_WALLS         Flag for if a shot should go through walls when its not bouncing
+#[cfg(feature = "ap")]
+pub fn shot_penetrate_walls() {
+    todo!();
+}
+/// SHOT_RADIUS_MAX              The maximum radius of the shot zone.
+#[cfg(feature = "ap")]
+pub fn shot_radius_max() {
+    todo!();
+}
+/// SHOT_RADIUS_MIN              The minimum radius of the shot zone.
+#[cfg(feature = "ap")]
+pub fn shot_radius_min() {
+    todo!();
+}
+/// SHOT_ROT_MAX                 The maximum rotation of the shot zone.
+#[cfg(feature = "ap")]
+pub fn shot_rot_max() {
+    todo!();
+}
+/// SHOT_ROT_MIN                 The minimum rotation of the shot zone.
+#[cfg(feature = "ap")]
+pub fn shot_rot_min() {
+    todo!();
+}
+/// SHOT_SEEK_UPDATE_TIME        The interval in which the shot seeking is updated.
+#[cfg(feature = "ap")]
+pub fn shot_seek_update_time() {
+    todo!();
+}
+/// SHOT_START_DIST              The distance from which the shot is released from the owner's bike.
+#[cfg(feature = "ap")]
+pub fn shot_start_dist() {
+    todo!();
+}
+/// SHOT_THRESH                  The amount of braking necessary to make a shot. If >1, shooting is disabled.
+#[cfg(feature = "ap")]
+pub fn shot_thresh() {
+    todo!();
+}
+/// SHOT_VELOCITY_MULT           The velocity at which the shot's velocity multiplies after being released.
+#[cfg(feature = "ap")]
+pub fn shot_velocity_mult() {
+    todo!();
+}
+/// SHOT_WALL_BOUNCE             Flag for if shots can bounce off walls
+#[cfg(feature = "ap")]
+pub fn shot_wall_bounce() {
+    todo!();
+}
+/// SHOW_MAP_AXES                If set to 1, shows the map's axes.
+#[cfg(feature = "ap")]
+pub fn show_map_axes() {
+    todo!();
+}
+/// SHOW_MAP_CREATION            If set to 1, shows the map's name and creator's name.
+#[cfg(feature = "ap")]
+pub fn show_map_creation() {
+    todo!();
+}
+/// SHOW_MAP_DETAILS             Display the map's details for everyone to view.
+#[cfg(feature = "ap")]
+pub fn show_map_details() {
+    todo!();
+}
+/// SHUFFLE_PLAYER               shuffle_player_help
+#[cfg(feature = "ap")]
+pub fn shuffle_player() {
+    todo!();
+}
+/// SHUTDOWN                     This command activates the shutdown process for the game. Usage: SHUTDOWN <optional: seconds>
+#[cfg(feature = "ap")]
+pub fn shutdown() {
+    todo!();
+}
+/// SHUTDOWN_STOP                This command automatically stops the shutdown process if it is currently active.
+#[cfg(feature = "ap")]
+pub fn shutdown_stop() {
+    todo!();
+}
+/// SHUTDOWN_TIMEOUT             This command sets the default seconds timeout before game is closed.
+#[cfg(feature = "ap")]
+pub fn shutdown_timeout() {
+    todo!();
+}
+/// SILENCE_ALL                  Silence everyone present in the server.
+#[cfg(feature = "ap")]
+pub fn silence_all() {
+    todo!();
+}
+/// SILENCE_DEAD                 Silence all the players that have died.
+#[cfg(feature = "ap")]
+pub fn silence_dead() {
+    todo!();
+}
+/// SILENCE_ENEMIES              When enabled, chat sent from enemies is not displayed on your client if you are alive. If you are dead all chat is displayed.
+#[cfg(feature = "ap")]
+pub fn silence_enemies() {
+    todo!();
+}
+/// SOCCER_BALL_FIRST_WIN        If set to 1, first team to shot the ball into other team's goal wubs the round.
+#[cfg(feature = "ap")]
+pub fn soccer_ball_first_win() {
+    todo!();
+}
+/// SOCCER_BALL_SCORE_OWN_GOAL   If enabled, counts scoring your own goal as points to the enemy teams through the usual systems. If disabled, the ball will just move back to where it started.
+#[cfg(feature = "ap")]
+pub fn soccer_ball_score_own_goal() {
+    todo!();
+}
+/// SOCCER_BALL_SHOTS_WIN        If set to > 0, the number of times the ball must enter other team's goal. Sending the ball in their own goal does not count.
+#[cfg(feature = "ap")]
+pub fn soccer_ball_shots_win() {
+    todo!();
+}
+/// SOCCER_BALL_SLOWDOWN         If set to 1, soccer balls will slow down.
+#[cfg(feature = "ap")]
+pub fn soccer_ball_slowdown() {
+    todo!();
+}
+/// SOCCER_BALL_SLOWDOWN_HACKYMETHOD soccer_ball_slowdown_hackymethod_help
+#[cfg(feature = "ap")]
+pub fn soccer_ball_slowdown_hackymethod() {
+    todo!();
+}
+/// SOCCER_BALL_SLOWDOWN_SPEED   The speed at which the ball show slow down at.
+#[cfg(feature = "ap")]
+pub fn soccer_ball_slowdown_speed() {
+    todo!();
+}
+/// SOCCER_BALL_SLOWDOWN_SYNC_INTERVAL Time in seconds between synchronizations when slowing down soccerballs.
+#[cfg(feature = "ap")]
+pub fn soccer_ball_slowdown_sync_interval() {
+    todo!();
+}
+/// SOCCER_GOAL_KILL_ENEMIES     If set to 1, enemy players entering other team's base will get killed.
+#[cfg(feature = "ap")]
+pub fn soccer_goal_kill_enemies() {
+    todo!();
+}
+/// SOCCER_GOAL_RESPAWN_ALLIES   If set to 1, teammates entering their own goal will respawn dead teammates.
+#[cfg(feature = "ap")]
+pub fn soccer_goal_respawn_allies() {
+    todo!();
+}
+/// SOCCER_GOAL_RESPAWN_ENEMIES  If set to 1, players entering opponent's goal will respawn enemy dead players.
+#[cfg(feature = "ap")]
+pub fn soccer_goal_respawn_enemies() {
+    todo!();
+}
+/// SOCCER_GOAL_SCORE            The points the team get for scoring a goal.
+#[cfg(feature = "ap")]
+pub fn soccer_goal_score() {
+    todo!();
+}
+/// SPAWN_ALTERNATE              If set to 1, switch positions each round.
+#[cfg(feature = "ap")]
+pub fn spawn_alternate() {
+    todo!();
+}
+/// SPAWN_ENABLED                spawn_enabled_help
+#[cfg(feature = "ap")]
+pub fn spawn_enabled() {
+    todo!();
+}
+/// SPAWN_EXPLOSION              Spawns an explosion. Usage: SPAWN_EXPLOSION [x] [y] [radius] [r] [g] [b].
+#[cfg(feature = "ap")]
+pub fn spawn_explosion() {
+    todo!();
+}
+/// SPAWN_OBJECTZONE             Spawns an object zone. Usage: SPAWN_OBJECTZONE [x] [y] [growth] [radius] [xdir] [ydir] [interact] [r] [g] [b] [target_radius]
+#[cfg(feature = "ap")]
+pub fn spawn_objectzone() {
+    todo!();
+}
+/// SPAWN_SCRIPT                 Spawns an external script from a scripts/ subdirectory on the data path.
+#[cfg(feature = "ap")]
+pub fn spawn_script() {
+    todo!();
+}
+/// SPAWN_SOCCER                 Spawns a soccer zone.
+#[cfg(feature = "ap")]
+pub fn spawn_soccer() {
+    todo!();
+}
+/// SPAWN_WINNERS_FIRST          If set to 1, winners from previous round will be spawned first in the next round.
+#[cfg(feature = "ap")]
+pub fn spawn_winners_first() {
+    todo!();
+}
+/// SPAWN_WRAP                   Number of spawns after which to start wrapping new spawns at the beginning.
+#[cfg(feature = "ap")]
+pub fn spawn_wrap() {
+    todo!();
+}
+/// SPAWN_ZONE                   spawn a zone onto the grid
+#[cfg(feature = "ap")]
+pub fn spawn_zone() {
+    todo!();
+}
+/// SPEAK_AS_ADMIN               Let's you speak as admin. Output:= Admin: {message}
+#[cfg(feature = "ap")]
+pub fn speak_as_admin() {
+    todo!();
+}
+/// SPEAK_TO_ENEMIES             Let's you speak as admin to enemies. Output:= Admin --> Enemies: {message}
+#[cfg(feature = "ap")]
+pub fn speak_to_enemies() {
+    todo!();
+}
+/// SPEAK_TO_EVERYONE            Let's you speak as admin to everyone. Output:= Admin --> Everyone: {message}
+#[cfg(feature = "ap")]
+pub fn speak_to_everyone() {
+    todo!();
+}
+/// SP_LIMIT_ADVANCE             End the match in single player mode when the first team in score is this number of points ahead of the second team
+#[cfg(feature = "ap")]
+pub fn sp_limit_advance() {
+    todo!();
+}
+/// SP_LIMIT_SCORE_MIN_LEAD      Only consider LIMIT_SCORE when this lead is achieved by the winning team in single player mode
+#[cfg(feature = "ap")]
+pub fn sp_limit_score_min_lead() {
+    todo!();
+}
+/// SP_LIMIT_SETS                Set the match set limit in single player mode. Teams winning more sets win the match.
+#[cfg(feature = "ap")]
+pub fn sp_limit_sets() {
+    todo!();
+}
+/// SP_SCORE_DIFF_WIN            The number of points after SP_SCORE_WIN to declare round winner
+#[cfg(feature = "ap")]
+pub fn sp_score_diff_win() {
+    todo!();
+}
+/// STYCT_COMPATIBILITY_LADDERLOG_PLAYER_GRIDPOS PLAYER_GRIDPOS becomes: PLAYER_GRIDPOS [player_username] [pos_x] [pos_y] [dir_x] [dir_y] [team] [cycle_speed] [player_rubber] [cycle_rubber] [player_braking] [player_brake_reservoir]
+#[cfg(feature = "ap")]
+pub fn styct_compatibility_ladderlog_player_gridpos() {
+    todo!();
+}
+/// STYCT_COMPATIBILITY_SET_ZONE_COLOR If eanbled, SET_ZONE_COLOR will take colors out of 1 rather than 15.
+#[cfg(feature = "ap")]
+pub fn styct_compatibility_set_zone_color() {
+    todo!();
+}
+/// STYCT_COMPATIBILITY_SPAWN_ZONE If eanbled, SPAWN_ZONE will take colors out of 1 rather than 15.
+#[cfg(feature = "ap")]
+pub fn styct_compatibility_spawn_zone() {
+    todo!();
+}
+/// SUICIDE_MESSAGE              If set to 1, announce when player kills themselves.
+#[cfg(feature = "ap")]
+pub fn suicide_message() {
+    todo!();
+}
+/// SUSPEND_ALL                  Suspends all active players by the SUSPEND_DEFAULT_ROUNDS or <rounds> specified.
+/// Usage: SUSPEND_ALL <rounds>.
+#[cfg(feature = "ap")]
+pub fn suspend_all() {
+    todo!();
+}
+/// SUSPEND_LIST                 One execution and it displays the list of currently suspended players.
+#[cfg(feature = "ap")]
+pub fn suspend_list() {
+    todo!();
+}
+/// SVG_ZONE_ROTATION_ANIMATE    svg_zone_rotation_animate_help
+#[cfg(feature = "ap")]
+pub fn svg_zone_rotation_animate() {
+    todo!();
+}
+/// SWAP_WINZONE_DEATHZONE_COLORS 0:Default, original colors and 1:Swap, swaps their colors with each other.
+#[cfg(feature = "ap")]
+pub fn swap_winzone_deathzone_colors() {
+    todo!();
+}
+/// TAKE_POINTS                  Slaps the given player by punishing them with the specified amound of points. Be careful or you will lose a of points :P
+#[cfg(feature = "ap")]
+pub fn take_points() {
+    todo!();
+}
+/// TARGETZONE_COLOR_B           The blue portion of the target zone's color.
+#[cfg(feature = "ap")]
+pub fn targetzone_color_b() {
+    todo!();
+}
+/// TARGETZONE_COLOR_G           The green portion of the target zone's color.
+#[cfg(feature = "ap")]
+pub fn targetzone_color_g() {
+    todo!();
+}
+/// TARGETZONE_COLOR_R           The red portion of the target zone's color.
+#[cfg(feature = "ap")]
+pub fn targetzone_color_r() {
+    todo!();
+}
+/// TARGET_DECLARE_WINNER        Last target zone is a winzone ?;
+#[cfg(feature = "ap")]
+pub fn target_declare_winner() {
+    todo!();
+}
+/// TARGET_INITIAL_SCORE         Score for the first player entering the zone
+#[cfg(feature = "ap")]
+pub fn target_initial_score() {
+    todo!();
+}
+/// TARGET_LIFETIME              Time in seconds before the zone vanished. -1 for infinite
+#[cfg(feature = "ap")]
+pub fn target_lifetime() {
+    todo!();
+}
+/// TARGET_PLAYER_MULTIUSE       If enabled, a player can get points from the same target zone multiple times. If disabled, each player can only use a target zone only once.
+#[cfg(feature = "ap")]
+pub fn target_player_multiuse() {
+    todo!();
+}
+/// TARGET_SCORE_DEPLETE         Score suppress to the zone score each time a player entered
+#[cfg(feature = "ap")]
+pub fn target_score_deplete() {
+    todo!();
+}
+/// TARGET_SURVIVE_TIME          Time in sec before the zone vanished once a player entered. -1 for infinite
+#[cfg(feature = "ap")]
+pub fn target_survive_time() {
+    todo!();
+}
+/// TELEPORT                     Teleports player to a new location. Usage: TELEPORT [player] [xpos] [ypos] [rel|abs] [xdir] [ydir]
+#[cfg(feature = "ap")]
+pub fn teleport() {
+    todo!();
+}
+/// TELEPORT_PLAYER              Teleports player to a new location. Usage: TELEPORT_PLAYER [player] [xpos] [ypos] [rel|abs] [xdir] [ydir]
+#[cfg(feature = "ap")]
+pub fn teleport_player() {
+    todo!();
+}
+/// TEXT_BRIGHT_BACKGROUND       Enable the bright white background behind text considered dark
+#[cfg(feature = "ap")]
+pub fn text_bright_background() {
+    todo!();
+}
+/// TEXT_SHADOW                  text_shadow_help
+#[cfg(feature = "ap")]
+pub fn text_shadow() {
+    todo!();
+}
+/// TIMER_MAX                    The maximum time for timer to reach.
+#[cfg(feature = "ap")]
+pub fn timer_max() {
+    todo!();
+}
+/// TIMER_MIN                    The minimum time for timer to reach.
+#[cfg(feature = "ap")]
+pub fn timer_min() {
+    todo!();
+}
+/// TIMER_MODE                   0-countdown ticks down, 1-countdown ticks up, 2-countdown depends on the target time.
+#[cfg(feature = "ap")]
+pub fn timer_mode() {
+    todo!();
+}
+/// TIMER_RESET                  Resets the ingame timer back to default.
+#[cfg(feature = "ap")]
+pub fn timer_reset() {
+    todo!();
+}
+/// TIMER_RESUME                 If the timer was previously stopped, it resumes from where it last stopped.
+#[cfg(feature = "ap")]
+pub fn timer_resume() {
+    todo!();
+}
+/// TIMER_START                  Starts a ingame timer, giving players <seconds> to do something. Usage: TIMER_START <seconds> <target>
+#[cfg(feature = "ap")]
+pub fn timer_start() {
+    todo!();
+}
+/// TIMER_STOP                   Perfectly stops the ingame timer.
+#[cfg(feature = "ap")]
+pub fn timer_stop() {
+    todo!();
+}
+/// TIMER_TYPE                   0-do nothing, 1-kill all cycles, 2-kill all zones, 3-kill everything.
+#[cfg(feature = "ap")]
+pub fn timer_type() {
+    todo!();
+}
+/// UNSILENCE_ALL                Reverts a SILENCE_ALL command
+#[cfg(feature = "ap")]
+pub fn unsilence_all() {
+    todo!();
+}
+/// UNSUSPEND_ALL                Unsuspends all players that were suspended.
+#[cfg(feature = "ap")]
+pub fn unsuspend_all() {
+    todo!();
+}
+/// VERIFY_COLOR_STRICT          Verify color codes before interpreting them if this is set to 1. Capital letters and anything not 0-9, a-f is not considered a color code then. If set to 0 (the in code default), out of range ascii characters are accepted and interpreted as 0.
+#[cfg(feature = "ap")]
+pub fn verify_color_strict() {
+    todo!();
+}
+/// VOICE_ALL                    Reverse of SILENCE_ALL
+#[cfg(feature = "ap")]
+pub fn voice_all() {
+    todo!();
+}
+/// VOTING_BIAS_CHALLENGE        Vote-specific extra bias
+#[cfg(feature = "ap")]
+pub fn voting_bias_challenge() {
+    todo!();
+}
+/// WINZONE_PLAYER_ENTER_WIN     If set to 1, first player to enter the winzone will win the round.
+#[cfg(feature = "ap")]
+pub fn winzone_player_enter_win() {
+    todo!();
+}
+/// ZOMBIE_ZONE                  If set to 1, zombie zones are enabled.
+#[cfg(feature = "ap")]
+pub fn zombie_zone() {
+    todo!();
+}
+/// ZOMBIE_ZONE_FALL             How quickly should a zombie zone shrink in size?
+#[cfg(feature = "ap")]
+pub fn zombie_zone_fall() {
+    todo!();
+}
+/// ZOMBIE_ZONE_RADIUS           The initial radius of a zombie zone.
+#[cfg(feature = "ap")]
+pub fn zombie_zone_radius() {
+    todo!();
+}
+/// ZOMBIE_ZONE_RISE             How quickly should a zombie zone rise initially?
+#[cfg(feature = "ap")]
+pub fn zombie_zone_rise() {
+    todo!();
+}
+/// ZOMBIE_ZONE_ROT              The speed at which the zombie zone rotates.
+#[cfg(feature = "ap")]
+pub fn zombie_zone_rot() {
+    todo!();
+}
+/// ZOMBIE_ZONE_SHOOT            How much zone to take away from a zombie when a shot enters it
+#[cfg(feature = "ap")]
+pub fn zombie_zone_shoot() {
+    todo!();
+}
+/// ZOMBIE_ZONE_SPEED            The speed at which the zombie zone moves as it chases after players.
+#[cfg(feature = "ap")]
+pub fn zombie_zone_speed() {
+    todo!();
+}
+/// ZOMBIE_ZONE_VANISH           Flag for if a zombie zone should vanish
+#[cfg(feature = "ap")]
+pub fn zombie_zone_vanish() {
+    todo!();
+}
+/// ZONES_BOUNCE_ON_CYCLE_WALLS  Flag indicating whether zones can bounce off cycle walls
+#[cfg(feature = "ap")]
+pub fn zones_bounce_on_cycle_walls() {
+    todo!();
+}
+/// ZONE_DELAY_CLEAR             Clears all delayed zones from cache.
+#[cfg(feature = "ap")]
+pub fn zone_delay_clear() {
+    todo!();
+}
+/// ZONE_GRIDPOS_INTERVAL        The time between previous "zone_gridpos" output to the next.
+#[cfg(feature = "ap")]
+pub fn zone_gridpos_interval() {
+    todo!();
+}
+/// ZONE_HEIGHT_FORT             zone_height_fort_help
+#[cfg(feature = "ap")]
+pub fn zone_height_fort() {
+    todo!();
+}
+/// ZONE_HEIGHT_KOH              zone_height_koh_help
+#[cfg(feature = "ap")]
+pub fn zone_height_koh() {
+    todo!();
+}
+/// ZONE_NO_FADE_IN_SERVER       zone_no_fade_in_server_help
+#[cfg(feature = "ap")]
+pub fn zone_no_fade_in_server() {
+    todo!();
+}
+/// ZONE_SEG_STEPS               zone_seg_steps_help
+#[cfg(feature = "ap")]
+pub fn zone_seg_steps() {
+    todo!();
+}
+/// ZONE_SPEED_DECAY             Rate at which the zone slows down
+#[cfg(feature = "ap")]
+pub fn zone_speed_decay() {
+    todo!();
+}
+/// ZONE_SPEED_HIT_DECAY         Amount the zone slows down when hitting an object
+#[cfg(feature = "ap")]
+pub fn zone_speed_hit_decay() {
+    todo!();
+}
+/// ZONE_WALL_BOUNDARY           Values <= 0 is the boundary limit in which zone_wall_death will activate.
+#[cfg(feature = "ap")]
+pub fn zone_wall_boundary() {
+    todo!();
+}
+/// ZONE_WALL_BOUNDARY_VALUE_RESTRICTED zone_wall_boundary_value_restricted_help
+#[cfg(feature = "ap")]
+pub fn zone_wall_boundary_value_restricted() {
+    todo!();
+}
+/// ZONE_WALL_DEATH              Set to 1 to enable zones to vanish after hitting the wall boundary.
+#[cfg(feature = "ap")]
+pub fn zone_wall_death() {
     todo!();
 }

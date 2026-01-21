@@ -74,6 +74,7 @@ impl<'a, T> ChatCommand<'a, T> {
         access_level: Option<AccessLevel>,
         arguments: &[String],
     ) {
+        println!("{:?} {:?} {:?}", player, access_level, arguments);
         if access_level.unwrap_or(AccessLevel::Program)
             <= *self.access_level.as_ref().unwrap_or(&AccessLevel::Program)
         {
