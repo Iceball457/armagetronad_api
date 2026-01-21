@@ -72,49 +72,50 @@ impl LadderLogEntry {
         match split[0] {
             "AUTHORITY_BLURB" => Some(LadderLogEntry::AuthorityBlurb(
                 split[1].trim().to_string(),
-                Player::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[2]),
                 split[3].trim().to_string(),
             )),
             "BASEZONE_CONQUERED" => Some(LadderLogEntry::BasezoneConquered(
-                Team::parse_or_default(split[1].trim()),
+                Team::parse_or_default(split[1]),
                 (
-                    f32::parse_or_default(split[2].trim()),
-                    f32::parse_or_default(split[3].trim()),
+                    f32::parse_or_default(split[2]),
+                    f32::parse_or_default(split[3]),
                 ),
             )),
             "BASEZONE_CONQUERER" => Some(LadderLogEntry::BasezoneConquerer(
-                Player::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[1]),
             )),
             "CHAT" => {
                 if split[2] == "/me" {
                     Some(LadderLogEntry::Chat(
-                        Player::parse_or_default(split[1].trim()),
+                        Player::parse_or_default(split[1]),
                         SlashMe(true),
                         split[3..].join(" "),
                     ))
                 } else {
                     Some(LadderLogEntry::Chat(
-                        Player::parse_or_default(split[1].trim()),
+                        Player::parse_or_default(split[1]),
                         SlashMe(false),
                         split[2..].join(" "),
                     ))
                 }
             }
+            #[cfg(feature = "styct")]
             "COMMAND" => Some(LadderLogEntry::Command(
                 split[1].trim()[1..].to_string(),
-                Player::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[2]),
                 split[3..].iter().map(|x| x.trim().to_string()).collect(),
             )),
             "DEATH_FRAG" => Some(LadderLogEntry::DeathFrag(
-                Player::parse_or_default(split[1].trim()),
-                Player::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[1]),
+                Player::parse_or_default(split[2]),
             )),
             "DEATH_SUICIDE" => Some(LadderLogEntry::DeathSuicide(Player::parse_or_default(
                 split[1],
             ))),
             "DEATH_TEAMKILL" => Some(LadderLogEntry::DeathTeamkill(
-                Player::parse_or_default(split[1].trim()),
-                Player::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[1]),
+                Player::parse_or_default(split[2]),
             )),
             "ENCODING" => Some(LadderLogEntry::Encoding(split[1].trim().to_string())),
             "GAME_END" => Some(LadderLogEntry::GameEnd(Time::parse_or_default(
@@ -124,7 +125,7 @@ impl LadderLogEntry {
                 split[1],
             ))),
             "MATCH_WINNER" => Some(LadderLogEntry::MatchWinner(
-                Team::parse_or_default(split[1].trim()),
+                Team::parse_or_default(split[1]),
                 TeamMembers::from_slice(&split[2..]),
             )),
             "NEW_MATCH" => Some(LadderLogEntry::NewMatch(Time::parse_or_default(
@@ -137,58 +138,58 @@ impl LadderLogEntry {
                 split[1].trim(),
             ))),
             "ONLINE_PLAYER" => Some(LadderLogEntry::OnlinePlayer(
-                Player::parse_or_default(split[1].trim()),
+                Player::parse_or_default(split[1]),
                 if split.len() > 2 {
-                    Some(Ping::parse_or_default(split[2].trim()))
+                    Some(Ping::parse_or_default(split[2]))
                 } else {
                     None
                 },
                 if split.len() > 3 {
-                    Some(Team::parse_or_default(split[3].trim()))
+                    Some(Team::parse_or_default(split[3]))
                 } else {
                     None
                 },
             )),
             "PLAYER_ENTERED" => Some(LadderLogEntry::PlayerEntered(
-                Player::parse_or_default(split[1].trim()),
-                IpAddr::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[1]),
+                IpAddr::parse_or_default(split[2]),
                 split[3].trim().to_string(),
             )),
             "PLAYER_LEFT" => Some(LadderLogEntry::PlayerLeft(
-                Player::parse_or_default(split[1].trim()),
-                IpAddr::parse_or_default(split[2].trim()),
+                Player::parse_or_default(split[1]),
+                IpAddr::parse_or_default(split[2]),
             )),
             "PLAYER_RENAMED" => Some(LadderLogEntry::PlayerRenamed(
                 split[1].trim().to_string(),
-                Player::parse_or_default(split[2].trim()),
-                IpAddr::parse_or_default(split[3].trim()),
-                ScreenName::parse_or_default(split[4].trim()),
+                Player::parse_or_default(split[2]),
+                IpAddr::parse_or_default(split[3]),
+                ScreenName::parse_or_default(split[4]),
             )),
             "POSITIONS" => Some(LadderLogEntry::Positions(
-                Team::parse_or_default(split[1].trim()),
+                Team::parse_or_default(split[1]),
                 TeamMembers::from_slice(&split[2..]),
             )),
             "ROUND_SCORE" => Some(LadderLogEntry::RoundScore(
-                Score::parse_or_default(split[1].trim()),
-                Player::parse_or_default(split[2].trim()),
+                Score::parse_or_default(split[1]),
+                Player::parse_or_default(split[2]),
                 if split.len() > 3 {
-                    Some(Team::parse_or_default(split[3].trim()))
+                    Some(Team::parse_or_default(split[3]))
                 } else {
                     None
                 },
             )),
             "ROUND_SCORE_TEAM" => Some(LadderLogEntry::RoundScoreTeam(
-                Score::parse_or_default(split[1].trim()),
-                Team::parse_or_default(split[2].trim()),
+                Score::parse_or_default(split[1]),
+                Team::parse_or_default(split[2]),
             )),
             "ROUND_WINNER" => Some(LadderLogEntry::RoundWinner(
-                Team::parse_or_default(split[1].trim()),
+                Team::parse_or_default(split[1]),
                 TeamMembers::from_slice(&split[2..]),
             )),
             "SACRIFICE" => Some(LadderLogEntry::Sacrifice(
-                Player::parse_or_default(split[1].trim()),
-                Player::parse_or_default(split[2].trim()),
-                Player::parse_or_default(split[3].trim()),
+                Player::parse_or_default(split[1]),
+                Player::parse_or_default(split[2]),
+                Player::parse_or_default(split[3]),
             )),
             "TEAM_CREATED" => Some(LadderLogEntry::TeamCreated(Team::parse_or_default(
                 split[1],
@@ -197,16 +198,16 @@ impl LadderLogEntry {
                 split[1],
             ))),
             "TEAM_PLAYER_ADDED" => Some(LadderLogEntry::TeamPlayerAdded(
-                Team::parse_or_default(split[1].trim()),
-                Player::parse_or_default(split[2].trim()),
+                Team::parse_or_default(split[1]),
+                Player::parse_or_default(split[2]),
             )),
             "TEAM_PLAYER_REMOVED" => Some(LadderLogEntry::TeamPlayerRemoved(
-                Team::parse_or_default(split[1].trim()),
-                Player::parse_or_default(split[2].trim()),
+                Team::parse_or_default(split[1]),
+                Player::parse_or_default(split[2]),
             )),
             "TEAM_RENAMED" => Some(LadderLogEntry::TeamRenamed(
                 split[1].trim().to_string(),
-                Team::parse_or_default(split[2].trim()),
+                Team::parse_or_default(split[2]),
             )),
             _ => None,
         }
