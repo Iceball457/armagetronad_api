@@ -2,7 +2,7 @@ use std::{net::IpAddr, net::SocketAddr, path::Path};
 
 pub mod prelude;
 
-mod extension;
+pub mod extension;
 use extension::*;
 
 pub mod extra;
@@ -1062,8 +1062,8 @@ pub fn casacl() {
     todo!();
 }
 /// CENTER_MESSAGE: Prints a big message on the screen of all connected clients.
-pub fn center_message() {
-    todo!();
+pub fn center_message(message: &str) {
+    println!("{} {}", Command::CenterMessage, message);
 }
 /// CHATBOT_ALWAYS_ACTIVE: if set to 1, the chatbot is active all of the time
 pub fn chatbot_always_active() {

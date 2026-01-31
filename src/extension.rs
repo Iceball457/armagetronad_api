@@ -3,7 +3,7 @@ use std::{
     str::FromStr,
 };
 
-pub(crate) trait DefaultParse<T: FromStr + Default> {
+pub trait DefaultParse<T: FromStr + Default> {
     fn parse_or_default(raw: &str) -> T;
 }
 

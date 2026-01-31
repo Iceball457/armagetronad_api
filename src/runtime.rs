@@ -87,13 +87,13 @@ pub fn run(mut callback: impl FnMut(LadderLogEntry)) {
             buf.push_str(&decoded);
         }
         if let Some(entry) = LadderLogEntry::parse(&buf) {
-            crate::wait_for_external_script(true);
+            // crate::wait_for_external_script(true);
             if let LadderLogEntry::Encoding(ref new_encoding) = entry {
                 encoding.clear();
                 encoding.push_str(new_encoding);
             }
             callback(entry);
-            crate::wait_for_external_script(false);
+            // crate::wait_for_external_script(false);
         }
     }
 }

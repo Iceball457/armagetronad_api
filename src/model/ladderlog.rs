@@ -58,7 +58,7 @@ pub enum LadderLogEntry {
     CycleDestroyed(String, (f32, f32), (f32, f32), Team, Time, String, Player),
     /// LADDERLOG_WRITE_DEATH_BASEZONE_CONQUERED Write to ladderlog: DEATH_BASEZONE_CONQUERED \<player\> \<NO_ENEMIES\>
     #[cfg(feature = "ap")]
-    DeathBasezoneConquered(Player, bool),
+    DeathBasezoneConquered(Player, Option<bool>),
     /// LADDERLOG_WRITE_DEATH_DEATHSHOT Write to ladderlog: DEATH_DEATHSHOT \<prey\> \<predator\>
     #[cfg(feature = "ap")]
     DeathDeathshot(Player, Player),
@@ -127,7 +127,7 @@ pub enum LadderLogEntry {
     /// GAME_END \<date and time>
     GameEnd(Time),
     /// GAME_TIME \<time> (see also: GAME_TIME_INTERVAL)
-    GameTime(Duration),
+    GameTime(i32, f32),
     /// LADDERLOG_WRITE_INVALID_COMMAND Write to ladderlog: INVALID_COMMAND \<command\> \<player_username\> \<ip_address\> \<access_level\> \<params\>
     #[cfg(feature = "ap")]
     InvalidCommand(String, Player, IpAddr, AccessLevel, Vec<String>),
@@ -467,12 +467,9 @@ impl LadderLogEntry {
             "GAME_END" => Some(LadderLogEntry::GameEnd(Time::parse_or_default(
                 split[1].trim(),
             ))),
-            "GAME_TIME" => Some(LadderLogEntry::GameTime(Duration::parse_or_default(
-                split[1],
-            ))),
-            "MATCH_WINNER" => Some(LadderLogEntry::MatchWinner(
-                Team::parse_or_default(split[1]),
-                TeamMembers::from_slice(&split[2..]),
+            "GAME_TIME" => Some(LadderLogEntry::GameTime(
+                i32::parse_or_default(split[1]),
+                f32::parse_or_default(split[2]),
             )),
             "NEW_MATCH" => Some(LadderLogEntry::NewMatch(Time::parse_or_default(
                 split[1].trim(),
@@ -670,7 +667,11 @@ impl LadderLogEntry {
             #[cfg(feature = "ap")]
             "DEATH_BASEZONE_CONQUERED" => Some(LadderLogEntry::DeathBasezoneConquered(
                 Player::parse_or_default(split[1]),
-                bool::parse_or_default(split[2]),
+                if split.len() > 2 {
+                    Some(bool::parse_or_default(split[2]))
+                } else {
+                    None
+                },
             )),
             #[cfg(feature = "ap")]
             "DEATH_DEATHSHOT" => Some(LadderLogEntry::DeathDeathshot(
